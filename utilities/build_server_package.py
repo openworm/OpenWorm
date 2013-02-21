@@ -60,6 +60,7 @@ for u in urls:
 with lcd(tempdir):
     print local('mkdir -p package/openworm', capture=True)
     print local("mv virgo-tomcat-server-%s/* package/openworm/"%(virgo_version), capture=True)
+    print local("rm -rf virgo-tomcat-server-%s "%(virgo_version), capture=True)
 
 #set server home in temp directory
 server_home = op.join(tempdir, 'package/openworm')
