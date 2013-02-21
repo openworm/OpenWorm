@@ -87,11 +87,14 @@ for owp in openwormpackages:
             print "Using existing repository %s in %s"%(owp, repository_dir)
             with lcd(op.join(repository_dir, owp)):
                 print local('git pull', capture=True)
-                print local('$MAVEN_HOME/bin/mvn install', capture=True)
-                if op.isdir(op.join(repository_dir, owp+"/target/classes/lib/")):   # Probably not platform indep...
-                    print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
-                print local('pwd', capture=True)
-                print local('echo $SERVER_HOME/repository/usr/', capture=True)
+
+        with lcd(op.join(repository_dir, owp)):
+            print local('$MAVEN_HOME/bin/mvn install', capture=True)
+            if op.isdir(op.join(repository_dir, owp+"/target/classes/lib/")):   # Probably not platform indep...
+                print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
+            print local('pwd', capture=True)
+
+            with settings(hide('everything'), warn_only=True):
                 print local('cp target/*.*ar $SERVER_HOME/repository/usr/', capture=True)
 
 
