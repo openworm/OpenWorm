@@ -19,10 +19,14 @@ import os.path as op
 # * Make sure Fabric is installed:
 #   http://docs.fabfile.org/en/1.5/installation.html
 # * Set JAVA_HOME and MAVEN_HOME directories below:
+
 os.environ['JAVA_HOME'] = '/usr'
 os.environ['MAVEN_HOME'] = '/usr'
 
+# Set the location to create the development environment
 repository_dir = op.join(os.environ['HOME'], 'openworm_dev')
+
+# Set the prteferred method for cloning from GitHub
 #github_pref = "HTTP"
 github_pref = "SSH"
 #github_pref = "Git Read-Only"
@@ -98,41 +102,13 @@ for owp in openwormpackages:
                 print local('cp target/*.*ar $SERVER_HOME/repository/usr/', capture=True)
 
 
-  
-
-exit() 
-#make an openworm directory and move the contents of virgo into it
-#so the final package has a nice name
-with lcd(tempdir):
-    print local('mkdir -p package/openworm', capture=True)
-    print local("mv virgo-tomcat-server-%s/* package/openworm/"%(virgo_version), capture=True)
-    print local("rm -rf virgo-tomcat-server-%s "%(virgo_version), capture=True)
-
-#set server home in temp directory
-server_home = op.join(tempdir, 'package/openworm')
-os.environ['SERVER_HOME'] = server_home
-
-#use Maven to build all the OpenWorm code bundles 
-#and place the contents in the Virgo installation
-for p in openwormpackages:
-    with lcd(tempdir):
-        print local('mv %s-master %s'%(p, p), capture=True)
-    dirp = op.join(tempdir, p)
-    print '**************************'
-    print 'BUILDING ' + dirp
-    print '**************************'
-    with lcd(dirp):
-        with settings(hide('everything'), warn_only=True):
-            print local('$MAVEN_HOME/bin/mvn install', capture=True)
-            print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
-            print local('cp target/* $SERVER_HOME/repository/usr/', capture=True)
-
-#put the .plan file in the pickup folder        
-with lcd(op.join(tempdir, 'org.openworm.simulationengine')):
+#put the .plan file in the pickup folder
+with lcd(op.join(repository_dir, 'org.openworm.simulationengine')):
     print local('cp owsefull.plan $SERVER_HOME/pickup/', capture=True)
 
+
 #fix the properties file
-f = open(op.join(server_home, 'repository/ext/org.eclipse.virgo.web.properties'), 'r+')
+f = open(op.join(virgo_dir, 'repository/ext/org.eclipse.virgo.web.properties'), 'r+')
 text = f.read()
 text = re.sub('strict', 'defaulted', text)
 f.seek(0)
@@ -142,17 +118,8 @@ f.close()
 
 #set permissions on the bin directory
 #these do carry over into the archive
-with lcd(server_home):
+with lcd(virgo_dir):
     print local('chmod -R +x ./bin', capture=True)
-    
-#zip up the contents of the virgo directory for distribution
-archive_name = os.path.expanduser(os.path.join('~', 'openworm-snapshot'))
-root_dir = os.path.expanduser(os.path.join(tempdir, 'package'))
-snapshot = shutil.make_archive(archive_name, 'zip', root_dir)
-
-#delete the temp directory
-########################print 'Deleting temp directory'
-########################shutil.rmtree(tempdir)
 
 
-print 'Your snapshot is ready: ' + snapshot
+print 'Your local development environment is ready at: ' + repository_dir
