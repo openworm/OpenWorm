@@ -1,7 +1,7 @@
 OpenWorm
 ========
 
-Project Home repo for OpenWorm Wiki and Project-wide issues
+Project Home repo for [OpenWorm](http://www.openworm.org/) Wiki and Project-wide issues
 
 OpenWorm aims to build the first comprehensive computational model of the Caenorhabditis elegans (C. elegans), a microscopic roundworm. With only a thousand cells, it solves basic problems such as feeding, mate-finding and predator avoidance. Despite being extremely well studied in biology, this organism still eludes a deep, principled understanding of its biology. 
 
