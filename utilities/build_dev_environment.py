@@ -40,16 +40,16 @@ try:
 except IOError as e:
    sys.exit("Can't find mvn under " + os.environ['MAVEN_HOME'] + "-- is MAVEN_HOME set appropriately?")
 
-openwormpackages = ['org.openworm.simulationengine.core',
-'org.openworm.simulationengine.samplesolver',
-'org.openworm.simulationengine.samplesimulator',
-'org.openworm.simulationengine.samplesimulation',
-'org.openworm.simulationengine.model.sph',
-'org.openworm.simulationengine.solver.sph',
-'org.openworm.simulationengine.simulator.sph',
-'org.openworm.simulationengine.simulation',
-'org.openworm.simulationengine.frontend',
-'org.openworm.simulationengine']
+openwormpackages = ['org.geppetto.core',
+'org.geppetto.samplesolver',
+'org.geppetto.samplesimulator',
+'org.geppetto.samplesimulation',
+'org.geppetto.model.sph',
+'org.geppetto.solver.sph',
+'org.geppetto.simulator.sph',
+'org.geppetto.simulation',
+'org.geppetto.frontend',
+'org.geppetto']
 
 pre={}
 pre["HTTP"]="https://github.com/openworm/"
@@ -103,18 +103,11 @@ for owp in openwormpackages:
 
 
 #put the .plan file in the pickup folder
-with lcd(op.join(repository_dir, 'org.openworm.simulationengine')):
+with lcd(op.join(repository_dir, 'org.geppetto')):
     print local('cp owsefull.plan $SERVER_HOME/pickup/', capture=True)
 
 
-#fix the properties file
-f = open(op.join(virgo_dir, 'repository/ext/org.eclipse.virgo.web.properties'), 'r+')
-text = f.read()
-text = re.sub('strict', 'defaulted', text)
-f.seek(0)
-f.write(text)
-f.truncate()
-f.close()
+#fix the properties file REMOVED, not needed anymore
 
 #set permissions on the bin directory
 #these do carry over into the archive
