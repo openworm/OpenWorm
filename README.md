@@ -1,4 +1,4 @@
-OpenWorm
+![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 ========
 
 Project Home repo for [OpenWorm](http://www.openworm.org/) Wiki and Project-wide issues
