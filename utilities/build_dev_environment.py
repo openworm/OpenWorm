@@ -1,12 +1,16 @@
 from __future__ import with_statement
-import os
-import subprocess
-import urllib
-import zipfile
-import sys
-from fabric.api import *
-import os.path as op
-import argparse
+try:
+    import os
+    import subprocess
+    import urllib
+    import zipfile
+    import sys
+    from fabric.api import *
+    import os.path as op
+    import argparse
+except ImportError as exc:
+    sys.exit("Error: failed to import required module({})".format(exc))
+
 
 #########################################
 # Downloads a Virgo server and the OpenWorm
@@ -45,7 +49,7 @@ repository_dir = op.join(os.environ['HOME'], args['repository_dir'])
 
 #check if JAVA_HOME is set
 if os.environ.get("JAVA_HOME") == None:
-    print "Warning: JAVA_HOME not set."
+   print "Warning: JAVA_HOME not set."
 
 #if MAVEN home is set use it during execution, otherwise try using mvn from PATH
 if os.environ.get("MAVEN_HOME") == None:
@@ -63,7 +67,7 @@ except subprocess.CalledProcessError as e:
     sys.exit("Maven not found. Please make sure that Maven is installed, and MAVEN_HOME is set")
 try:
     cmd = subprocess.check_call(["java -version"],shell=True, stderr=subprocess.STDOUT,stdout=subprocess.PIPE)
-    if args['skip_jdk_check']:
+    if args['skip_jdk_check'] == 1:
         result = subprocess.Popen(['java -version'], stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=True).communicate()[0]
         if result.find("OpenJDK") != -1:
             sys.exit("OpenJDK is not recommended. To use OpenJDK anyway run this script with --skip-jdk-check=1")
