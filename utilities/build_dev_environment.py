@@ -32,7 +32,7 @@ parser.add_argument('--clone-method', help='Select method to clone github reposi
 parser.add_argument('--virgo-version', help="Virgo Version",required=False,default="3.6.0.RELEASE")
 parser.add_argument('--virgo-download-location', help="Download location for Virgo Server. Must be in quotes",required=False)
 parser.add_argument('--repository-dir', help="Directory for OpenWorm bundles and Virgo server. Relative to your home dir.",required=False,default="openworm_dev")
-parser.add_argument('--skip-jdk-check',help="Skip OpenJDK check and allow script to continue. (not recommended). Usage: --skip-jdk-check=1",required=False,default=0)
+parser.add_argument('--skip-jdk-check',help="Skip OpenJDK check and allow script to continue. (not recommended). Usage: --skip-jdk-check=1",required=False,default="0")
 args = vars(parser.parse_args())
 
 virgo_version = args['virgo_version']
@@ -67,7 +67,7 @@ except subprocess.CalledProcessError as e:
     sys.exit("Maven not found. Please make sure that Maven is installed, and MAVEN_HOME is set")
 try:
     cmd = subprocess.check_call(["java -version"],shell=True, stderr=subprocess.STDOUT,stdout=subprocess.PIPE)
-    if args['skip_jdk_check'] == 1:
+    if args['skip_jdk_check'] == "0":
         result = subprocess.Popen(['java -version'], stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=True).communicate()[0]
         if result.find("OpenJDK") != -1:
             sys.exit("OpenJDK is not recommended. To use OpenJDK anyway run this script with --skip-jdk-check=1")
