@@ -29,16 +29,16 @@ virgo_version = "3.6.0.RELEASE"
 
 urls = ["http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/%s/virgo-tomcat-server-%s.zip&r=1"%(virgo_version, virgo_version)]
 
-openwormpackages = ['org.openworm.simulationengine.core',
-'org.openworm.simulationengine.samplesolver',
-'org.openworm.simulationengine.samplesimulator',
-'org.openworm.simulationengine.samplesimulation',
-'org.openworm.simulationengine.model.sph',
-'org.openworm.simulationengine.solver.sph',
-'org.openworm.simulationengine.simulator.sph',
-'org.openworm.simulationengine.simulation',
-'org.openworm.simulationengine.frontend',
-'org.openworm.simulationengine']
+openwormpackages = ['org.geppetto.core',
+'org.geppetto.samplesolver',
+'org.geppetto.samplesimulator',
+'org.geppetto.samplesimulation',
+'org.geppetto.model.sph',
+'org.geppetto.solver.sph',
+'org.geppetto.simulator.sph',
+'org.geppetto.simulation',
+'org.geppetto.frontend',
+'org.geppetto']
 
 for p in openwormpackages:
     urls = urls + ['https://github.com/openworm/' + p + '/archive/master.zip']
@@ -82,17 +82,11 @@ for p in openwormpackages:
             print local('cp target/* $SERVER_HOME/repository/usr/', capture=True)
 
 #put the .plan file in the pickup folder        
-with lcd(op.join(tempdir, 'org.openworm.simulationengine')):
+with lcd(op.join(tempdir, 'org.geppetto')):
     print local('cp owsefull.plan $SERVER_HOME/pickup/', capture=True)
 
-#fix the properties file
-f = open(op.join(server_home, 'repository/ext/org.eclipse.virgo.web.properties'), 'r+')
-text = f.read()
-text = re.sub('strict', 'defaulted', text)
-f.seek(0)
-f.write(text)
-f.truncate()
-f.close()
+#fix the properties file REMOVED not needed anymore
+
 
 #set permissions on the bin directory
 #these do carry over into the archive
@@ -100,7 +94,7 @@ with lcd(server_home):
     print local('chmod -R +x ./bin', capture=True)
     
 #zip up the contents of the virgo directory for distribution
-archive_name = os.path.expanduser(os.path.join('~', 'openworm-snapshot'))
+archive_name = os.path.expanduser(os.path.join('~', 'geppetto-snapshot'))
 root_dir = os.path.expanduser(os.path.join(tempdir, 'package'))
 snapshot = shutil.make_archive(archive_name, 'zip', root_dir)
 
