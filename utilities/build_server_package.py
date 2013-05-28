@@ -87,7 +87,7 @@ for u in urls:
 #so the final package has a nice name
 with lcd(tempdir):
     print local('mkdir -p package/geppetto', capture=True)
-    print local("mv virgo-tomcat-server-%s/* package/openworm/"%(virgo_version), capture=True)
+    print local("mv virgo-tomcat-server-%s/* package/geppetto/"%(virgo_version), capture=True)
     print local("rm -rf virgo-tomcat-server-%s "%(virgo_version), capture=True)
 
 #set server home in temp directory
