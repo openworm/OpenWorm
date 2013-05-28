@@ -61,9 +61,6 @@ virgo_version = "3.6.0.RELEASE"
 urls = ["http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/%s/virgo-tomcat-server-%s.zip&r=1"%(virgo_version, virgo_version)]
 
 openwormpackages = ['org.geppetto.core',
-'org.geppetto.samplesolver',
-'org.geppetto.samplesimulator',
-'org.geppetto.samplesimulation',
 'org.geppetto.model.sph',
 'org.geppetto.solver.sph',
 'org.geppetto.simulator.sph',
@@ -89,12 +86,12 @@ for u in urls:
 #make an openworm directory and move the contents of virgo into it
 #so the final package has a nice name
 with lcd(tempdir):
-    print local('mkdir -p package/openworm', capture=True)
+    print local('mkdir -p package/geppetto', capture=True)
     print local("mv virgo-tomcat-server-%s/* package/openworm/"%(virgo_version), capture=True)
     print local("rm -rf virgo-tomcat-server-%s "%(virgo_version), capture=True)
 
 #set server home in temp directory
-server_home = op.join(tempdir, 'package/openworm')
+server_home = op.join(tempdir, 'package/geppetto')
 os.environ['SERVER_HOME'] = server_home
 
 #use Maven to build all the OpenWorm code bundles 
@@ -112,9 +109,9 @@ for p in openwormpackages:
             print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
             print local('cp target/* $SERVER_HOME/repository/usr/', capture=True)
 
-#put the .plan file in the pickup folder        
+#put the .plan file in the pickup folder      
 with lcd(op.join(tempdir, 'org.geppetto')):
-    print local('cp owsefull.plan $SERVER_HOME/pickup/', capture=True)
+    print local('cp owse.plan $SERVER_HOME/pickup/', capture=True)
 
 #fix the properties file REMOVED not needed anymore
 
