@@ -82,9 +82,6 @@ except subprocess.CalledProcessError as e:
 #check to make sure Maven is pointed to appropriately
 
 openwormpackages = ['org.geppetto.core',
-'org.geppetto.samplesolver',
-'org.geppetto.samplesimulator',
-'org.geppetto.samplesimulation',
 'org.geppetto.model.sph',
 'org.geppetto.solver.sph',
 'org.geppetto.simulator.sph',
