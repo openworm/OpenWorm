@@ -314,15 +314,23 @@ CREATE TABLE `tblreceptor` (
 
 INSERT INTO `tblreceptor` VALUES ('ACR-14',1),('ACR-16',2),('AEX-2',3),('AVR-14',4),('AVR-15',5),('C50F7.1',6),('CKR-2',7),('DAF-11',8),('DEG-3',9),('DEL-1',10),('DES-2',11),('DOP-1',12),('DOP-2',13),('EXP-1',14),('GAR-2',15),('GCY-1',16),('GCY-12',17),('GCY-18',18),('GCY-21',19),('GCY-23',20),('GCY-25',21),('GCY-28',22),('GCY-29',23),('GCY-32',24),('GCY-33',25),('GCY-34',26),('GCY-35',27),('GCY-36',28),('GCY-37',29),('GCY-5',30),('GCY-6',31),('GCY-7',32),('GCY-8',33),('GGR-1',34),('GGR-2',35),('GGR-3',36),('GLC-3',37),('GLR-1',38),('GLR-2',39),('GLR-4',40),('GLR-5',41),('GLR-7',42),('GLR-8',43),('LGC-38',44),('MEC-10',45),('MEC-2',46),('MEC-4',47),('MEC-6',48),('MEC-9',49),('MGL-1',50),('MGL-3',51),('MOD-1',52),('NLP-11',53),('NMR-1',54),('NMR-2',55),('NPR-1',56),('NPR-11',57),('NPR-14',58),('NPR-5',59),('OCR-1',60),('OCR-2',61),('ODR-10',62),('OSM-9',63),('SCD-2',64),('SER-2',65),('SER-4',66),('SER7b',67),('SRA-10',68),('SRA-11',69),('SRA-6',70),('SRA-7',71),('SRA-9',72),('SRB-6',73),('SRD-1',74),('SRE-1',75),('SRG-13',76),('SRG-2',77),('SRG-8',78),('SRH-132',79),('SRH-220',80),('SRI-51',81),('SRO-1',82),('STR-1',83),('STR-2',84),('STR-3',85),('TYRA-3',86),('UNC-8',87),('SER-1',93),('MGL-2',94),('ACR-13',95),('OCR-4',96),('GAR-1',97);
 
-#
-# Source for procedure "celegans_search"
-#
-
-DROP PROCEDURE IF EXISTS `celegans_search`;
-CREATE PROCEDURE `celegans_search`(IN varneuron varchar(10))
-IF length(varneuron) > 0 THEN
-        
-            SELECT tblneuron.Neuron, tblinnexin.Innexin
+--
+-- Dumping routines for database 'celegans_neuron'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `celegans_search` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `celegans_search`(IN varneuron varchar(10))
+BEGIN
+IF Length(varneuron > 0) THEN
+SELECT tblneuron.Neuron, tblinnexin.Innexin
             FROM
             tblNeuron, tblinnexin, lnkneuron_innexin
             WHERE tblneuron.Neuron_PKID = lnkneuron_innexin.Neuron_PKID
@@ -346,10 +354,9 @@ IF length(varneuron) > 0 THEN
             WHERE tblneuron.Neuron_PKID = lnkneuron_receptor.Neuron_PKID
             AND tblreceptor.Receptor_PKID = lnkneuron_receptor.Receptor_PKID
             AND tblneuron.neuron like(concat('%', varneuron, '%'));
-        
-        ELSEIF Length(varneuron) = 0 THEN
-        
-            SELECT tblneuron.Neuron, tblinnexin.Innexin
+#if
+ELSEIF Length(varneuron = 0) THEN
+		SELECT tblneuron.Neuron, tblinnexin.Innexin
             FROM
             tblNeuron, tblinnexin, lnkneuron_innexin
             WHERE tblneuron.Neuron_PKID = lnkneuron_innexin.Neuron_PKID
@@ -369,7 +376,12 @@ IF length(varneuron) > 0 THEN
             FROM tblneuron, tblreceptor, lnkneuron_receptor
             WHERE tblneuron.Neuron_PKID = lnkneuron_receptor.Neuron_PKID
             AND tblreceptor.Receptor_PKID = lnkneuron_receptor.Receptor_PKID;
-    END IF;
+
+END IF;
+
+END ;;
+DELIMITER ;
+
 
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
