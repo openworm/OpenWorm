@@ -329,7 +329,7 @@ INSERT INTO `tblreceptor` VALUES ('ACR-14',1),('ACR-16',2),('AEX-2',3),('AVR-14'
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `celegans_search`(IN varneuron varchar(10))
 BEGIN
-IF Length(varneuron > 0) THEN
+IF Length(varneuron) > 0 THEN
 SELECT tblneuron.Neuron, tblinnexin.Innexin
             FROM
             tblNeuron, tblinnexin, lnkneuron_innexin
@@ -354,8 +354,8 @@ SELECT tblneuron.Neuron, tblinnexin.Innexin
             WHERE tblneuron.Neuron_PKID = lnkneuron_receptor.Neuron_PKID
             AND tblreceptor.Receptor_PKID = lnkneuron_receptor.Receptor_PKID
             AND tblneuron.neuron like(concat('%', varneuron, '%'));
-#if
-ELSEIF Length(varneuron = 0) THEN
+
+ELSEIF Length(varneuron) = 0 THEN
 		SELECT tblneuron.Neuron, tblinnexin.Innexin
             FROM
             tblNeuron, tblinnexin, lnkneuron_innexin
