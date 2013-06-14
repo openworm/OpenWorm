@@ -127,8 +127,5 @@ root_dir = os.path.expanduser(os.path.join(tempdir, 'package'))
 snapshot = shutil.make_archive(archive_name, 'zip', root_dir)
 
 #delete the temp directory
-########################print 'Deleting temp directory'
-########################shutil.rmtree(tempdir)
-
 
 print 'Your snapshot is ready: ' + snapshot
