@@ -1,11 +1,11 @@
 OpenWorm Utilities
 ==================
 
-##OpenWorm Developement Environment Builder
+##OpenWorm Development Environment Builder
 
 File: **build_dev_environment.py**
 
-This script will download, extract and build files necessary to start with Geppetto developement on your local machine.
+This script will download, extract and build files necessary to start with Geppetto development on your local machine.
 
 This script downloads the following:
 - Virgo Server
@@ -50,7 +50,7 @@ build_dev_environment.py [-h] [--clone-method CLONE_METHOD]
 ####Runtime options
 ```
 --clone-method
-description: Select method to clone github repository
+description: Select method to clone Github repository
 options: SSH,HTTP,Git-ReadOnly
 default: SSH
 required: No
