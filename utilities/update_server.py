@@ -31,18 +31,20 @@
 
 from __future__ import with_statement
 import os
-#########################################
-# Downloads a Virgo server and the OpenWorm
-# bundles and creates a zip file that contains
-# a configured Virgo server
-# by: Stephen Larson (stephen@openworm.org)
-#
-# To use:
-# * Make sure Maven (http://maven.apache.org) is installed
-# * Make sure Fabric is installed:
-#   http://docs.fabfile.org/en/1.5/installation.html
-# * Set JAVA_HOME and MAVEN_HOME directories below:
-#######################################
+###########################################################
+# Updates a deployed Geppetto with latest provided the
+# following structure
+# |
+# |--Geppetto
+#      |----...
+#      |----pickup
+#      |----...
+# |--geppetto-sources
+#      |---org.geppetto.*
+#      |---OpenWorm
+#            |---utilities
+#                   |--update_server.py (this script)
+###########################################################
 import urllib
 import tempfile, shutil, zipfile, re, sys
 from fabric.api import *
