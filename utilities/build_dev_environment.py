@@ -39,8 +39,14 @@ try:
     from fabric.api import *
     import os.path as op
     import argparse
+    import fileinput
+    import tarfile
 except ImportError as exc:
     sys.exit("Error: failed to import required module({})".format(exc))
+
+is_64bits = sys.maxsize > 2**32
+
+
 
 
 #########################################
@@ -147,6 +153,44 @@ else:
 
 os.environ['SERVER_HOME'] = virgo_dir
 
+
+if sys.platform.startswith('darwin'):
+    if is_64bits:
+        eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-macosx-cocoa-x86_64.tar.gz&r=1"
+    else:
+        eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-macosx-cocoa.tar.gz?r=1"
+if sys.platform.startswith('linux'):
+    if is_64bits:
+       eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-linux-gtk-x86_64.tar.gz&r=1"
+    else:
+       eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-linux-gtk.tar.gz&r=1"
+if sys.platform.startswith('windows'):
+    if is_64bits:
+        eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-win32-x86_64.zip"
+    else:
+        eclipse_zip = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR2/eclipse-jee-juno-SR2-win32.zip&r=1"
+
+eclipse_dir = op.join(repository_dir, "eclipse")
+if not op.isdir(eclipse_dir):
+    print "Downloading: %s and unzipping into %s..."%(eclipse_zip,repository_dir)
+    (zFile, x) = urllib.urlretrieve(eclipse_zip)
+    if sys.platform.startswith('linux'):
+        tar = tarfile.open(zFile)
+        tar.extractall(repository_dir)
+        tar.close()
+    else:
+        vz = zipfile.ZipFile(zFile)
+        vz.extractall(repository_dir)
+    os.remove(zFile)
+    print eclipse_dir + "/eclipse.ini"
+    for line in fileinput.input(eclipse_dir+"/eclipse.ini", inplace=True):
+        line = line.replace("-Xmx512m", "-Xmx1024m")
+        sys.stdout.write(line)
+else:
+    print "Keeping existing Eclipse install in "+eclipse_dir
+
+
+
 for owp in openwormpackages:
     with lcd(repository_dir):
         print
@@ -180,6 +224,10 @@ with lcd(op.join(repository_dir, 'org.geppetto')):
 #these do carry over into the archive
 with lcd(virgo_dir):
     print local('chmod -R +x ./bin', capture=True)
+with lcd(eclipse_dir):
+    print local('chmod -R +x .bin',capture=True)
 
 
 print 'Your local development environment is ready at: ' + repository_dir
+
+
