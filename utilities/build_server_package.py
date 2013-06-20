@@ -58,12 +58,19 @@ except IOError as e:
    
 virgo_version = "3.6.0.RELEASE"
 
-urls = ["http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/%s/virgo-tomcat-server-%s.zip&r=1"%(virgo_version, virgo_version)]
+urls = ["http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/%s/virgo-tomcat-server-%s.zip&r=1"%(virgo_version, virgo_version),
+"https://github.com/LEMS/jLEMS/archive/api.zip",
+"https://github.com/NeuroML/org.neuroml.model.injectingplugin/archive/master.zip",
+"https://github.com/NeuroML/org.neuroml.model/archive/master.zip"
+]
 
 openwormpackages = ['org.geppetto.core',
 'org.geppetto.model.sph',
+'org.geppetto.model.neuroml',
 'org.geppetto.solver.sph',
 'org.geppetto.simulator.sph',
+'org.geppetto.simulator.jlems',
+'org.geppetto.testbackend',
 'org.geppetto.simulation',
 'org.geppetto.frontend',
 'org.geppetto']
@@ -96,6 +103,7 @@ os.environ['SERVER_HOME'] = server_home
 
 #use Maven to build all the OpenWorm code bundles 
 #and place the contents in the Virgo installation
+openwormpackages = ['jLems','org.neuroml.model.injectingplugin','org.neuroml.model']+openwormpackages
 for p in openwormpackages:
     with lcd(tempdir):
         print local('mv %s-master %s'%(p, p), capture=True)
