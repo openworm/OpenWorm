@@ -83,19 +83,19 @@ os.environ['SERVER_HOME'] = geppettodir
 #and place the contents in the Virgo installation
 for p in openwormpackages:
     dirp = op.join(geppettosourcesdir, p)
-    print '*********************************************************'
-    print 'UPDATING ' + dirp
-    pull_result= local('git pull',capture=True)
-    print pull_result 
-    if 'Already up-to-date' not in pull_result:
-       print '*********************************************************'
-       print 'BUILDING ' + dirp
-       print '*********************************************************'
-       with lcd(dirp):
+    with lcd(dirp):
           with settings(hide('everything'), warn_only=True):
-             print local('$MAVEN_HOME/bin/mvn install', capture=True)
-             print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
-             print local('cp target/* $SERVER_HOME/repository/usr/', capture=True)
+             print '*********************************************************'
+             print 'UPDATING ' + dirp
+             pull_result= local('git pull',capture=True)
+             print pull_result 
+             if 'Already up-to-date' not in pull_result:
+                print '*********************************************************'
+                print 'BUILDING ' + dirp
+                print '*********************************************************'
+                print local('$MAVEN_HOME/bin/mvn install', capture=True)
+                print local('cp target/classes/lib/* $SERVER_HOME/repository/usr/', capture=True)
+                print local('cp target/* $SERVER_HOME/repository/usr/', capture=True)
 
 #put the .plan file in the pickup folder
 with lcd(op.join(geppettosourcesdir, 'org.geppetto')):
