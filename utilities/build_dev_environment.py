@@ -175,7 +175,7 @@ eclipse_dir = op.join(repository_dir, "eclipse")
 if not op.isdir(eclipse_dir):
     print "Downloading: %s and unzipping into %s..."%(eclipse_zip,repository_dir)
     (zFile, x) = urllib.urlretrieve(eclipse_zip)
-    if sys.platform.startswith('linux'):
+    if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
         tar = tarfile.open(zFile)
         tar.extractall(repository_dir)
         tar.close()

@@ -20,6 +20,7 @@ This script downloads the following:
 
 After downloading Virgo Server and Eclipse, they will be extracted to a directory specified by "--repository-dir". If no directory was specified "$HOME/openworm_dev" will be used.
 ###Eclipse Plugins installed
+
 - org.eclipse.egit.feature.group
 - org.eclipse.virgo.ide.feature.feature.group
 - org.eclipse.egit.import.feature.group
