@@ -19,6 +19,25 @@ This script downloads the following:
 - org.geppetto Bundle
 
 After downloading Virgo Server and Eclipse, they will be extracted to a directory specified by "--repository-dir". If no directory was specified "$HOME/openworm_dev" will be used.
+###Eclipse Plugins installed
+-org.springframework.ide.eclipse
+- feature.feature.group
+- com.vmware.vfabric.ide.eclipse.tcserver.feature.group
+- org.springframework.ide.eclipse.batch.feature.feature.group
+- org.springframework.ide.eclipse.integration.feature.feature.group
+- org.springframework.ide.eclipse.maven.feature.feature.group
+- org.springframework.ide.eclipse.osgi.feature.feature.group
+- org.springframework.ide.eclipse.security.feature.feature.group
+- org.springframework.ide.eclipse.data.feature.feature.group,
+- org.springframework.ide.eclipse.webflow.feature.feature.group
+- org.springframework.ide.eclipse.mylyn.feature.feature.group
+- org.springframework.ide.eclipse.aop.feature.feature.group
+- com.vmware.vfabric.ide.eclipse.tcserver.insight.feature.group
+- org.springframework.ide.eclipse.uaa.feature.feature.group
+- org.eclipse.egit.feature.group,org.eclipse.virgo.ide.feature.feature.group
+- org.eclipse.egit.import.feature.group
+- org.eclipse.m2e.feature.feature.group
+- org.eclipse.mylyn.github.feature.feature.group
 
 ###Requirements
 
