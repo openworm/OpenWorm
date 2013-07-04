@@ -106,7 +106,10 @@ os.environ['SERVER_HOME'] = server_home
 openwormpackages = ['jLems','org.neuroml.model.injectingplugin','org.neuroml.model']+openwormpackages
 for p in openwormpackages:
     with lcd(tempdir):
-        print local('mv %s-master %s'%(p, p), capture=True)
+        if(p=='jLems'):
+            print local('mv %s-api %s'%(p, p), capture=True) #hack, assumption that all bundles come from master doesn't stand
+        else:
+            print local('mv %s-master %s'%(p, p), capture=True)
     dirp = op.join(tempdir, p)
     print '**************************'
     print 'BUILDING ' + dirp
