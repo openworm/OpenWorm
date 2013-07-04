@@ -99,6 +99,6 @@ for p in openwormpackages:
 
 #put the .plan file in the pickup folder
 with lcd(op.join(geppettosourcesdir, 'org.geppetto')):
-    print local('cp owse.plan $SERVER_HOME/pickup/', capture=True)
+    print local('cp geppetto.plan $SERVER_HOME/pickup/', capture=True)
 
 print 'Geppetto is now updated to the latest version on master'
