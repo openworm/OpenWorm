@@ -123,6 +123,8 @@ for p in openwormpackages:
 #put the .plan file in the pickup folder      
 with lcd(op.join(tempdir, 'org.geppetto')):
     print local('cp geppetto.plan $SERVER_HOME/pickup/', capture=True)
+    print local('cp INSTALL $SERVER_HOME/', capture=True)
+    print local('cp LICENCE $SERVER_HOME/', capture=True)
 
 #fix the properties file REMOVED not needed anymore
 
