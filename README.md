@@ -1,9 +1,7 @@
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 ========
 
-Project Home repo for [OpenWorm](http://www.openworm.org/) [Wiki](https://github.com/openworm/OpenWorm/wiki) and Project-wide issues
-
-This repository mainly stores:
+This repository stores:
 * project wide tracking via high level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/issues/milestones)
 * the [project-wide wiki](https://github.com/openworm/OpenWorm/wiki)
 * project wide script and utilities
