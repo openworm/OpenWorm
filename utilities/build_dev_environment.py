@@ -34,6 +34,7 @@ try:
     import os
     import subprocess
     import urllib
+    from socket import timeout
     import zipfile
     import sys
     from fabric.api import *
@@ -174,7 +175,7 @@ eclipse_dir = op.join(repository_dir, "eclipse")
 if not op.isdir(eclipse_dir):
     print "Downloading: %s and unzipping into %s..."%(eclipse_zip,repository_dir)
     (zFile, x) = urllib.urlretrieve(eclipse_zip)
-    if sys.platform.startswith('linux'):
+    if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
         tar = tarfile.open(zFile)
         tar.extractall(repository_dir)
         tar.close()
@@ -182,10 +183,16 @@ if not op.isdir(eclipse_dir):
         vz = zipfile.ZipFile(zFile)
         vz.extractall(repository_dir)
     os.remove(zFile)
-    print eclipse_dir + "/eclipse.ini"
+    print "Customizing Eclipse"
     for line in fileinput.input(eclipse_dir+"/eclipse.ini", inplace=True):
         line = line.replace("-Xmx512m", "-Xmx1024m")
         sys.stdout.write(line)
+    try:
+        cmd = subprocess.call([eclipse_dir+'/eclipse -consoleLog -nosplash -application org.eclipse.equinox.p2.director -metadataRepository http://dist.springsource.com/snapshot/TOOLS/nightly/e4.2,http://download.eclipse.org/releases/juno/,http://download.eclipse.org/virgo/milestone/tooling/ -artifactRepository http://dist.springsource.com/snapshot/TOOLS/nightly/e4.2,http://download.eclipse.org/releases/juno/,http://download.eclipse.org/virgo/milestone/tooling -installIU org.springframework.ide.eclipse.feature.feature.group,com.vmware.vfabric.ide.eclipse.tcserver.feature.group,org.springframework.ide.eclipse.batch.feature.feature.group,org.springframework.ide.eclipse.integration.feature.feature.group,org.springframework.ide.eclipse.maven.feature.feature.group,org.springframework.ide.eclipse.osgi.feature.feature.group,org.springframework.ide.eclipse.security.feature.feature.group,org.springframework.ide.eclipse.data.feature.feature.group,org.springframework.ide.eclipse.webflow.feature.feature.group,org.springframework.ide.eclipse.mylyn.feature.feature.group,org.springframework.ide.eclipse.aop.feature.feature.group,com.vmware.vfabric.ide.eclipse.tcserver.insight.feature.group,org.springframework.ide.eclipse.uaa.feature.feature.group,org.eclipse.egit.feature.group,org.eclipse.virgo.ide.feature.feature.group,org.eclipse.egit.import.feature.group,org.eclipse.m2e.feature.feature.group,org.eclipse.mylyn.github.feature.feature.group'],shell=True)
+        platformPath =  subprocess.Popen(['ls ' + eclipse_dir + '/plugins| grep -v "\.jar$"|grep "org.eclipse.platform"'], stderr=subprocess.STDOUT, stdout=subprocess.PIPE, shell=True).communicate()[0]
+        urllib.urlretrieve("https://github.com/msasinski/OpenWorm/raw/master/eclipse/splash.bmp",eclipse_dir+'/plugins/'+platformPath.strip()+'/splash.bmp')
+    except subprocess.CalledProcessError as e:
+        sys.exit("Problem installing Eclipse plugins. Please try again.")
 else:
     print "Keeping existing Eclipse install in "+eclipse_dir
 
@@ -218,15 +225,11 @@ with lcd(op.join(repository_dir, 'org.geppetto')):
     print local('cp owsefull.plan $SERVER_HOME/pickup/', capture=True)
 
 
-#fix the properties file REMOVED, not needed anymore
 
 #set permissions on the bin directory
 #these do carry over into the archive
 with lcd(virgo_dir):
     print local('chmod -R +x ./bin', capture=True)
-with lcd(eclipse_dir):
-    print local('chmod -R +x .bin',capture=True)
-
 
 print 'Your local development environment is ready at: ' + repository_dir
 
