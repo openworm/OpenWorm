@@ -56,7 +56,7 @@ try:
 except IOError as e:
    sys.exit("Can't find mvn under " + os.environ['MAVEN_HOME'] + "-- is MAVEN_HOME set appropriately?")
    
-virgo_version = "3.6.0.RELEASE"
+virgo_version = "3.6.2.RELEASE"
 
 urls = ["http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/%s/virgo-tomcat-server-%s.zip&r=1"%(virgo_version, virgo_version),
 "https://github.com/LEMS/jLEMS/archive/api.zip",

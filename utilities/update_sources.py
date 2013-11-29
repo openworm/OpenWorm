@@ -51,7 +51,6 @@ urls = []
 openwormpackages = ['org.geppetto.core',
 'org.geppetto.model.sph',
 'jLEMS',
-'org.neuroml.model.injectingplugin',
 'org.neuroml.model',
 'org.geppetto.model.neuroml',
 'org.geppetto.solver.sph',
