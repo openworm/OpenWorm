@@ -184,7 +184,11 @@ if not op.isdir(eclipse_dir):
         vz.extractall(repository_dir)
     os.remove(zFile)
     print "Customizing Eclipse"
-    for line in fileinput.input(eclipse_dir+"/eclipse.ini", inplace=True):
+    if.sys.platform.startswith('linux'):
+        eclipse_ini = eclipse_dir+"/eclipse.ini"
+    else:
+        eclipse_ini = eclipse_dir+"/eclipse/Eclipse.App/Contents/MacOS/eclipse.ini"
+    for line in fileinput.input(eclipse.ini, inplace=True):
         line = line.replace("-Xmx512m", "-Xmx1024m")
         sys.stdout.write(line)
     try:
