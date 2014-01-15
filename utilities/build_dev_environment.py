@@ -184,7 +184,7 @@ if not op.isdir(eclipse_dir):
         vz.extractall(repository_dir)
     os.remove(zFile)
     print "Customizing Eclipse"
-    if.sys.platform.startswith('linux'):
+    if sys.platform.startswith('linux'):
         eclipse_ini = eclipse_dir+"/eclipse.ini"
     else:
         eclipse_ini = eclipse_dir+"/eclipse/Eclipse.App/Contents/MacOS/eclipse.ini"
