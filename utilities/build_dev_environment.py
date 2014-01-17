@@ -188,7 +188,7 @@ if not op.isdir(eclipse_dir):
         eclipse_ini = eclipse_dir+"/eclipse.ini"
     else:
         eclipse_ini = eclipse_dir+"/eclipse/Eclipse.App/Contents/MacOS/eclipse.ini"
-    for line in fileinput.input(eclipse.ini, inplace=True):
+    for line in fileinput.input(eclipse_ini, inplace=True):
         line = line.replace("-Xmx512m", "-Xmx1024m")
         sys.stdout.write(line)
     try:
