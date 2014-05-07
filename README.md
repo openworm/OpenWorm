@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/openworm/openworm.png?label=ready&title=Ready)](https://waffle.io/openworm/openworm)
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 ========
 
