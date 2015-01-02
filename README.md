@@ -2,6 +2,8 @@
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 ========
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/OpenWorm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This repository stores:
 * A project-wide [Kanban board of all issues](https://waffle.io/openworm/openworm)
 * Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/issues/milestones)
