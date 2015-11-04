@@ -2,7 +2,7 @@ print("OpenWorm Master Script v.0.1")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
 print("This depends on several other repositories being loaded to work")
-print("It will report out where steps are missing."
+print("It will report out where steps are missing.")
 print("Eventually all the steps will be filled in.")
 print("")
 
