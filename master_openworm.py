@@ -1,4 +1,6 @@
+print("****************************")
 print("OpenWorm Master Script v.0.1")
+print("****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
 print("This depends on several other repositories being loaded to work")
@@ -10,13 +12,23 @@ print("Step 1: Rebuild c302 from the latest PyOpenWorm")
 print("not yet implemented.")
 
 print("Step 2: Execute the latest c302 simulation")
-print("not yet implemented.")
+from subprocess import call
+try:
+    call(["python", "../CElegansNeuroML/CElegans/pythonScripts/c302/c302_Full.py"])  # To regenerate the NeuroML & LEMS files
+    call(["pynml", "../CElegansNeuroML/CElegans/pythonScripts/c302/examples/LEMS_c302_A_Full.xml"])   # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
+except:
+    print "Unexpected error:", sys.exc_info()[0]
+    raise
 
 print("Step 3: Feed muscle activations into Sibernetic")
 print("not yet implemented.")
 
 print("Step 4: Run Sibernetic")
-print("not yet implemented.")
+try:
+    call(["../../sibernetic/Release/Sibernetic"])
+except:
+    print "Unexpected error:", sys.exc_info()[0]
+    raise
 
 print("Step 5: Extract skeleton from Sibernetic run for movement analysis")
 print("not yet implemented.")
