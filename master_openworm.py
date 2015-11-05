@@ -13,9 +13,11 @@ print("not yet implemented.")
 
 print("Step 2: Execute the latest c302 simulation")
 from subprocess import call
+import sys
 try:
-    call(["python", "../CElegansNeuroML/CElegans/pythonScripts/c302/c302_Full.py"])  # To regenerate the NeuroML & LEMS files
-    call(["pynml", "../CElegansNeuroML/CElegans/pythonScripts/c302/examples/LEMS_c302_A_Full.xml"])   # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
+    call(["cd", "../CElegansNeuroML/CElegans/pythonScripts/c302"])
+    call(["python", "c302_Full.py"])  # To regenerate the NeuroML & LEMS files
+    call(["pynml", "examples/LEMS_c302_A_Full.xml"])   # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
 except:
     print "Unexpected error:", sys.exc_info()[0]
     raise
