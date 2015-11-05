@@ -31,6 +31,8 @@ try:
     call(["apt-get", "install", "make"])
     call(["make", "clean"])
     call(["make", "all"])
+    call(["Xvfb", ":1", "-screen", "0", "1024x768x16", "&>", "xvfb.log", "&"])
+    call(["export", "DISPLAY=:1.0"])
     call(["./Release/Sibernetic"])
 except:
     print "Unexpected error:", sys.exc_info()[0]
