@@ -27,7 +27,11 @@ print("not yet implemented.")
 
 print("Step 4: Run Sibernetic")
 try:
-    call(["/sibernetic/Release/Sibernetic"])
+    os.chdir("/sibernetic")
+    call(["apt-get", "install", "make"])
+    call(["make", "clean"])
+    call(["make", "all"])
+    call(["./Release/Sibernetic"])
 except:
     print "Unexpected error:", sys.exc_info()[0]
     raise
