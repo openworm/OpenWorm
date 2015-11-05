@@ -13,9 +13,9 @@ print("not yet implemented.")
 
 print("Step 2: Execute the latest c302 simulation")
 from subprocess import call
-import sys
+import sys, os
 try:
-    call(["cd", "/home/openworm/CElegansNeuroML/CElegans/pythonScripts/c302"])
+    os.chdir("/home/openworm/CElegansNeuroML/CElegans/pythonScripts/c302")
     call(["python", "c302_Full.py"])  # To regenerate the NeuroML & LEMS files
     call(["pynml", "examples/LEMS_c302_A_Full.xml"])   # Run a simulation with jNeuroML via [pyNeuroML](http://github.com/NeuroML/pyNeuroML)
 except:
@@ -27,7 +27,7 @@ print("not yet implemented.")
 
 print("Step 4: Run Sibernetic")
 try:
-    call(["../../sibernetic/Release/Sibernetic"])
+    call(["/sibernetic/Release/Sibernetic"])
 except:
     print "Unexpected error:", sys.exc_info()[0]
     raise
