@@ -6,7 +6,7 @@
 
 This repository stores:
 * A project-wide [Kanban board of all issues](https://waffle.io/openworm/openworm)
-* Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/issues/milestones)
+* Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/milestones)
 
 This repository DOES NOT store:
 * Code for simulating the body of the worm.  That's [Sibernetic in the Smoothed Particle Hydrodynamics repo](https://github.com/openworm/Smoothed-Particle-Hydrodynamics)
