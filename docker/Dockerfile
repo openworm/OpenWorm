@@ -25,4 +25,4 @@ RUN cd / && git clone https://github.com/openworm/CElegansNeuroML.git && cd CEle
 
 ENV NEURON_HOME=$VENV/x86_64
 
-ADD master_openworm.py
+#ADD master_openworm.py
