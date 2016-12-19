@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="311" name="Octopamine" icon="" color="" hint="" pbv="652881570646773"
+    modificationDate="Apr 7, 2013 5:09 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+  <Tht id="194" name="RICL" icon="" color="" hint="" /> 
+  <Tht id="195" name="RICR" icon="" color="" hint="" /> 
+
+
+  <Tht id="306" name="Acetylcholine" icon="" color="" hint="" /> 
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" /> 
+  <Tht id="308" name="GABA" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="310" name="Monoamine" icon="" color="" hint="" /> 
+  <Tht id="312" name="Serotonin" icon="" color="" hint="" /> 
+  <Tht id="468" name="SER-1" icon="" color="" hint="" /> 
+  <Tht id="469" name="SER-1" icon="" color="" hint="" /> 
+
+  <Link idA="305" idB="306" type="CHILD" /> 
+  <Link idA="305" idB="307" type="CHILD" /> 
+  <Link idA="305" idB="308" type="CHILD" /> 
+  <Link idA="305" idB="309" type="CHILD" /> 
+  <Link idA="305" idB="310" type="CHILD" /> 
+  <Link idA="305" idB="312" type="CHILD" /> 
+  <Link idA="194" idB="468" type="CHILD" /> 
+  <Link idA="195" idB="469" type="CHILD" /> 
+  <Link idA="305" idB="311" type="PARENT" /> 
+  <Link idA="194" idB="311" type="PARENT" /> 
+  <Link idA="195" idB="311" type="PARENT" /> 
+
+  <Content href="thoughtData/311.html" />
+</TheBrainSimpleXML>

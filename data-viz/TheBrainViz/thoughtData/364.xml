@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="364" name="INX-8" icon="" color="" hint="" pbv="9933444"
+    modificationDate="Apr 7, 2013 5:10 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="19" name="AINL" icon="" color="" hint="" /> 
+  <Tht id="20" name="AINR" icon="" color="" hint="" /> 
+  <Tht id="357" name="Innexin" icon="" color="" hint="" /> 
+
+
+  <Tht id="322" name="FLP-19" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="359" name="INX-17" icon="" color="" hint="" /> 
+  <Tht id="362" name="INX-4" icon="" color="" hint="" /> 
+  <Tht id="365" name="UNC-7" icon="" color="" hint="" /> 
+  <Tht id="366" name="UNC-9" icon="" color="" hint="" /> 
+  <Tht id="358" name="INX-1" icon="" color="" hint="" /> 
+  <Tht id="360" name="INX-18" icon="" color="" hint="" /> 
+  <Tht id="361" name="INX-19" icon="" color="" hint="" /> 
+  <Tht id="363" name="INX-7" icon="" color="" hint="" /> 
+
+  <Link idA="19" idB="322" type="CHILD" /> 
+  <Link idA="19" idB="309" type="CHILD" /> 
+  <Link idA="19" idB="359" type="CHILD" /> 
+  <Link idA="19" idB="362" type="CHILD" /> 
+  <Link idA="19" idB="365" type="CHILD" /> 
+  <Link idA="19" idB="366" type="CHILD" /> 
+  <Link idA="20" idB="322" type="CHILD" /> 
+  <Link idA="20" idB="309" type="CHILD" /> 
+  <Link idA="20" idB="359" type="CHILD" /> 
+  <Link idA="20" idB="362" type="CHILD" /> 
+  <Link idA="20" idB="365" type="CHILD" /> 
+  <Link idA="20" idB="366" type="CHILD" /> 
+  <Link idA="357" idB="358" type="CHILD" /> 
+  <Link idA="357" idB="359" type="CHILD" /> 
+  <Link idA="357" idB="360" type="CHILD" /> 
+  <Link idA="357" idB="361" type="CHILD" /> 
+  <Link idA="357" idB="362" type="CHILD" /> 
+  <Link idA="357" idB="363" type="CHILD" /> 
+  <Link idA="357" idB="365" type="CHILD" /> 
+  <Link idA="357" idB="366" type="CHILD" /> 
+  <Link idA="357" idB="364" type="PARENT" /> 
+  <Link idA="19" idB="364" type="PARENT" /> 
+  <Link idA="20" idB="364" type="PARENT" /> 
+
+  <Content href="thoughtData/364.html" />
+</TheBrainSimpleXML>

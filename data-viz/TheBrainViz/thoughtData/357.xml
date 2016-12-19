@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="357" name="Innexin" icon="" color="" hint="" pbv="227332976505"
+    modificationDate="Apr 7, 2013 5:10 PM"
+    authorName="Tim"
+    authorEmail="" />
+  <Tht id="358" name="INX-1" icon="" color="" hint="" /> 
+  <Tht id="359" name="INX-17" icon="" color="" hint="" /> 
+  <Tht id="360" name="INX-18" icon="" color="" hint="" /> 
+  <Tht id="361" name="INX-19" icon="" color="" hint="" /> 
+  <Tht id="362" name="INX-4" icon="" color="" hint="" /> 
+  <Tht id="363" name="INX-7" icon="" color="" hint="" /> 
+  <Tht id="364" name="INX-8" icon="" color="" hint="" /> 
+  <Tht id="365" name="UNC-7" icon="" color="" hint="" /> 
+  <Tht id="366" name="UNC-9" icon="" color="" hint="" /> 
+
+  <Tht id="1" name="Neuron_Data" icon="" color="" hint="" /> 
+
+
+  <Tht id="2" name="Neuron" icon="" color="" hint="" /> 
+  <Tht id="313" name="Neuropeptide" icon="" color="" hint="" /> 
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+  <Tht id="367" name="Receptor" icon="" color="" hint="" /> 
+
+  <Link idA="357" idB="358" type="CHILD" /> 
+  <Link idA="357" idB="359" type="CHILD" /> 
+  <Link idA="357" idB="360" type="CHILD" /> 
+  <Link idA="357" idB="361" type="CHILD" /> 
+  <Link idA="357" idB="362" type="CHILD" /> 
+  <Link idA="357" idB="363" type="CHILD" /> 
+  <Link idA="357" idB="364" type="CHILD" /> 
+  <Link idA="357" idB="365" type="CHILD" /> 
+  <Link idA="357" idB="366" type="CHILD" /> 
+  <Link idA="1" idB="2" type="CHILD" /> 
+  <Link idA="1" idB="305" type="CHILD" /> 
+  <Link idA="1" idB="313" type="CHILD" /> 
+  <Link idA="1" idB="367" type="CHILD" /> 
+  <Link idA="1" idB="357" type="PARENT" /> 
+
+  <Content href="thoughtData/357.html" />
+</TheBrainSimpleXML>

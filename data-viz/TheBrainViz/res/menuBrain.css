@@ -1,0 +1,114 @@
+/*
+ * Copyright (c) 2001 by TheBrain Technologies Corporation.
+ * All rights reserved.
+ *
+ * This media and the ideas, specifications, and details incorporated
+ * herein are the sole and exclusive property of TheBrain Technologies
+ * Corporation ("TheBrain"). This media and its content shall be
+ * treated as confidential and proprietary in nature and may not be
+ * reproduced, in whole or in part, without prior written consent of
+ * TheBrain.
+ */
+
+/*
+DIV tags
+*/
+
+.mainPage {
+	margin: 0;
+	background-image: url(images/backGrad.gif);
+}
+ 
+/*
+general settings
+*/
+
+TD A:link, TD A:visited, TD A:hover
+{
+  color: black;
+  text-decoration: none;
+}
+TD A:hover
+{
+  color: #F26522;
+}
+
+TABLE {
+  border-collapse: collapse;
+}
+
+TD {
+  border: 0px solid #000000;
+  padding: 0px;
+	font-size: x-small;
+}
+
+input
+{
+	font-size: 12px;
+/*
+  color: #781351;
+  background: #ffffff;
+	padding: 0;
+	border: 1px solid #777777;
+*/
+}
+
+/*
+main table TDs
+*/
+
+.navBar {
+  padding:4;
+}
+
+.contentBar {
+  padding: 8;
+  padding-right: 16;
+}
+
+/*
+table TD text interface (for webNav.jsp)
+*/
+
+.navCurrent {
+	color: White;
+	font-size: x-small;
+	font-weight: bold;
+	border: 0px solid #000000;
+	background-color: #00309B;
+	background-image: url(images/activeBack.gif);
+}
+
+.navPath, .navSiblings, .navChildren, .navChildrenBullet, .navJumps, .navJumpsBullet {
+	font-size: x-small;
+	border: 0px solid #ccc;
+	background-color: #F1F6FA;
+	background-image: url(images/otherBack2.gif);
+}
+
+.navChildren, .navJumps {
+  border-left-width:0;
+}
+
+.navChildrenBullet, .navJumpsBullet {
+  border-right-width:0;
+}
+
+.navGrandChildren {
+	font-size: xx-small;
+}
+
+/*
+font styles for the footer (for navFooter.htm)
+*/ 
+
+.contactInfo, .contactInfo A:link, .contactInfo A:visited {
+	font-size: x-small;
+	color: #666666;
+}
+
+.tinyInfo, .tinyInfo A:link, .tinyInfo A:visited {
+	font-size: xx-small;
+	color: #aaaaaa;
+}

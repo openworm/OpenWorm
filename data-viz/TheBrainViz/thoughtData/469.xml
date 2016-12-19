@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="469" name="SER-1" icon="" color="" hint="" pbv="5862720"
+    modificationDate="Apr 7, 2013 5:15 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="195" name="RICR" icon="" color="" hint="" /> 
+
+
+  <Tht id="311" name="Octopamine" icon="" color="" hint="" /> 
+
+  <Link idA="195" idB="311" type="CHILD" /> 
+  <Link idA="195" idB="469" type="PARENT" /> 
+
+  <Content href="thoughtData/469.html" />
+</TheBrainSimpleXML>

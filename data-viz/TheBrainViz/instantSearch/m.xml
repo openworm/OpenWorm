@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TheBrainSimpleXML>
+  <Tht id="142" name="M1" />
+  <Tht id="143" name="M2L" />
+  <Tht id="144" name="M2R" />
+  <Tht id="145" name="M3L" />
+  <Tht id="146" name="M3R" />
+  <Tht id="147" name="M4" />
+  <Tht id="148" name="M5" />
+  <Tht id="149" name="MCL" />
+  <Tht id="150" name="MCR" />
+  <Tht id="151" name="MI" />
+  <Tht id="310" name="Monoamine" />
+  <Tht id="412" name="MEC-10" />
+  <Tht id="413" name="MEC-2" />
+  <Tht id="414" name="MEC-4" />
+  <Tht id="415" name="MEC-6" />
+  <Tht id="416" name="MEC-9" />
+  <Tht id="417" name="MGL-1" />
+  <Tht id="418" name="MGL-3" />
+  <Tht id="419" name="MOD-1" />
+  <Tht id="455" name="MGL-2" />
+  <Tht id="456" name="MGL-2" />
+</TheBrainSimpleXML>

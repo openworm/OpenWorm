@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TheBrainSimpleXML>
+  <Tht id="308" name="GABA" />
+  <Tht id="309" name="Glutamate" />
+  <Tht id="332" name="GLT-1" />
+  <Tht id="382" name="GAR-2" />
+  <Tht id="383" name="GCY-1" />
+  <Tht id="384" name="GCY-12" />
+  <Tht id="385" name="GCY-18" />
+  <Tht id="386" name="GCY-21" />
+  <Tht id="387" name="GCY-23" />
+  <Tht id="388" name="GCY-25" />
+  <Tht id="389" name="GCY-28" />
+  <Tht id="390" name="GCY-29" />
+  <Tht id="391" name="GCY-32" />
+  <Tht id="392" name="GCY-33" />
+  <Tht id="393" name="GCY-34" />
+  <Tht id="394" name="GCY-35" />
+  <Tht id="395" name="GCY-36" />
+  <Tht id="396" name="GCY-37" />
+  <Tht id="397" name="GCY-5" />
+  <Tht id="398" name="GCY-6" />
+  <Tht id="399" name="GCY-7" />
+  <Tht id="400" name="GCY-8" />
+  <Tht id="401" name="GGR-1" />
+  <Tht id="402" name="GGR-2" />
+  <Tht id="403" name="GGR-3" />
+  <Tht id="404" name="GLC-3" />
+  <Tht id="405" name="GLR-1" />
+  <Tht id="406" name="GLR-2" />
+  <Tht id="407" name="GLR-4" />
+  <Tht id="408" name="GLR-5" />
+  <Tht id="409" name="GLR-7" />
+  <Tht id="410" name="GLR-8" />
+  <Tht id="462" name="GAR-1" />
+</TheBrainSimpleXML>
