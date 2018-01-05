@@ -13,5 +13,5 @@ docker run -d \
   -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
   --privileged \
   -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-  openworm/openworm:0.7 \
+  openworm/openworm:0.8 \
   python master_openworm.py

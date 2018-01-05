@@ -77,16 +77,16 @@ WORKDIR $HOME
 
 RUN mkdir neuron && \
   cd neuron && \
-  git clone https://github.com/lungd/iv.git && \
-  git clone https://github.com/lungd/nrn.git && \
+  git clone https://github.com/nrnhines/iv.git && \
+  git clone https://github.com/nrnhines/nrn.git && \
   cd iv && \
-  git checkout ow-0.1 && \
+  git checkout 76c123b && \
   ./build.sh && \
   ./configure --prefix=`pwd` && \
   make && \
   sudo make install && \
   cd ../nrn && \
-  git checkout ow-0.1 && \
+  git checkout e0950a1 && \
   ./build.sh && \
   ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python --with-paranrn && \
   make && \
@@ -115,9 +115,9 @@ RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/in
   rm intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
   sudo rm /tmp/silent-intel-sdk.cfg
 
-RUN git clone https://github.com/lungd/jNeuroML.git && \
+RUN git clone https://github.com/NeuroML/jNeuroML.git && \
   cd jNeuroML && \
-  git checkout ow-0.1 && \
+  git checkout 485e905 && \
   python getNeuroML.py ow-0.1
   
 RUN git clone https://github.com/lungd/pyNeuroML.git && \
@@ -125,9 +125,9 @@ RUN git clone https://github.com/lungd/pyNeuroML.git && \
   git checkout ow-0.1 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/lungd/PyOpenWorm.git && \
+RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
-  git checkout ow-0.1 && \
+  git checkout 7ff1266 && \
   sudo python setup.py install
 
 RUN git clone https://github.com/lungd/CElegansNeuroML.git && \
