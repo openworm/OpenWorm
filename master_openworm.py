@@ -131,7 +131,7 @@ try:
                 -dt %s 
                 -dtNrn %s 
                 -logstep %s 
-                -device %s 
+                -device=%s 
                 -configuration %s 
                 -reference %s 
                 -c302params %s 
