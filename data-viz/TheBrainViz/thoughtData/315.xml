@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="315" name="CAT-2" icon="" color="" hint="" pbv="6348247"
+    modificationDate="Apr 7, 2013 5:09 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="87" name="CEPDL" icon="" color="" hint="" /> 
+  <Tht id="88" name="CEPDR" icon="" color="" hint="" /> 
+  <Tht id="89" name="CEPVL" icon="" color="" hint="" /> 
+  <Tht id="90" name="CEPVR" icon="" color="" hint="" /> 
+  <Tht id="313" name="Neuropeptide" icon="" color="" hint="" /> 
+  <Tht id="162" name="PDEL" icon="" color="" hint="" /> 
+
+
+  <Tht id="380" name="DOP-2" icon="" color="" hint="" /> 
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" /> 
+  <Tht id="352" name="TH" icon="" color="" hint="" /> 
+  <Tht id="314" name="CAT-1" icon="" color="" hint="" /> 
+  <Tht id="316" name="ChAT" icon="" color="" hint="" /> 
+  <Tht id="317" name="EAT-4" icon="" color="" hint="" /> 
+  <Tht id="318" name="FLP-1" icon="" color="" hint="" /> 
+  <Tht id="319" name="FLP-10" icon="" color="" hint="" /> 
+  <Tht id="320" name="FLP-11" icon="" color="" hint="" /> 
+  <Tht id="321" name="FLP-18" icon="" color="" hint="" /> 
+  <Tht id="322" name="FLP-19" icon="" color="" hint="" /> 
+  <Tht id="323" name="FLP-2" icon="" color="" hint="" /> 
+  <Tht id="324" name="FLP-20" icon="" color="" hint="" /> 
+  <Tht id="325" name="FLP-21" icon="" color="" hint="" /> 
+  <Tht id="326" name="FLP-22" icon="" color="" hint="" /> 
+  <Tht id="327" name="FLP-4" icon="" color="" hint="" /> 
+  <Tht id="328" name="FLP-5" icon="" color="" hint="" /> 
+  <Tht id="329" name="FLP-6" icon="" color="" hint="" /> 
+  <Tht id="330" name="FLP-7" icon="" color="" hint="" /> 
+  <Tht id="331" name="FLP-8" icon="" color="" hint="" /> 
+  <Tht id="332" name="GLT-1" icon="" color="" hint="" /> 
+  <Tht id="333" name="INS-1" icon="" color="" hint="" /> 
+  <Tht id="334" name="NLP-1" icon="" color="" hint="" /> 
+  <Tht id="335" name="NLP-10" icon="" color="" hint="" /> 
+  <Tht id="336" name="NLP-11" icon="" color="" hint="" /> 
+  <Tht id="337" name="NLP-13" icon="" color="" hint="" /> 
+  <Tht id="338" name="NLP-14" icon="" color="" hint="" /> 
+  <Tht id="339" name="NLP-15" icon="" color="" hint="" /> 
+  <Tht id="340" name="NLP-18" icon="" color="" hint="" /> 
+  <Tht id="341" name="NLP-19" icon="" color="" hint="" /> 
+  <Tht id="342" name="NLP-21" icon="" color="" hint="" /> 
+  <Tht id="343" name="NLP-24" icon="" color="" hint="" /> 
+  <Tht id="344" name="NLP-27" icon="" color="" hint="" /> 
+  <Tht id="345" name="NLP-3" icon="" color="" hint="" /> 
+  <Tht id="346" name="NLP-5" icon="" color="" hint="" /> 
+  <Tht id="347" name="NLP-6" icon="" color="" hint="" /> 
+  <Tht id="348" name="NLP-7" icon="" color="" hint="" /> 
+  <Tht id="349" name="NLP-8" icon="" color="" hint="" /> 
+  <Tht id="350" name="NLP-9" icon="" color="" hint="" /> 
+  <Tht id="351" name="NPR-11" icon="" color="" hint="" /> 
+  <Tht id="353" name="TPH-1" icon="" color="" hint="" /> 
+  <Tht id="354" name="VAChT" icon="" color="" hint="" /> 
+  <Tht id="355" name="VGluT" icon="" color="" hint="" /> 
+  <Tht id="356" name="VMaT" icon="" color="" hint="" /> 
+
+  <Link idA="87" idB="352" type="CHILD" /> 
+  <Link idA="87" idB="307" type="CHILD" /> 
+  <Link idA="87" idB="380" type="CHILD" /> 
+  <Link idA="88" idB="352" type="CHILD" /> 
+  <Link idA="88" idB="307" type="CHILD" /> 
+  <Link idA="88" idB="380" type="CHILD" /> 
+  <Link idA="89" idB="352" type="CHILD" /> 
+  <Link idA="89" idB="307" type="CHILD" /> 
+  <Link idA="89" idB="380" type="CHILD" /> 
+  <Link idA="90" idB="352" type="CHILD" /> 
+  <Link idA="90" idB="307" type="CHILD" /> 
+  <Link idA="90" idB="380" type="CHILD" /> 
+  <Link idA="313" idB="314" type="CHILD" /> 
+  <Link idA="313" idB="316" type="CHILD" /> 
+  <Link idA="313" idB="317" type="CHILD" /> 
+  <Link idA="313" idB="318" type="CHILD" /> 
+  <Link idA="313" idB="319" type="CHILD" /> 
+  <Link idA="313" idB="320" type="CHILD" /> 
+  <Link idA="313" idB="321" type="CHILD" /> 
+  <Link idA="313" idB="322" type="CHILD" /> 
+  <Link idA="313" idB="323" type="CHILD" /> 
+  <Link idA="313" idB="324" type="CHILD" /> 
+  <Link idA="313" idB="325" type="CHILD" /> 
+  <Link idA="313" idB="326" type="CHILD" /> 
+  <Link idA="313" idB="327" type="CHILD" /> 
+  <Link idA="313" idB="328" type="CHILD" /> 
+  <Link idA="313" idB="329" type="CHILD" /> 
+  <Link idA="313" idB="330" type="CHILD" /> 
+  <Link idA="313" idB="331" type="CHILD" /> 
+  <Link idA="313" idB="332" type="CHILD" /> 
+  <Link idA="313" idB="333" type="CHILD" /> 
+  <Link idA="313" idB="334" type="CHILD" /> 
+  <Link idA="313" idB="335" type="CHILD" /> 
+  <Link idA="313" idB="336" type="CHILD" /> 
+  <Link idA="313" idB="337" type="CHILD" /> 
+  <Link idA="313" idB="338" type="CHILD" /> 
+  <Link idA="313" idB="339" type="CHILD" /> 
+  <Link idA="313" idB="340" type="CHILD" /> 
+  <Link idA="313" idB="341" type="CHILD" /> 
+  <Link idA="313" idB="342" type="CHILD" /> 
+  <Link idA="313" idB="343" type="CHILD" /> 
+  <Link idA="313" idB="344" type="CHILD" /> 
+  <Link idA="313" idB="345" type="CHILD" /> 
+  <Link idA="313" idB="346" type="CHILD" /> 
+  <Link idA="313" idB="347" type="CHILD" /> 
+  <Link idA="313" idB="348" type="CHILD" /> 
+  <Link idA="313" idB="349" type="CHILD" /> 
+  <Link idA="313" idB="350" type="CHILD" /> 
+  <Link idA="313" idB="351" type="CHILD" /> 
+  <Link idA="313" idB="352" type="CHILD" /> 
+  <Link idA="313" idB="353" type="CHILD" /> 
+  <Link idA="313" idB="354" type="CHILD" /> 
+  <Link idA="313" idB="355" type="CHILD" /> 
+  <Link idA="313" idB="356" type="CHILD" /> 
+  <Link idA="162" idB="352" type="CHILD" /> 
+  <Link idA="162" idB="307" type="CHILD" /> 
+  <Link idA="162" idB="380" type="CHILD" /> 
+  <Link idA="313" idB="315" type="PARENT" /> 
+  <Link idA="87" idB="315" type="PARENT" /> 
+  <Link idA="88" idB="315" type="PARENT" /> 
+  <Link idA="89" idB="315" type="PARENT" /> 
+  <Link idA="90" idB="315" type="PARENT" /> 
+  <Link idA="162" idB="315" type="PARENT" /> 
+
+  <Content href="thoughtData/315.html" />
+</TheBrainSimpleXML>

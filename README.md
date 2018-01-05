@@ -54,10 +54,8 @@ Try the following to play around with the system:
 
 Documentation
 -------------
-Find out more about OpenWorm.  Documentation is available at [http://docs.openworm.org](http://docs.openworm.org)
+Find out more about OpenWorm.  Documentation is available at [http://docs.openworm.org](http://docs.openworm.org).  [Join us on Slack](http://bit.ly/OpenWormVolunteer).
 
-This repository stores:
+This repository references:
 * A project-wide [Kanban board of all issues](https://waffle.io/openworm/openworm)
 * Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/milestones)
-
-

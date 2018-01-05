@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="362" name="INX-4" icon="" color="" hint="" pbv="7410564"
+    modificationDate="Apr 7, 2013 5:10 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="3" name="ADAL" icon="" color="" hint="" /> 
+  <Tht id="4" name="ADAR" icon="" color="" hint="" /> 
+  <Tht id="5" name="ADEL" icon="" color="" hint="" /> 
+  <Tht id="6" name="ADER" icon="" color="" hint="" /> 
+  <Tht id="7" name="ADFL" icon="" color="" hint="" /> 
+  <Tht id="8" name="ADFR" icon="" color="" hint="" /> 
+  <Tht id="19" name="AINL" icon="" color="" hint="" /> 
+  <Tht id="20" name="AINR" icon="" color="" hint="" /> 
+  <Tht id="357" name="Innexin" icon="" color="" hint="" /> 
+
+
+  <Tht id="331" name="FLP-8" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="361" name="INX-19" icon="" color="" hint="" /> 
+  <Tht id="366" name="UNC-9" icon="" color="" hint="" /> 
+  <Tht id="369" name="ACR-16" icon="" color="" hint="" /> 
+  <Tht id="380" name="DOP-2" icon="" color="" hint="" /> 
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" /> 
+  <Tht id="381" name="EXP-1" icon="" color="" hint="" /> 
+  <Tht id="363" name="INX-7" icon="" color="" hint="" /> 
+  <Tht id="453" name="TYRA-3" icon="" color="" hint="" /> 
+  <Tht id="329" name="FLP-6" icon="" color="" hint="" /> 
+  <Tht id="333" name="INS-1" icon="" color="" hint="" /> 
+  <Tht id="418" name="MGL-3" icon="" color="" hint="" /> 
+  <Tht id="345" name="NLP-3" icon="" color="" hint="" /> 
+  <Tht id="426" name="NPR-5" icon="" color="" hint="" /> 
+  <Tht id="428" name="OCR-2" icon="" color="" hint="" /> 
+  <Tht id="430" name="OSM-9" icon="" color="" hint="" /> 
+  <Tht id="312" name="Serotonin" icon="" color="" hint="" /> 
+  <Tht id="440" name="SRB-6" icon="" color="" hint="" /> 
+  <Tht id="441" name="SRD-1" icon="" color="" hint="" /> 
+  <Tht id="322" name="FLP-19" icon="" color="" hint="" /> 
+  <Tht id="359" name="INX-17" icon="" color="" hint="" /> 
+  <Tht id="364" name="INX-8" icon="" color="" hint="" /> 
+  <Tht id="365" name="UNC-7" icon="" color="" hint="" /> 
+  <Tht id="358" name="INX-1" icon="" color="" hint="" /> 
+  <Tht id="360" name="INX-18" icon="" color="" hint="" /> 
+
+  <Link idA="3" idB="331" type="CHILD" /> 
+  <Link idA="3" idB="309" type="CHILD" /> 
+  <Link idA="3" idB="361" type="CHILD" /> 
+  <Link idA="3" idB="366" type="CHILD" /> 
+  <Link idA="4" idB="331" type="CHILD" /> 
+  <Link idA="4" idB="309" type="CHILD" /> 
+  <Link idA="4" idB="361" type="CHILD" /> 
+  <Link idA="4" idB="366" type="CHILD" /> 
+  <Link idA="5" idB="307" type="CHILD" /> 
+  <Link idA="5" idB="363" type="CHILD" /> 
+  <Link idA="5" idB="366" type="CHILD" /> 
+  <Link idA="5" idB="369" type="CHILD" /> 
+  <Link idA="5" idB="380" type="CHILD" /> 
+  <Link idA="5" idB="381" type="CHILD" /> 
+  <Link idA="5" idB="453" type="CHILD" /> 
+  <Link idA="6" idB="307" type="CHILD" /> 
+  <Link idA="6" idB="363" type="CHILD" /> 
+  <Link idA="6" idB="366" type="CHILD" /> 
+  <Link idA="6" idB="369" type="CHILD" /> 
+  <Link idA="6" idB="380" type="CHILD" /> 
+  <Link idA="6" idB="381" type="CHILD" /> 
+  <Link idA="6" idB="453" type="CHILD" /> 
+  <Link idA="7" idB="329" type="CHILD" /> 
+  <Link idA="7" idB="333" type="CHILD" /> 
+  <Link idA="7" idB="345" type="CHILD" /> 
+  <Link idA="7" idB="312" type="CHILD" /> 
+  <Link idA="7" idB="361" type="CHILD" /> 
+  <Link idA="7" idB="418" type="CHILD" /> 
+  <Link idA="7" idB="426" type="CHILD" /> 
+  <Link idA="7" idB="428" type="CHILD" /> 
+  <Link idA="7" idB="430" type="CHILD" /> 
+  <Link idA="7" idB="440" type="CHILD" /> 
+  <Link idA="7" idB="441" type="CHILD" /> 
+  <Link idA="8" idB="329" type="CHILD" /> 
+  <Link idA="8" idB="333" type="CHILD" /> 
+  <Link idA="8" idB="345" type="CHILD" /> 
+  <Link idA="8" idB="312" type="CHILD" /> 
+  <Link idA="8" idB="361" type="CHILD" /> 
+  <Link idA="8" idB="418" type="CHILD" /> 
+  <Link idA="8" idB="426" type="CHILD" /> 
+  <Link idA="8" idB="428" type="CHILD" /> 
+  <Link idA="8" idB="430" type="CHILD" /> 
+  <Link idA="8" idB="440" type="CHILD" /> 
+  <Link idA="8" idB="441" type="CHILD" /> 
+  <Link idA="19" idB="322" type="CHILD" /> 
+  <Link idA="19" idB="309" type="CHILD" /> 
+  <Link idA="19" idB="359" type="CHILD" /> 
+  <Link idA="19" idB="364" type="CHILD" /> 
+  <Link idA="19" idB="365" type="CHILD" /> 
+  <Link idA="19" idB="366" type="CHILD" /> 
+  <Link idA="20" idB="322" type="CHILD" /> 
+  <Link idA="20" idB="309" type="CHILD" /> 
+  <Link idA="20" idB="359" type="CHILD" /> 
+  <Link idA="20" idB="364" type="CHILD" /> 
+  <Link idA="20" idB="365" type="CHILD" /> 
+  <Link idA="20" idB="366" type="CHILD" /> 
+  <Link idA="357" idB="358" type="CHILD" /> 
+  <Link idA="357" idB="359" type="CHILD" /> 
+  <Link idA="357" idB="360" type="CHILD" /> 
+  <Link idA="357" idB="361" type="CHILD" /> 
+  <Link idA="357" idB="363" type="CHILD" /> 
+  <Link idA="357" idB="364" type="CHILD" /> 
+  <Link idA="357" idB="365" type="CHILD" /> 
+  <Link idA="357" idB="366" type="CHILD" /> 
+  <Link idA="357" idB="362" type="PARENT" /> 
+  <Link idA="3" idB="362" type="PARENT" /> 
+  <Link idA="4" idB="362" type="PARENT" /> 
+  <Link idA="5" idB="362" type="PARENT" /> 
+  <Link idA="6" idB="362" type="PARENT" /> 
+  <Link idA="7" idB="362" type="PARENT" /> 
+  <Link idA="8" idB="362" type="PARENT" /> 
+  <Link idA="19" idB="362" type="PARENT" /> 
+  <Link idA="20" idB="362" type="PARENT" /> 
+
+  <Content href="thoughtData/362.html" />
+</TheBrainSimpleXML>

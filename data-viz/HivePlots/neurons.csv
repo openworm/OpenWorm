@@ -1,0 +1,303 @@
+ADAL;Interneuron
+ADAR;Interneuron
+ADEL;Sensory neuron
+ADER;Sensory neuron
+ADFL;Sensory neuron (chemosensory)
+ADFR;Sensory neuron (chemosensory)
+ADLL;Sensory neuron (chemosensory, odorsensory, nociceptive)
+ADLR;Sensory neuron (chemosensory, odorsensory, nociceptive)
+AFDL;Sensory neuron (thermosensory and CO2- sensory)
+AFDR;Sensory neuron (thermosensory and CO2- sensory)
+AIAL;Interneuron
+AIAR;Interneuron
+AIBL;Interneuron
+AIBR;Interneuron
+AIML;Interneuron
+AIMR;Interneuron
+AINL;Interneuron
+AINR;Interneuron
+AIYL;Interneuron
+AIYR;Interneuron
+AIZL;Interneuron
+AIZR;Interneuron
+ALA;Interneuron
+ALML;Sensory neuron (Mechanosensory)
+ALMR;Sensory neuron (Mechanosensory)
+ALNL;Neuron with unknown function
+ALNR;Neuron with unknown function
+AQR;Putative sensory neuron (Oxygen sensor)
+AS1;Motor neuron
+AS10;Motor neuron
+AS11;Motor neuron
+AS2;Motor neuron
+AS3;Motor neuron
+AS4;Motor neuron
+AS5;Motor neuron
+AS6;Motor neuron
+AS7;Motor neuron
+AS8;Motor neuron
+AS9;Motor neuron
+ASEL;Sensory neuron (Chemosensory)
+ASER;Sensory neuron (Chemosensory)
+ASGL;Sensory neuron (Chemosensory)
+ASGR;Sensory neuron (Chemosensory)
+ASHL;Sensory neuron (Osmo-, mechano- and odorsensory, nociceptive)
+ASHR;Sensory neuron (Osmo-, mechano- and odorsensory, nociceptive)
+ASIL;Sensory neuron (Chemosensory, thermosensory)
+ASIR;Sensory neuron (Chemosensory, thermosensory)
+ASJL;Sensory neuron
+ASJR;Sensory neuron
+ASKL;Sensory neuron (Chemosensory)
+ASKR;Sensory neuron (Chemosensory)
+AUAL;Interneuron
+AUAR;Interneuron
+AVAL;Interneuron
+AVAR;Interneuron
+AVBL;Interneuron
+AVBR;Interneuron
+AVDL;Interneuron
+AVDR;Interneuron
+AVEL;Interneuron
+AVER;Interneuron
+AVFL;Interneuron
+AVFR;Interneuron
+AVG;Interneuron
+AVHL;Interneuron
+AVHR;Interneuron
+AVJL;Interneuron
+AVJR;Interneuron
+AVKL;Interneuron
+AVKR;Interneuron
+AVL;Polymodal (Interneuron/motor neuron)
+AVM;Sensory neuron (Mechanosensory)
+AWAL;Sensory neuron (Odorsensory)
+AWAR;Sensory neuron (Odorsensory)
+AWBL;Sensory neuron (Odorsensory)
+AWBR;Sensory neuron (Odorsensory)
+AWCL;Sensory neuron (Odorsensory and thermosensory)
+AWCR;Sensory neuron (Odorsensory and thermosensory)
+BAGL;Sensory neuron
+BAGR;Sensory neuron
+BDUL;Interneuron
+BDUR;Interneuron
+CANL*;Neuron with unknown function.
+CANR*;Neuron with unknown function.
+CEPDL;Sensory neuron (Putative Mechanosensory)
+CEPDR;Sensory neuron (Putative Mechanosensory)
+CEPVL;Sensory neuron (Putative Mechanosensory)
+CEPVR;Sensory neuron (Putative Mechanosensory)
+DA1;Motor neuron
+DA2;Motor neuron
+DA3;Motor neuron
+DA4;Motor neuron
+DA5;Motor neuron
+DA6;Motor neuron
+DA7;Motor neuron
+DA8;Motor neuron
+DA9;Motor neuron
+DB1;Ventral cord motor neuron
+DB2;Ventral cord motor neuron
+DB3;Ventral cord motor neuron
+DB4;Ventral cord motor neuron
+DB5;Ventral cord motor neuron
+DB6;Ventral cord motor neuron
+DB7;Ventral cord motor neuron
+DD1;Motor neuron
+DD2;Motor neuron
+DD3;Motor neuron
+DD4;Motor neuron
+DD5;Motor neuron
+DD6;Motor neuron
+DVA;Interneuron, stretch sensitive sensory neuron
+DVB;Polymodal (Motor neuron/interneuron)
+DVC;Interneuron
+FLPL;"Sensory neuron (Mechanosensory) (name originally derived from ""FLAP"")"
+FLPR;"Sensory neuron (Mechanosensory) (name originally derived from ""FLAP"")"
+HSNL;Motor neuron
+HSNR;Motor neuron
+I1L;Pharyngeal interneuron
+I1R;Pharyngeal interneuron
+I2L;Pharyngeal interneuron
+I2R;Pharyngeal interneuron
+I3;Pharyngeal Interneuron
+I4;Pharyngeal interneuron
+I5;Pharyngeal interneuron (can also be a sensory neuron or both)
+I6;Pharyngeal interneuron
+IL1DL;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL1DR;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL1L;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL1R;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL1VL;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL1VR;All polymodal: [Sensory neuron (Mechanosensory), Motor neuron, Interneuron]
+IL2DL;Sensory neuron (Chemosensory?)
+IL2DR;Sensory neuron (Chemosensory?)
+IL2L;Sensory neuron (Chemosensory?)
+IL2R;Sensory neuron (Chemosensory?)
+IL2VL;Sensory neuron (Chemosensory?)
+IL2VR;Sensory neuron (Chemosensory?)
+LUAL;Interneuron
+LUAR;Interneuron
+M1;Pharyngeal neuron (Motor)
+M2L;Pharyngeal neuron (Motor)
+M2R;Pharyngeal neuron (Motor)
+M3L;Pharyngeal neuron - motor (also possibly proprioceptive sensory)
+M3R;Pharyngeal neuron - motor (also possibly proprioceptive sensory)
+M4;Pharyngeal neuron (Motor neuron)
+M5;Pharyngeal neuron (Motor)
+MCL;Pharyngeal neuron (Motor neuron, putative sensory)
+MCR;Pharyngeal neuron (Motor neuron, putative sensory)
+MI;Pharyngeal neuron (motor), Interneuron
+NSML;otor neuron. Possibly also proprioceptive/mechanosensory.
+NSMR;otor neuron. Possibly also proprioceptive/mechanosensory.
+OLLL;Sensory neuron
+OLLR;Sensory neuron
+OLQDL;All polymodal: [Sensory neuron (Mechanosensory) Interneuron]
+OLQDR;All polymodal: [Sensory neuron (Mechanosensory) Interneuron]
+OLQVL;All polymodal: [Sensory neuron (Mechanosensory) Interneuron]
+OLQVR;All polymodal: [Sensory neuron (Mechanosensory) Interneuron]
+PDA;Sensory - motor neuron
+PDB;Motor neuron
+PDEL;Sensory neuron
+PDER;Sensory neuron
+PHAL;Sensory neuron (Chemosensory)
+PHAR;Sensory neuron (Chemosensory)
+PHBL;Sensory neuron (Chemosensory)
+PHBR;Sensory neuron (Chemosensory)
+PHCL;Sensory neuron (Mechanosensory?)
+PHCR;Sensory neuron (Mechanosensory?)
+PLML;Sensory neuron (Mechanosensory)
+PLMR;Sensory neuron (Mechanosensory)
+PLNL;Neuron (Interneuron?)
+PLNR;Neuron (Interneuron?)
+PQR;Putative mechanosensory neuron
+PVCL;Ventral cord interneuron
+PVCR;Ventral cord interneuron
+PVDL;Sensory neuron (Mechanosensory)
+PVDR;Sensory neuron (Mechanosensory)
+PVM;Sensory neuron (Mechanosensory)
+PVNL;Interneuron/motorneuron
+PVNR;Interneuron/motorneuron
+PVPL;Interneuron
+PVPR;Interneuron
+PVQL;Interneuron
+PVQR;Interneuron
+PVR;Interneuron
+PVT;Interneuron
+PVWL;Interneuron
+PVWR;Interneuron
+RIAL;Interneuron
+RIAR;Interneuron
+RIBL;Interneuron
+RIBR;Interneuron
+RICL;Interneuron
+RICR;Interneuron
+RID;Interneuron
+RIFL;Interneuron
+RIFR;Interneuron
+RIGL;Interneuron
+RIGR;Interneuron
+RIH;Interneuron
+RIML;Ring motor neuron
+RIMR;Ring motor neuron
+RIPL;Ring/Pharynx interneuron
+RIPR;Ring/Pharynx interneuron
+RIR;Ring interneuron
+RIS;Interneuron
+RIVL;Polymodal (interneuron/motor neuron)
+RIVR;Polymodal (interneuron/motor neuron)
+RMDDL;Ring motor neuron
+RMDDR;Ring motor neuron
+RMDL;Ring motor neuron
+RMDR;Ring motor neuron
+RMDVL;Ring motor neuron
+RMDVR;Ring motor neuron
+RMED;Motor neuron
+RMEL;Motor neuron
+RMER;Motor neuron
+RMEV;Motor neuron
+RMFL;Motor neuron
+RMFR;Motor neuron
+RMGL;Interneuron
+RMGR;Interneuron
+RMHL;Motor neuron
+RMHR;Motor neuron
+SAADL;Interneuron
+SAADR;Interneuron
+SAAVL;Interneuron
+SAAVR;Interneuron
+SABD;Interneuron
+SABVL;Interneuron
+SABVR;Interneuron
+SDQL;Interneuron
+SDQR;Interneuron
+SIADL;Interneuron
+SIADR;Interneuron
+SIAVL;Interneuron
+SIAVR;Interneuron
+SIBDL;Interneuron
+SIBDR;Interneuron
+SIBVL;Interneuron
+SIBVR;Interneuron
+SMBDL;Motor neuron/interneuron
+SMBDR;Motor neuron/interneuron
+SMBVL;Motor neuron/interneuron
+SMBVR;Motor neuron/interneuron
+SMDDL;Motor neuron/interneuron
+SMDDR;Motor neuron/interneuron
+SMDVL;Motor neuron/interneuron
+SMDVR;Motor neuron/interneuron
+URADL;Motor neuron
+URADR;Motor neuron
+URAVL;Motor neuron
+URAVR;Motor neuron
+URBL;Interneuron
+URBR;Interneuron
+URXL;Sensory neuron (oxygen sensor), also ring interneuron
+URXR;Sensory neuron (oxygen sensor), also ring interneuron
+URYDL;Sensory neuron
+URYDR;Sensory neuron
+URYVL;Sensory neuron
+URYVR;Sensory neuron
+VA1;Motor neuron
+VA10;Motor neuron
+VA11;Motor neuron
+VA12;Motor neuron
+VA2;Motor neuron
+VA3;Motor neuron
+VA4;Motor neuron
+VA5;Motor neuron
+VA6;Motor neuron
+VA7;Motor neuron
+VA8;Motor neuron
+VA9;Motor neuron
+VB1;Motor neuron
+VB10;Motor neuron
+VB11;Motor neuron
+VB2;Motor neuron
+VB3;Motor neuron
+VB4;Motor neuron
+VB5;Motor neuron
+VB6;Motor neuron
+VB7;Motor neuron
+VB8;Motor neuron
+VB9;Motor neuron
+VC1;Motor neuron (Hermaphrodite specific)
+VC2;Motor neuron (Hermaphrodite specific)
+VC3;Motor neuron (Hermaphrodite specific)
+VC4;Motor neuron (Hermaphrodite specific)
+VC5;Motor neuron (Hermaphrodite specific)
+VC6;Motor neuron (Hermaphrodite specific)
+VD1;Motor neuron
+VD10;Motor neuron
+VD11;Motor neuron
+VD12;Motor neuron
+VD13;Motor neuron
+VD2;Motor neuron
+VD3;Motor neuron
+VD4;Motor neuron
+VD5;Motor neuron
+VD6;Motor neuron
+VD7;Motor neuron
+VD8;Motor neuron
+VD9;Motor neuron
+;

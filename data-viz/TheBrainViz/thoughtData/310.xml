@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="310" name="Monoamine" icon="" color="" hint="" pbv="531518002643827"
+    modificationDate="Apr 7, 2013 5:09 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="85" name="CANL" icon="" color="" hint="" /> 
+  <Tht id="86" name="CANR" icon="" color="" hint="" /> 
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+
+
+  <Tht id="314" name="CAT-1" icon="" color="" hint="" /> 
+  <Tht id="402" name="GGR-2" icon="" color="" hint="" /> 
+  <Tht id="335" name="NLP-10" icon="" color="" hint="" /> 
+  <Tht id="339" name="NLP-15" icon="" color="" hint="" /> 
+  <Tht id="432" name="SER-2" icon="" color="" hint="" /> 
+  <Tht id="356" name="VMaT" icon="" color="" hint="" /> 
+  <Tht id="306" name="Acetylcholine" icon="" color="" hint="" /> 
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" /> 
+  <Tht id="308" name="GABA" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="311" name="Octopamine" icon="" color="" hint="" /> 
+  <Tht id="312" name="Serotonin" icon="" color="" hint="" /> 
+
+  <Link idA="85" idB="314" type="CHILD" /> 
+  <Link idA="85" idB="335" type="CHILD" /> 
+  <Link idA="85" idB="339" type="CHILD" /> 
+  <Link idA="85" idB="356" type="CHILD" /> 
+  <Link idA="85" idB="402" type="CHILD" /> 
+  <Link idA="85" idB="432" type="CHILD" /> 
+  <Link idA="86" idB="314" type="CHILD" /> 
+  <Link idA="86" idB="335" type="CHILD" /> 
+  <Link idA="86" idB="339" type="CHILD" /> 
+  <Link idA="86" idB="356" type="CHILD" /> 
+  <Link idA="86" idB="402" type="CHILD" /> 
+  <Link idA="86" idB="432" type="CHILD" /> 
+  <Link idA="305" idB="306" type="CHILD" /> 
+  <Link idA="305" idB="307" type="CHILD" /> 
+  <Link idA="305" idB="308" type="CHILD" /> 
+  <Link idA="305" idB="309" type="CHILD" /> 
+  <Link idA="305" idB="311" type="CHILD" /> 
+  <Link idA="305" idB="312" type="CHILD" /> 
+  <Link idA="305" idB="310" type="PARENT" /> 
+  <Link idA="85" idB="310" type="PARENT" /> 
+  <Link idA="86" idB="310" type="PARENT" /> 
+
+  <Content href="thoughtData/310.html" />
+</TheBrainSimpleXML>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="308" name="GABA" icon="" color="" hint="" pbv="279047"
+    modificationDate="Apr 7, 2013 5:09 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="73" name="AVL" icon="" color="" hint="" /> 
+  <Tht id="114" name="DVB" icon="" color="" hint="" /> 
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+  <Tht id="207" name="RIS" icon="" color="" hint="" /> 
+  <Tht id="216" name="RMED" icon="" color="" hint="" /> 
+  <Tht id="217" name="RMEL" icon="" color="" hint="" /> 
+  <Tht id="218" name="RMER" icon="" color="" hint="" /> 
+  <Tht id="219" name="RMEV" icon="" color="" hint="" /> 
+
+
+  <Tht id="306" name="Acetylcholine" icon="" color="" hint="" /> 
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="310" name="Monoamine" icon="" color="" hint="" /> 
+  <Tht id="311" name="Octopamine" icon="" color="" hint="" /> 
+  <Tht id="312" name="Serotonin" icon="" color="" hint="" /> 
+  <Tht id="379" name="DOP-1" icon="" color="" hint="" /> 
+  <Tht id="405" name="GLR-1" icon="" color="" hint="" /> 
+  <Tht id="433" name="SER-4" icon="" color="" hint="" /> 
+  <Tht id="372" name="AVR-15" icon="" color="" hint="" /> 
+  <Tht id="432" name="SER-2" icon="" color="" hint="" /> 
+
+  <Link idA="305" idB="306" type="CHILD" /> 
+  <Link idA="305" idB="307" type="CHILD" /> 
+  <Link idA="305" idB="309" type="CHILD" /> 
+  <Link idA="305" idB="310" type="CHILD" /> 
+  <Link idA="305" idB="311" type="CHILD" /> 
+  <Link idA="305" idB="312" type="CHILD" /> 
+  <Link idA="207" idB="379" type="CHILD" /> 
+  <Link idA="207" idB="405" type="CHILD" /> 
+  <Link idA="207" idB="433" type="CHILD" /> 
+  <Link idA="216" idB="372" type="CHILD" /> 
+  <Link idA="216" idB="432" type="CHILD" /> 
+  <Link idA="217" idB="405" type="CHILD" /> 
+  <Link idA="217" idB="432" type="CHILD" /> 
+  <Link idA="218" idB="405" type="CHILD" /> 
+  <Link idA="218" idB="432" type="CHILD" /> 
+  <Link idA="219" idB="372" type="CHILD" /> 
+  <Link idA="219" idB="432" type="CHILD" /> 
+  <Link idA="305" idB="308" type="PARENT" /> 
+  <Link idA="73" idB="308" type="PARENT" /> 
+  <Link idA="114" idB="308" type="PARENT" /> 
+  <Link idA="207" idB="308" type="PARENT" /> 
+  <Link idA="216" idB="308" type="PARENT" /> 
+  <Link idA="217" idB="308" type="PARENT" /> 
+  <Link idA="218" idB="308" type="PARENT" /> 
+  <Link idA="219" idB="308" type="PARENT" /> 
+
+  <Content href="thoughtData/308.html" />
+</TheBrainSimpleXML>

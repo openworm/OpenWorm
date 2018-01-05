@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="307" name="Dopamine" icon="" color="" hint="" pbv="7673661359032"
+    modificationDate="Apr 7, 2013 5:09 PM"
+    authorName="Tim"
+    authorEmail="" />
+
+  <Tht id="5" name="ADEL" icon="" color="" hint="" /> 
+  <Tht id="6" name="ADER" icon="" color="" hint="" /> 
+  <Tht id="87" name="CEPDL" icon="" color="" hint="" /> 
+  <Tht id="88" name="CEPDR" icon="" color="" hint="" /> 
+  <Tht id="89" name="CEPVL" icon="" color="" hint="" /> 
+  <Tht id="90" name="CEPVR" icon="" color="" hint="" /> 
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+  <Tht id="162" name="PDEL" icon="" color="" hint="" /> 
+
+
+  <Tht id="369" name="ACR-16" icon="" color="" hint="" /> 
+  <Tht id="380" name="DOP-2" icon="" color="" hint="" /> 
+  <Tht id="381" name="EXP-1" icon="" color="" hint="" /> 
+  <Tht id="362" name="INX-4" icon="" color="" hint="" /> 
+  <Tht id="363" name="INX-7" icon="" color="" hint="" /> 
+  <Tht id="453" name="TYRA-3" icon="" color="" hint="" /> 
+  <Tht id="366" name="UNC-9" icon="" color="" hint="" /> 
+  <Tht id="315" name="CAT-2" icon="" color="" hint="" /> 
+  <Tht id="352" name="TH" icon="" color="" hint="" /> 
+  <Tht id="306" name="Acetylcholine" icon="" color="" hint="" /> 
+  <Tht id="308" name="GABA" icon="" color="" hint="" /> 
+  <Tht id="309" name="Glutamate" icon="" color="" hint="" /> 
+  <Tht id="310" name="Monoamine" icon="" color="" hint="" /> 
+  <Tht id="311" name="Octopamine" icon="" color="" hint="" /> 
+  <Tht id="312" name="Serotonin" icon="" color="" hint="" /> 
+
+  <Link idA="5" idB="362" type="CHILD" /> 
+  <Link idA="5" idB="363" type="CHILD" /> 
+  <Link idA="5" idB="366" type="CHILD" /> 
+  <Link idA="5" idB="369" type="CHILD" /> 
+  <Link idA="5" idB="380" type="CHILD" /> 
+  <Link idA="5" idB="381" type="CHILD" /> 
+  <Link idA="5" idB="453" type="CHILD" /> 
+  <Link idA="6" idB="362" type="CHILD" /> 
+  <Link idA="6" idB="363" type="CHILD" /> 
+  <Link idA="6" idB="366" type="CHILD" /> 
+  <Link idA="6" idB="369" type="CHILD" /> 
+  <Link idA="6" idB="380" type="CHILD" /> 
+  <Link idA="6" idB="381" type="CHILD" /> 
+  <Link idA="6" idB="453" type="CHILD" /> 
+  <Link idA="87" idB="315" type="CHILD" /> 
+  <Link idA="87" idB="352" type="CHILD" /> 
+  <Link idA="87" idB="380" type="CHILD" /> 
+  <Link idA="88" idB="315" type="CHILD" /> 
+  <Link idA="88" idB="352" type="CHILD" /> 
+  <Link idA="88" idB="380" type="CHILD" /> 
+  <Link idA="89" idB="315" type="CHILD" /> 
+  <Link idA="89" idB="352" type="CHILD" /> 
+  <Link idA="89" idB="380" type="CHILD" /> 
+  <Link idA="90" idB="315" type="CHILD" /> 
+  <Link idA="90" idB="352" type="CHILD" /> 
+  <Link idA="90" idB="380" type="CHILD" /> 
+  <Link idA="305" idB="306" type="CHILD" /> 
+  <Link idA="305" idB="308" type="CHILD" /> 
+  <Link idA="305" idB="309" type="CHILD" /> 
+  <Link idA="305" idB="310" type="CHILD" /> 
+  <Link idA="305" idB="311" type="CHILD" /> 
+  <Link idA="305" idB="312" type="CHILD" /> 
+  <Link idA="162" idB="315" type="CHILD" /> 
+  <Link idA="162" idB="352" type="CHILD" /> 
+  <Link idA="162" idB="380" type="CHILD" /> 
+  <Link idA="305" idB="307" type="PARENT" /> 
+  <Link idA="5" idB="307" type="PARENT" /> 
+  <Link idA="6" idB="307" type="PARENT" /> 
+  <Link idA="87" idB="307" type="PARENT" /> 
+  <Link idA="88" idB="307" type="PARENT" /> 
+  <Link idA="89" idB="307" type="PARENT" /> 
+  <Link idA="90" idB="307" type="PARENT" /> 
+  <Link idA="162" idB="307" type="PARENT" /> 
+
+  <Content href="thoughtData/307.html" />
+</TheBrainSimpleXML>

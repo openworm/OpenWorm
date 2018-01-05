@@ -1,0 +1,3918 @@
+{
+    "name": "NeuroNetwork",
+    "children": [
+        {
+            "name": "ADAR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADEL",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2, EXP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADER",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2, EXP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADFL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "Express mammalian capsaicin receptor-like protein OSM-9 (Colbert et al., 1997). Express mammalian capsaicin receptor-like channel protein OCR-2 (Tobin et al., 2002). SRB-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADFR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "Express mammalian capsaicin receptor-like protein OSM-9 (Colbert et al., 1997). Express mammalian capsaicin receptor-like channel protein OCR-2 (Tobin et al., 2002). SRB-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADLL",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "Express TRPV (mammalian capsaicin receptor-like channel) proteins OSM-9 (Colbert et al., 1997), OCR-1 and OCR-2 (Tobin et al., 2002; de Bono M. et al., 2002). SRE-1, SRB-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ADLR",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "Express TRPV (mammalian capsaicin receptor-like channel) proteins OSM-9 (Colbert et al., 1997), OCR-1 and OCR-2 (Tobin et al., 2002; de Bono M. et al., 2002). SRE-1, SRB-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AFDL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-12",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AFDR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-12",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIAL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-2, SRA-11",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIAR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-2, SRA-11",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIBL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 and GLR-2 and possibly GLR-5 (Maricq et al., 1995; Brockie et al., 2001). Suggested to express GABA-A/glycine receptor-like protein GGR-1 (Fujiwara et al., 1996).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIBR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 and GLR-2 and possibly GLR-5 (Maricq et al., 1995; Brockie et al., 2001). Suggested to express GABA-A/glycine receptor-like protein GGR-1 (Fujiwara et al., 1996).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIML",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIMR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AINL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AINR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIYL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "Express two separate splice variants of the tyramine receptor SER-2 (Altun-Gultekin et al., 2001; Tsalik et al., 2003). Express G protein-coupled serpentine receptor, SRA-11 (Troemel et al., 1995). Also predicted to express 24 G protein-coupled 7TM receptors (20 neuropeptide receptors + 2 biogenic amine receptors, including SER-2 + 2 metabotropic ACh/GABA/Glu repetors) and 6 ligand-gated ion channels (Wenick and Hobert, 2004).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIYR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "Express two separate splice variants of the tyramine receptor SER-2 (Altun-Gultekin et al., 2001; Tsalik et al., 2003). Express G protein-coupled serpentine receptor, SRA-11 (Troemel et al., 1995). Also predicted to express 24 G protein-coupled 7TM receptors (20 neuropeptide receptors + 2 biogenic amine receptors, including SER-2 + 2 metabotropic ACh/GABA/Glu repetors) and 6 ligand-gated ion channels (Wenick and Hobert, 2004).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIZL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": " SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AIZR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": " SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ALA",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "SRA-10",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ALML",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-2 (stomatin-like), MEC-4 (degenerin), MEC-10 (degenerin), MEC-9 and MEC-6, DEG-3 and DES-2, GLR-8, DOP-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ALMR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-2 (stomatin-like), MEC-4 (degenerin), MEC-10 (degenerin), MEC-9 and MEC-6, DEG-3 and DES-2, GLR-8, DOP-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ALNL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2, DOP-1, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ALNR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2, DOP-1, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AQR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "Expresses orphan receptor guanylyl cyclase, GCY-32. Expresses neuropeptide Y receptor like protein, NPR-1 which mediates social feeding behavior. Expresses specific soluble guanylate cyclase homologue, GCY-35 which binds molecular oxygen and mediates oxygen sensation.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS10",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS11",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS2",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS3",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS7",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS8",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AS9",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASEL",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-6 And GCY-7, OSM-9, GCY-12, DOP-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASER",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-5, OSM-9, GCY-12, DOP-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASGL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9 NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASGR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1  OSM-9",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASHL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9 and OCR-2. Express G protein-coupled serpentine receptors, SRA-6, SRB-6. Express neuropeptide Y receptor like protein, NPR-1. Express UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASHR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9 and OCR-2. Express G protein-coupled serpentine receptors, SRA-6, SRB-6. Express neuropeptide Y receptor like protein, NPR-1. Express UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASIL",
+            "children": [
+                {
+                    "name": "None",
+                    "size": 3000
+                },
+                {
+                    "name": "SRD-1, STR-2, STR-3, DAF-11, SRA-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASIR",
+            "children": [
+                {
+                    "name": "None",
+                    "size": 3000
+                },
+                {
+                    "name": "SRD-1, STR-2, STR-3, DAF-11, SRA-6",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASJL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, SRE-1, DAF-11",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASJR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, SRE-1, DAF-11",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASKL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, SRA-7, SRA-9, SRG-2, SRG-8, DAF-11.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "ASKR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, SRA-7, SRA-9, SRG-2, SRG-8, DAF-11.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AUAL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-4, NPR-1, SER-2, DOP-1. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AUAR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-4, NPR-1, SER-2, DOP-1. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVAL",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "Glutamate receptor subunits, GLR-1, GLR-2, GLR-4, GLR-5, NMR-1, GGR-3, GGR-2 mechanically gated ion channel (Tavernarakis et al., 1997).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVAR",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "Glutamate receptor subunits, GLR-1, GLR-2, GLR-4, GLR-5, NMR-1, GGR-3, GGR-2 mechanically gated ion channel (Tavernarakis et al., 1997).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVBL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 And GLR-5. SRA-11. GGR-3 , UNC-8, GGR-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVBR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 And GLR-5. SRA-11. GGR-3 , UNC-8, GGR-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVDL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1, GLR-2, GLR-5, NMR-1 and NMR-2, UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVDR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1, GLR-2, GLR-5, NMR-1 and NMR-2, UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVEL",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1, GLR-2, GLR-5, NMR-1 and NMR-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVER",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1, GLR-2, GLR-5, NMR-1 and NMR-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVFL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVFR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVG",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1, GLR-2, NMR-1 and NMR-2. Expresses alpha subunit of a nicotinic acetylcholine receptor, DEG-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVHL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-4. SER-2. GGR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVHR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-4. SER-2. GGR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVJL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVJR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVKL",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVKR",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVL",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AVM",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-2 (stomatin-like), MEC-4 (degenerin), MEC-10 (degenerin); MEC-9 and MEC-6, DOP-1. gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWAL",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "ODR-10. OSM-9 and OCR-1 and OCR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWAR",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "ODR-10. OSM-9 and OCR-1 and OCR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWBL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "STR-1, DAF-11. Suggested to express AEX-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWBR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "STR-1, DAF-11. Suggested to express AEX-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWCL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, DAF-11. STR-2, asymmetrically (randomly on the right or left side). GCY-12",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "AWCR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9, DAF-11. STR-2, asymmetrically (randomly on the right or left side). GCY-12",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "BAGL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-33",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "BAGR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-33",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "BDUL",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8. A splice variant of the tyramine receptor SER-2, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "BDUR",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8. A splice variant of the tyramine receptor SER-2, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CANL*",
+            "children": [
+                {
+                    "name": "Monoamine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2. Suggested to express GABA-A/glycine receptor-like protein GGR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CANR*",
+            "children": [
+                {
+                    "name": "Monoamine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2. Suggested to express GABA-A/glycine receptor-like protein GGR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CEPDL",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CEPDR",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CEPVL",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "CEPVR",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA2",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA3",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA7",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA8",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DA9",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB2",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB3",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DB7",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD1",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD2",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD3",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD4",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD5",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DD6",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1. Suggested to express GABA-A/glycine receptor-like protein GGR-2. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DVA",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-4, GLR-5 and NMR-1. SER-2. Variably expresses SER-4 (can be instead DVC neuron). GGR-3. GGR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DVB",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "DVC",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 (Hart et al., 1995). Variably expresses SER-4 (can be instead DVA).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "FLPL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9. DEG-3 and DES-2. GLR-4. MEC-10. DEL-1. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "FLPR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9. DEG-3 and DES-2. GLR-4. MEC-10. DEL-1. UNC-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "HSNL",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-6. GAR-2. GLR-5. GGR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "HSNR",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-6. GAR-2. GLR-5. GGR-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I1L",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. ACM-2 (F47D12.2).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I1R",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. ACM-2 (F47D12.2).",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I2L",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. ACM-2 (F47D12.2). SER-7b",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I2R",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. ACM-2 (F47D12.2). SER-7b",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I3",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 And GLR7b AEX-2. ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I4",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I5",
+            "children": [
+                {
+                    "name": "Serotonin, Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "I6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 And GLR-b8, SER-7b",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1DL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1DR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1L",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1R",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1VL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL1VR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3. MEC-6.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2DL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "DES-2 ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2DR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "DES-2 ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2L",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2R",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2VL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "DES-2 ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "IL2VR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "DES-2 ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "LUAL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5. SER-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "LUAR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5. SER-2.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-2, AVR-14.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M2L",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-7b",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M2R",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-7b",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M3L",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M3R",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "SER7b . ACM-2 (F47D12.2). GLR-8.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "M5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "MCL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8, SER-7",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "MCR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-8, SER-7",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "MI",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-2 ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "NSML",
+            "children": [
+                {
+                    "name": "Serotonin, Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. SER-2. AEX-2. ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "NSMR",
+            "children": [
+                {
+                    "name": "Serotonin, Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-7 and GLR-8. SER-2. AEX-2. ",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLLL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": " SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLLR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": " SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLQDL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9.OCR-4. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLQDR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9.OCR-4. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLQVL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9.OCR-4. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "OLQVR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9.OCR-4. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PDA",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "Expresses an excitatory GABA receptor subunit, EXP-1. UNC-8. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PDB",
+            "children": [
+                {
+                    "name": "FMRFamide",
+                    "size": 3000
+                },
+                {
+                    "name": "UNC-8",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PDEL",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PDER",
+            "children": [
+                {
+                    "name": "Dopamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHAL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-12. OSM-9 and OCR-2. SRG-13 and SRB-6. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHAR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-12. OSM-9 and OCR-2. SRG-13 and SRB-6. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHBL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9 and OCR-2. SRB-6. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHBR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "OSM-9 and OCR-2. SRB-6. NPR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHCL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PHCR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PLML",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-2, MEC-4, MEC-6. MEC-9 and MEC-6. GLR-8. DEG-3 and DES-2. DOP-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PLMR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-2, MEC-4, MEC-6. MEC-9 and MEC-6. GLR-8. DEG-3 and DES-2. DOP-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PLNL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PLNR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1, gcy-35",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PQR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-32. NPR-1. GCY-35 .",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVCL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVCR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DEG-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVDL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-10, MEC-9, MEC-6. OSM-9. SER-2. DEG-3 and DES-2. GLR-4. DOP-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVDR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "MEC-10, MEC-9, MEC-6. OSM-9. SER-2. DEG-3 and DES-2. GLR-4. DOP-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVM",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GAR-1. MEC-2, MEC-4, MEC-10. MEC-9 and MEC-6. UNC-8. gcy-35.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVNL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVNR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVPL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVPR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVQL",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 and GLR-5. SRA-6. DOP-1. GGR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVQR",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1 and GLR-5. SRA-6. DOP-1. GGR-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GGR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVT",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "SER-2. SER-4.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVWL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "PVWR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIAL",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "Glr-3, glr-6, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIAR",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "Glr-3, glr-6, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIBL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIBR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RICL",
+            "children": [
+                {
+                    "name": "Octapamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RICR",
+            "children": [
+                {
+                    "name": "Octapamine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RID",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "EXP-1, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIFL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIFR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIGL",
+            "children": [
+                {
+                    "name": "FRMFemide",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIGR",
+            "children": [
+                {
+                    "name": "FRMFemide",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIH",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIML",
+            "children": [
+                {
+                    "name": "Acetylcholine, Tyramine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIMR",
+            "children": [
+                {
+                    "name": "Acetylcholine, Tyramine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIPL",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIPR",
+            "children": [
+                {
+                    "name": "Serotonin",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIR",
+            "children": [
+                {
+                    "name": "-",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIS",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1. SER-4. DOP-1.",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIVL",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RIVR",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDDL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDDR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMDVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMED",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "AVR-15. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMEL",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMER",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-1. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMEV",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "AVR-15. SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMFL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMFR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMGL",
+            "children": [
+                {
+                    "name": "FRMFemide",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMGR",
+            "children": [
+                {
+                    "name": "FRMFemide",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMHL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "RMHR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SAADL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SAADR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SAAVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SAAVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SABD",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "EXP-1, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SABVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SABVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SDQL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-35, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SDQR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-35, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIADL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-3, GGR-3, GGR-2, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIADR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DOP-3, GGR-3, GGR-2, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIAVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "Ggr-2, DOP-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIAVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "Ggr-2, DOP-3, SER-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIBDL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIBDR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIBVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SIBVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMBDL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMBDR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMBVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMBVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMDDL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GGR-2, GGR-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMDDR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GGR-2, GGR-3",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMDVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GGR-1, GGR-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "SMDVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GGR-1, GGR-2",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URADL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URADR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URAVL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URAVR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URBL",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URBR",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URXL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-32, gcy-35, NPR-1, SRA-10",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URXR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "GCY-32, gcy-35, NPR-1, SRA-10",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URYDL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URYDR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URYVL",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "URYVR",
+            "children": [
+                {
+                    "name": "Glutamate",
+                    "size": 3000
+                },
+                {
+                    "name": "None",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA10",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA11",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA12",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA2",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA3",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA7",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA8",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VA9",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB1",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB10",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB11",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB2",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB3",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB4",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB5",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB6",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB7",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB8",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VB9",
+            "children": [
+                {
+                    "name": "Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "DEL-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC1",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC2",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC3",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC4",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC5",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VC6",
+            "children": [
+                {
+                    "name": "Serotonin, Acetylcholine",
+                    "size": 3000
+                },
+                {
+                    "name": "GLR-5",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD1",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD10",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD11",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD12",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD13",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD2",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD3",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD4",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD5",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD6",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD7",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD8",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        },
+        {
+            "name": "VD9",
+            "children": [
+                {
+                    "name": "GABA",
+                    "size": 3000
+                },
+                {
+                    "name": "NPR-1",
+                    "size": 3000
+                }
+            ]
+        }
+    ]
+}

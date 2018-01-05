@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<TheBrainSimpleXML>
+  <Tht id="1" name="Neuron_Data" icon="" color="" hint="" pbv="1325818672072314"
+    modificationDate="Apr 7, 2013 5:16 PM"
+    authorName="Tim"
+    authorEmail="" />
+  <Tht id="357" name="Innexin" icon="" color="" hint="" /> 
+  <Tht id="2" name="Neuron" icon="" color="" hint="" /> 
+  <Tht id="313" name="Neuropeptide" icon="" color="" hint="" /> 
+  <Tht id="305" name="Neurotransmitter" icon="" color="" hint="" /> 
+  <Tht id="367" name="Receptor" icon="" color="" hint="" /> 
+
+
+
+
+  <Link idA="1" idB="2" type="CHILD" /> 
+  <Link idA="1" idB="305" type="CHILD" /> 
+  <Link idA="1" idB="313" type="CHILD" /> 
+  <Link idA="1" idB="357" type="CHILD" /> 
+  <Link idA="1" idB="367" type="CHILD" /> 
+
+  <Content href="thoughtData/1.html" />
+</TheBrainSimpleXML>
