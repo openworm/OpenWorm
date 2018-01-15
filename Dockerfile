@@ -120,9 +120,9 @@ RUN git clone https://github.com/NeuroML/jNeuroML.git && \
   git checkout 485e905 && \
   python getNeuroML.py ow-0.1
   
-RUN git clone https://github.com/lungd/pyNeuroML.git && \
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout ow-0.1 && \
+  git checkout db6c39f && \
   sudo python setup.py install
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
