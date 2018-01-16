@@ -117,12 +117,12 @@ RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/in
 
 RUN git clone https://github.com/NeuroML/jNeuroML.git && \
   cd jNeuroML && \
-  git checkout 485e905 && \
-  python getNeuroML.py ow-0.1
+  git checkout development && \
+  python getNeuroML.py development
   
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout db6c39f && \
+  git checkout master  && \
   sudo python setup.py install
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
@@ -130,13 +130,11 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   git checkout 7ff1266 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/lungd/CElegansNeuroML.git && \
-  cd CElegansNeuroML && \
-  git checkout ow-0.1
+RUN git clone https://github.com/openworm/CElegansNeuroML.git 
 
-RUN git clone https://github.com/lungd/sibernetic.git && \
+RUN git clone https://github.com/pgleeson/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.1 && \
+  git checkout development && \
   make clean && make all
 
 ENV JNML_HOME=$HOME/jNeuroML
