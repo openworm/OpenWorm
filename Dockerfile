@@ -130,11 +130,13 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   git checkout 7ff1266 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/openworm/CElegansNeuroML.git 
+RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
+  cd CElegansNeuroML && \
+  git checkout ow-0.8
 
-RUN git clone https://github.com/pgleeson/sibernetic.git && \
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout development && \
+  git checkout ow-0.8 && \
   make clean && make all
 
 ENV JNML_HOME=$HOME/jNeuroML
