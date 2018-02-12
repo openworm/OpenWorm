@@ -117,12 +117,16 @@ RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/in
 
 RUN git clone https://github.com/NeuroML/jNeuroML.git && \
   cd jNeuroML && \
-  git checkout 485e905 && \
-  python getNeuroML.py ow-0.1
+  #Checking out specific commit on development:
+  # https://github.com/NeuroML/jNeuroML/commit/777ee99372817139cd5b571974a00dcb02aaa0b4
+  git checkout 777ee99 && \
+  python getNeuroML.py 777ee99
   
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout db6c39f && \
+  #Checking out specific commit on master:
+  https://github.com/NeuroML/pyNeuroML/commit/57b411292905465f414b68d045b41cba1f246dde
+  git checkout 57b4112  && \
   sudo python setup.py install
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
@@ -130,13 +134,15 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   git checkout 7ff1266 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/lungd/CElegansNeuroML.git && \
+RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
   cd CElegansNeuroML && \
-  git checkout ow-0.1
+  git checkout ow-0.8
 
-RUN git clone https://github.com/lungd/sibernetic.git && \
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.1 && \
+  # fixed to a specific commit in development branch:
+  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
+  git checkout 3eb9914 && \
   make clean && make all
 
 ENV JNML_HOME=$HOME/jNeuroML
