@@ -49,7 +49,7 @@ To Install:
 
 Try the following to play around with the system:
 
-* Open a terminal and run `run-shell-only.sh`.  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `stop.sh` to clean up.
+* Before the main run command try `export DURATION=50` if you want to run a 50 millisecond simulation that captures the time period in the video.  You can use any arbitrary number here that you like.
 * If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.py` in order to rebuild the image locally.  Afterwards you can run normally.
 
 Documentation

@@ -108,7 +108,7 @@ except:
 
 sim_duration = 15.0
 if 'DURATION' in os.environ:
-    sim_duration = os.environ['DURATION']
+    sim_duration = float(os.environ['DURATION'])
 
 DEFAULTS = {'duration': sim_duration, # 50 ms
             'dt': 0.005,
