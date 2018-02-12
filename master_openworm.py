@@ -106,11 +106,12 @@ except:
     print("Unexpected error: %s" % sys.exc_info()[0])
     raise
 
+#Default is 15 ms of simulation time.
 sim_duration = 15.0
 if 'DURATION' in os.environ:
     sim_duration = float(os.environ['DURATION'])
 
-DEFAULTS = {'duration': sim_duration, # 50 ms
+DEFAULTS = {'duration': sim_duration,
             'dt': 0.005,
             'dtNrn': 0.05,
             'logstep': 100,
