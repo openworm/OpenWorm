@@ -39,17 +39,20 @@ To Install:
 
 **Running**
 
-1. Open a terminal and run `run-shell-only.sh`.
-2. Run `DISPLAY=:44 python master_openworm.py`.
-3. About 5-10 minutes of output will display on the screen as the steps run.
-4. The simulation will end.  Exit the container with `exit` and run `stop.sh` on your system to clean up the running container.
-5. Inspect the output in the `output` directory.
+1. Open a terminal and run `run.sh`.
+2. About 5-10 minutes of output will display on the screen as the steps run.
+3. The simulation will end.  Exit the container with `exit` and run `stop.sh` on your system to clean up the running container.
+4. Inspect the output in the `output` directory.
 
 **Advanced**
 
-Try the following to play around with the system:
+***Arguments***
 
-* Before the main run command try `export DURATION=50` if you want to run a 50 millisecond simulation that captures the time period in the video.  You can use any arbitrary number here that you like.
+* -d [num] : Use to modify the duration of the simulation in milliseconds.  Default is 15.  Use 50 to run for time to make full movie above.
+
+***Other things to try***
+
+* Open a terminal and run `run-shell-only.sh`.  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `stop.sh` to clean up.
 * If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.py` in order to rebuild the image locally.  Afterwards you can run normally.
 
 Documentation
