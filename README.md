@@ -49,7 +49,7 @@ To Install:
 
 ***Arguments***
 
-* -d [num] : Use to modify the duration of the simulation in milliseconds.  Default is 15.  Use 50 to run for time to make full movie above.
+* -d [num] : Use to modify the duration of the simulation in milliseconds.  Default is 15.  Use 5000 to run for time to make the full movie above.
 
 ***Other things to try***
 
