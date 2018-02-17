@@ -114,19 +114,10 @@ RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/in
   cd $HOME && \
   rm intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
   sudo rm /tmp/silent-intel-sdk.cfg
-
-RUN git clone https://github.com/NeuroML/jNeuroML.git && \
-  cd jNeuroML && \
-  #Checking out specific commit on development:
-  # https://github.com/NeuroML/jNeuroML/commit/777ee99372817139cd5b571974a00dcb02aaa0b4
-  git checkout 777ee99 && \
-  python getNeuroML.py 777ee99
   
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  #Checking out specific commit on master:
-  https://github.com/NeuroML/pyNeuroML/commit/57b411292905465f414b68d045b41cba1f246dde
-  git checkout 57b4112  && \
+  git checkout ow-0.8a  && \
   sudo python setup.py install
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
