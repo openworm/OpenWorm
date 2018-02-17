@@ -56,6 +56,42 @@ To Install:
 * Open a terminal and run `run-shell-only.sh`.  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `stop.sh` to clean up.
 * If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.py` in order to rebuild the image locally.  Afterwards you can run normally.
 
+### FAQ
+
+#### **What is the docker container?**
+
+The docker container is a self-contained environment in which you can run openworm simulations.  It's fully setup to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  
+
+#### **Is it possible to modify the simulation without having to run `build.py`?**
+
+Yes, but it is marginally more complex.  The easiest way is to modify anything in the docker container once you are inside of it - it will work just like a bash shell.  If you want to modify any code in the container, you'll need to use an editor that runs in the terminal, like nano.  Once you've modified something in the container, you don't need to re-build.  However, if you run `stop.sh` once you exit, those changes will be gone.
+
+#### **How do I access more data than what is already output?**
+
+The simulation by default outputs only a few figures and movies to your home system (that is, outside of the docker container).  If you want to access the entire output of the simulation, you will need to copy it from the docker container.  
+
+For example, say you want to extract the worm motion data.  This is contained in the file `worm_motion_log.txt`, which is found in the `/home/ow/sibernetic/simulations/[SPECIFIC_TIMESTAMPED_DIRECTORY]/worm_motion_log.txt`.  The directory `[SPECIFIC_TIMESTAMPED_DIRECTORY]` will have a name like `C2_FW_2018_02-12_18-36-32`, and its name can be found by checking the `output` directory.  This is actually the main output directory for the simulation, and contains all output, including cell modelling and worm movement.  
+
+Once the simulation ends and you exit the container with `exit`, but before you run `stop.sh`, run the following command from the openworm-docker-master folder:
+
+`docker cp openworm:/home/ow/sibernetic/simulations/[SPECIFIC_TIMESTAMPED_DIRECTORY]/worm_motion_log.txt ./worm_motion_log.txt`
+
+This will copy the file from the docker container, whose default name is `openworm`.  **It is crucial that you do not run `stop.sh` before trying to get your data out (see below)**
+
+#### **What is the difference between `exit` and `stop.sh`?**
+
+When you are in the Docker Container `openworm`, and are done interacting with it, you type `exit` to return to your system's shell.  This stops execution of anything in the container, and that container's status is now `Exited`.  If you try to re-start the process using `run-shell-only.sh`, you will get an error saying that the container already exists.  You can choose, at this point, to run `stop.sh`.  Doing so will remove the container and any files associated with it, allowing you to run a new simulation.  However, if you don't want to remove that container, you will instead want to re-enter it.
+
+#### **How do I enter a container I just exited?**
+
+If you run `stop.sh` you'll delete your data and reset the container for a new run.  If, however, you don't want to do that, you can re-enter the docker container like this:
+
+    sudo docker exec -it openworm bash
+   
+You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`. 
+
+You'll be able to interact with the container as before.
+
 Documentation
 -------------
 Find out more about OpenWorm.  Documentation is available at [http://docs.openworm.org](http://docs.openworm.org).  [Join us on Slack](http://bit.ly/OpenWormVolunteer).
