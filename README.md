@@ -30,7 +30,7 @@ We have put together a [docker container](http://docker.com) that pulls together
 
 Pre-requisites:
 
-1. Currently Windows is not supported; you will need Mac OS or Linux (or a virtual environment on Windows that runs either of those).
+1. Currently Windows is not supported (see https://github.com/openworm/OpenWorm/issues/263); you will need Mac OS or Linux (or a virtual environment on Windows that runs either of those).
 2. You should have at least 60 GB of free space on your machine and at least 2GB of RAM
 
 To Install:
