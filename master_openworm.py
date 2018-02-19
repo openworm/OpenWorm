@@ -13,7 +13,7 @@ import glob
 import math
 
 print("****************************")
-print("OpenWorm Master Script v.0.8")
+print("OpenWorm Master Script v.0.9")
 print("****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")

@@ -27,7 +27,7 @@ then #duration is not set, don't use it
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --privileged \
     -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-    openworm/openworm:0.8 \
+    openworm/openworm:0.9 \
     bash -c "DISPLAY=:44 python master_openworm.py"
 else #Duration is set, use it.
   docker run -d \
@@ -39,7 +39,7 @@ else #Duration is set, use it.
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --privileged \
     -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-    openworm/openworm:0.8 \
+    openworm/openworm:0.9 \
     bash -c "DISPLAY=:44 python master_openworm.py"
 fi
 
