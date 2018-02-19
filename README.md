@@ -24,13 +24,13 @@ We have put together a [docker container](http://docker.com) that pulls together
 
 <img src="img/muscle-activity.png" width="250"><img src="img/neuron-activity.png" width="350">
 
-**NOTE**: Running the simulation for the full amount of time would produce content like the above.  However, in order to run in a reasonable amount of time, the default run time for the simulation is limited.  As such, you will see only a partial output, equivalent to about 5% of run time, compared to the examples above.
+**NOTE**: Running the simulation for the full amount of time would produce content like the above.  However, in order to run in a reasonable amount of time, the default run time for the simulation is limited.  As such, you will see only a partial output, equivalent to about 5% of run time, compared to the examples above.  To extend the run time, use the `-d` argument as described below.
 
 **Installation**
 
 Pre-requisites:
 
-1. Currently Windows is not supported; you will need Mac OS or Linux (or a virtual environment on Windows that runs either of those).
+1. Currently Windows is not supported (see https://github.com/openworm/OpenWorm/issues/263); you will need Mac OS or Linux (or a virtual environment on Windows that runs either of those).
 2. You should have at least 60 GB of free space on your machine and at least 2GB of RAM
 
 To Install:
