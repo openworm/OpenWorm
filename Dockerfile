@@ -127,7 +127,9 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 
 RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
   cd CElegansNeuroML && \
-  git checkout ow-0.8
+  # Pointing this at a recent commit that adds python 3 support!
+  # https://github.com/openworm/CElegansNeuroML/commit/c8b13642d79335bb8157431b83624e33d50a166e
+  git checkout c8b1364
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
