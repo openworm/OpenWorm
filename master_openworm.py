@@ -13,7 +13,7 @@ import glob
 import math
 
 print("****************************")
-print("OpenWorm Master Script v.0.7")
+print("OpenWorm Master Script v.0.8")
 print("****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
@@ -106,8 +106,12 @@ except:
     print("Unexpected error: %s" % sys.exc_info()[0])
     raise
 
+#Default is 15 ms of simulation time.
+sim_duration = 15.0
+if 'DURATION' in os.environ:
+    sim_duration = float(os.environ['DURATION'])
 
-DEFAULTS = {'duration': 15.0, # 50 ms
+DEFAULTS = {'duration': sim_duration,
             'dt': 0.005,
             'dtNrn': 0.05,
             'logstep': 100,

@@ -77,16 +77,16 @@ WORKDIR $HOME
 
 RUN mkdir neuron && \
   cd neuron && \
-  git clone https://github.com/lungd/iv.git && \
-  git clone https://github.com/lungd/nrn.git && \
+  git clone https://github.com/nrnhines/iv.git && \
+  git clone https://github.com/nrnhines/nrn.git && \
   cd iv && \
-  git checkout ow-0.1 && \
+  git checkout 76c123b && \
   ./build.sh && \
   ./configure --prefix=`pwd` && \
   make && \
   sudo make install && \
   cd ../nrn && \
-  git checkout ow-0.1 && \
+  git checkout e0950a1 && \
   ./build.sh && \
   ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python --with-paranrn && \
   make && \
@@ -114,29 +114,28 @@ RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/in
   cd $HOME && \
   rm intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
   sudo rm /tmp/silent-intel-sdk.cfg
-
-RUN git clone https://github.com/lungd/jNeuroML.git && \
-  cd jNeuroML && \
-  git checkout ow-0.1 && \
-  python getNeuroML.py ow-0.1
   
-RUN git clone https://github.com/lungd/pyNeuroML.git && \
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout ow-0.1 && \
+  git checkout ow-0.8a  && \
   sudo python setup.py install
 
-RUN git clone https://github.com/lungd/PyOpenWorm.git && \
+RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
-  git checkout ow-0.1 && \
+  git checkout 7ff1266 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/lungd/CElegansNeuroML.git && \
+RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
   cd CElegansNeuroML && \
-  git checkout ow-0.1
+  # Pointing this at a recent commit that adds python 3 support!
+  # https://github.com/openworm/CElegansNeuroML/commit/c8b13642d79335bb8157431b83624e33d50a166e
+  git checkout c8b1364
 
-RUN git clone https://github.com/lungd/sibernetic.git && \
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.1 && \
+  # fixed to a specific commit in development branch:
+  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
+  git checkout 3eb9914 && \
   make clean && make all
 
 ENV JNML_HOME=$HOME/jNeuroML
