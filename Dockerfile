@@ -125,11 +125,9 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   git checkout 7ff1266 && \
   sudo python setup.py install
 
-RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
-  cd CElegansNeuroML && \
-  # Pointing this at a recent commit that adds python 3 support!
-  # https://github.com/openworm/CElegansNeuroML/commit/c8b13642d79335bb8157431b83624e33d50a166e
-  git checkout c8b1364
+RUN git clone https://github.com/openworm/c302.git && \  
+  cd c302 && \
+  git checkout master
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
@@ -145,7 +143,7 @@ ENV N=$HOME/neuron/nrn
 ENV CPU=x86_64
 ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
 ENV NEURON_HOME=$N/$CPU
-ENV C302_HOME=$HOME/CElegansNeuroML/CElegans/pythonScripts/c302
+ENV C302_HOME=$HOME/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$C302_HOME:$SIBERNETIC_HOME
 
