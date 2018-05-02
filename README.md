@@ -36,6 +36,9 @@ Pre-requisites:
 To Install:
 
 1. Install [Docker](http://docker.com) on your system.  
+2. If your sistem does not have enough free space, you can use
+an external hard disk.  The location for image storage
+can be specified in the [Advanced Tab](https://forums.docker.com/t/change-docker-image-directory-for-mac/18891/15) in Preferences.
 
 **Running**
 
@@ -87,8 +90,8 @@ When you are in the Docker Container `openworm`, and are done interacting with i
 If you run `stop.sh` you'll delete your data and reset the container for a new run.  If, however, you don't want to do that, you can re-enter the docker container like this:
 
     sudo docker exec -it openworm bash
-   
-You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`. 
+
+You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`.
 
 You'll be able to interact with the container as before.
 
