@@ -36,7 +36,7 @@ Pre-requisites:
 To Install:
 
 1. Install [Docker](http://docker.com) on your system.  
-2. If your sistem does not have enough free space, you can use
+2. If your system does not have enough free space, you can use
 an external hard disk.  The location for image storage
 can be specified in the [Advanced Tab](https://forums.docker.com/t/change-docker-image-directory-for-mac/18891/15) in Preferences.
 
