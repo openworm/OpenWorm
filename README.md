@@ -39,10 +39,6 @@ To Install:
 2. If your system does not have enough free space, you can use
 an external hard disk.  The location for image storage
 can be specified in the [Advanced Tab](https://forums.docker.com/t/change-docker-image-directory-for-mac/18891/15) in Preferences.
-3. While you do not need to know much about Docker to use OpenWorm,
-if you are planning on working extensively with the platform, you may benefit
-from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
-is an excellent tutorial for beginners that is straightforward to work through.  
 
 **Running**
 
@@ -67,7 +63,10 @@ is an excellent tutorial for beginners that is straightforward to work through.
 
 #### **What is the docker container?**
 
-The docker container is a self-contained environment in which you can run openworm simulations.  It's fully setup to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  
+The docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully setup to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
+if you are planning on working extensively with the platform, you may benefit
+from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
+is an excellent tutorial for beginners that is straightforward to work through.  
 
 #### **Is it possible to modify the simulation without having to run `build.py`?**
 
