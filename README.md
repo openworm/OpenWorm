@@ -39,6 +39,10 @@ To Install:
 2. If your system does not have enough free space, you can use
 an external hard disk.  The location for image storage
 can be specified in the [Advanced Tab](https://forums.docker.com/t/change-docker-image-directory-for-mac/18891/15) in Preferences.
+3. While you do not need to know much about Docker to use OpenWorm,
+if you are planning on working extensively with the platform, you may benefit
+from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
+is an excellent tutorial for beginners that is straightforward to work through.  
 
 **Running**
 
