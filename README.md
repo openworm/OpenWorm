@@ -64,7 +64,7 @@ in addition for Linux instructions.
 
 #### **What is the docker container?**
 
-The docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully setup to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
+The docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
 if you are planning on working extensively with the platform, you may benefit
 from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
 is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  
