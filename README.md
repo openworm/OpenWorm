@@ -9,6 +9,9 @@ About **OpenWorm**
 
 We are using a bottom-up approach, aimed at observing the worm behaviour emerge from a simulation of data derived from scientific experiments carried out over the past decade. To do so we are incorporating the data available from the scientific community into software models. We are also forging new collaborations with universities and research institutes to collect data that fill in the gaps.
 
+You can earn a badge with us simply by trying out this package! Click on the image below to get started.
+[![OpenWorm Docker Badge](img/ow-docker-badge.png)](https://www.badgelist.com/OpenWorm/OpenWorm-Docker-Apprentice)
+
 Quickstart
 ----------
 We have put together a [docker container](http://docker.com) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
