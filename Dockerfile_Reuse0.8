@@ -1,0 +1,53 @@
+FROM openworm/openworm:0.8
+
+MAINTAINER David Lung "lungdm@gmail.com"
+
+
+ARG USR=ow
+ENV USER=$USR
+
+USER $USER
+ENV HOME /home/$USER
+WORKDIR $HOME
+
+RUN sudo rm -rf pyNeuroML PyOpenWorm c302 sibernetic
+
+# =====================================================================
+# Commands below this line can be cut & paste into the main Dockerfile 
+# when issue https://github.com/openworm/OpenWorm/issues/286 is fixed...
+  
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
+  cd pyNeuroML && \
+  git checkout ow-0.8a  && \
+  sudo python setup.py install
+
+RUN git clone https://github.com/openworm/PyOpenWorm.git && \
+  cd PyOpenWorm && \
+  git checkout 7ff1266 && \
+  sudo python setup.py install
+
+RUN git clone https://github.com/openworm/c302.git && \  
+  cd c302 && \
+  git checkout master && \
+  sudo python setup.py install
+
+RUN git clone https://github.com/pgleeson/sibernetic.git && \
+  cd sibernetic && \
+  # fixed to a specific commit in development branch:
+  git checkout new_c302_repo && \
+  make clean && make all
+
+ENV JNML_HOME=$HOME/jNeuroML
+ENV PATH=$PATH:$JNML_HOME
+ENV IV=$HOME/neuron/iv
+ENV N=$HOME/neuron/nrn
+ENV CPU=x86_64
+ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
+ENV NEURON_HOME=$N/$CPU
+ENV C302_HOME=$HOME/c302
+ENV SIBERNETIC_HOME=$HOME/sibernetic
+ENV PYTHONPATH=$PYTHONPATH:$C302_HOME:$SIBERNETIC_HOME
+
+# Not working with --chown=$USER:$USER
+COPY ./master_openworm.py $HOME/master_openworm.py
+RUN sudo chown $USER:$USER $HOME/master_openworm.py
