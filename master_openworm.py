@@ -189,7 +189,7 @@ for figure in figures:
     
 # Copy reports etc.
 reports = glob.glob('%s/report*' % latest_subdir)
-for reports in report:
+for report in reports:
     print("Moving %s to %s"%(report, new_sim_out))
     shutil.move(report, new_sim_out)
 
