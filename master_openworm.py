@@ -184,7 +184,14 @@ except OSError as e:
 # Copy PNGs, created during the Sibernetic simulation, in a separate child-directory to find them more easily
 figures = glob.glob('%s/*.png' % latest_subdir)
 for figure in figures:
+    print("Moving %s to %s"%(figure, new_sim_out))
     shutil.move(figure, new_sim_out)
+    
+# Copy reports etc.
+reports = glob.glob('%s/report*' % latest_subdir)
+for reports in report:
+    print("Moving %s to %s"%(report, new_sim_out))
+    shutil.move(report, new_sim_out)
 
 
 # Rerun and record simulation
