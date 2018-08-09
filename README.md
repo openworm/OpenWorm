@@ -39,6 +39,10 @@ Pre-requisites:
 To Install:
 
 1. Install [Docker](http://docker.com) on your system.  
+2. If your system does not have enough free space, you can use
+an external hard disk.  On MacOS X, the location for image storage
+can be specified in the [Advanced Tab](https://forums.docker.com/t/change-docker-image-directory-for-mac/18891/15) in Preferences.  See [this thread](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169/18)
+in addition for Linux instructions.  
 
 **Running**
 
@@ -63,7 +67,10 @@ To Install:
 
 #### **What is the docker container?**
 
-The docker container is a self-contained environment in which you can run openworm simulations.  It's fully setup to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  
+The docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
+if you are planning on working extensively with the platform, you may benefit
+from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
+is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  
 
 #### **Is it possible to modify the simulation without having to run `build.py`?**
 
@@ -90,8 +97,8 @@ When you are in the Docker Container `openworm`, and are done interacting with i
 If you run `stop.sh` you'll delete your data and reset the container for a new run.  If, however, you don't want to do that, you can re-enter the docker container like this:
 
     sudo docker exec -it openworm bash
-   
-You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`. 
+
+You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`.
 
 You'll be able to interact with the container as before.
 
