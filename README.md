@@ -61,7 +61,7 @@ in addition for Linux instructions.
 ***Other things to try***
 
 * Open a terminal and run `run-shell-only.sh`.  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `stop.sh` to clean up.
-* If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.py` in order to rebuild the image locally.  Afterwards you can run normally.
+* If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.sh` in order to rebuild the image locally.  Afterwards you can run normally.
 
 ### FAQ
 
@@ -72,7 +72,7 @@ if you are planning on working extensively with the platform, you may benefit
 from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
 is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  
 
-#### **Is it possible to modify the simulation without having to run `build.py`?**
+#### **Is it possible to modify the simulation without having to run `build.sh`?**
 
 Yes, but it is marginally more complex.  The easiest way is to modify anything in the docker container once you are inside of it - it will work just like a bash shell.  If you want to modify any code in the container, you'll need to use an editor that runs in the terminal, like nano.  Once you've modified something in the container, you don't need to re-build.  However, if you run `stop.sh` once you exit, those changes will be gone.
 
