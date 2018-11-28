@@ -5,7 +5,7 @@ MAINTAINER David Lung "lungdm@gmail.com"
 
 ARG INTEL_SDK_VERSION=2017_7.0.0.2511_x64
 
-COPY ./silent-intel-sdk.cfg /tmp/silent-intel-sdk.cfg
+#COPY ./silent-intel-sdk.cfg /tmp/silent-intel-sdk.cfg
 
 
 ARG USR=ow
@@ -94,6 +94,52 @@ RUN mkdir neuron && \
   cd src/nrnpython && \
   sudo python setup.py install
 
+  
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
+  cd pyNeuroML && \
+  git checkout ow-0.8a  && \
+  sudo python setup.py install
+
+RUN git clone https://github.com/openworm/PyOpenWorm.git && \
+  cd PyOpenWorm && \
+  git checkout 7ff1266 && \
+  sudo python setup.py install
+
+RUN git clone https://github.com/openworm/c302.git && \  
+  cd c302 && \
+  git checkout master
+
+
+
+RUN git clone https://github.com/openworm/sibernetic.git && \
+  cd sibernetic && \
+  # fixed to a specific commit in development branch:
+  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
+  git checkout 3eb9914 && \
+  git checkout 3eb9914
+#  make clean && make all
+
+ENV JNML_HOME=$HOME/jNeuroML
+ENV PATH=$PATH:$JNML_HOME
+ENV IV=$HOME/neuron/iv
+ENV N=$HOME/neuron/nrn
+ENV CPU=x86_64
+ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
+ENV NEURON_HOME=$N/$CPU
+ENV C302_HOME=$HOME/c302/c302
+ENV SIBERNETIC_HOME=$HOME/sibernetic
+ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
+
+
+
+#RUN cd sibernetic && \
+#make clean && make all
+
+# Not working with --chown=$USER:$USER
+COPY ./master_openworm.py $HOME/master_openworm.py
+RUN sudo chown $USER:$USER $HOME/master_openworm.py
+
+
 RUN mkdir intel-opencl-tmp && \
   cd intel-opencl-tmp && \
   mkdir intel-opencl && \
@@ -107,48 +153,24 @@ RUN mkdir intel-opencl-tmp && \
   cd .. && \
   sudo rm -r intel-opencl-tmp
 
-RUN wget http://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/11705/intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
-  tar xvf intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
-  cd intel_sdk_for_opencl_$INTEL_SDK_VERSION && \
-  sudo ./install.sh --silent /tmp/silent-intel-sdk.cfg && \
-  cd $HOME && \
-  rm intel_sdk_for_opencl_$INTEL_SDK_VERSION.tgz && \
-  sudo rm /tmp/silent-intel-sdk.cfg
-  
-RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
-  cd pyNeuroML && \
-  git checkout ow-0.8a  && \
-  sudo python setup.py install
+RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
+sudo apt install -y ocl-icd-opencl-dev
+#sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
 
-RUN git clone https://github.com/openworm/PyOpenWorm.git && \
-  cd PyOpenWorm && \
-  git checkout 7ff1266 && \
-  sudo python setup.py install
+RUN cd sibernetic && \
+make clean && make all
 
-RUN git clone https://github.com/openworm/CElegansNeuroML.git && \  
-  cd CElegansNeuroML && \
-  # Pointing this at a recent commit that adds python 3 support!
-  # https://github.com/openworm/CElegansNeuroML/commit/c8b13642d79335bb8157431b83624e33d50a166e
-  git checkout c8b1364
+# intel i5, hd 5500, linux 4.15.0-39-generic
+# ./Release/Sibernetic -f worm -no_g device=CPU    190ms
+# ./Release/Sibernetic -f worm -no_g device=GPU    150ms (initialization takes some time)
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
-  cd sibernetic && \
-  # fixed to a specific commit in development branch:
-  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
-  git checkout 3eb9914 && \
-  make clean && make all
-
-ENV JNML_HOME=$HOME/jNeuroML
-ENV PATH=$PATH:$JNML_HOME
-ENV IV=$HOME/neuron/iv
-ENV N=$HOME/neuron/nrn
-ENV CPU=x86_64
-ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
-ENV NEURON_HOME=$N/$CPU
-ENV C302_HOME=$HOME/CElegansNeuroML/CElegans/pythonScripts/c302
-ENV SIBERNETIC_HOME=$HOME/sibernetic
-ENV PYTHONPATH=$PYTHONPATH:$C302_HOME:$SIBERNETIC_HOME
-
-# Not working with --chown=$USER:$USER
-COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
+# Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz, linux 4.4.0-139-generic
+# ./Release/Sibernetic -f worm -no_g device=CPU    60ms
+#
+# after installing the nvidia driver used in host:
+## wget http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
+## sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
+## sudo apt-key add /var/nvidia-diag-driver-local-repo-390.30/7fa2af80.pub
+## sudo apt-get update
+## sudo apt-get install -y cuda-drivers
+# ./Release/Sibernetic -f worm -no_g device=GPU    37ms
