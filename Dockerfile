@@ -109,12 +109,17 @@ RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout master
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
+#RUN git clone https://github.com/openworm/sibernetic.git && \
+#  cd sibernetic && \
+  # fixed to a specific commit in development branch:
+  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
+#  git checkout 3eb9914 
+
+RUN git clone https://github.com/pgleeson/sibernetic.git && \
   cd sibernetic && \
   # fixed to a specific commit in development branch:
   # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
-  git checkout 3eb9914 
-#  make clean && make all
+  git checkout test_dev 
 
 ENV JNML_HOME=$HOME/jNeuroML
 ENV PATH=$PATH:$JNML_HOME
