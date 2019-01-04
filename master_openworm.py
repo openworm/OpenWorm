@@ -121,7 +121,7 @@ DEFAULTS = {'duration': sim_duration,
             'device': 'GPU',
             'configuration': 'worm_crawl_half_resolution',
             'noc302': False,
-            'datareader': 'UpdatedSpreadsheetDataReader',
+            'datareader': 'UpdatedSpreadsheetDataReader2',
             'outDir': OW_OUT_DIR} 
 
 my_env = os.environ.copy()
