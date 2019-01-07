@@ -25,7 +25,7 @@ print("")
 print("****************************")
 print("Step 1: Rebuild c302 from the latest PyOpenWorm")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented.")
 
 
 print("****************************")
@@ -192,6 +192,12 @@ reports = glob.glob('%s/report*' % latest_subdir)
 for report in reports:
     print("Moving %s to %s"%(report, new_sim_out))
     shutil.move(report, new_sim_out)
+    
+# Copy WCON file(s)
+wcons = glob.glob('%s/*.wcon' % latest_subdir)
+for wcon in wcons:
+    print("Moving %s to %s"%(wcon, new_sim_out))
+    shutil.move(wcon, new_sim_out)
 
 
 # Rerun and record simulation
@@ -250,10 +256,11 @@ os.system('sudo rm -r tmp/*')
 print("****************************")
 print("Step 4: Run movement analysis")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented.")
+print("Note however the following WCON files have been generated into %s during the simulation: %s"%(new_sim_out, [w.split('/')[-1] for w in wcons]))
 
 
 print("****************************")
 print("Step 5: Report on movement analysis fit to real worm videos")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented.")
