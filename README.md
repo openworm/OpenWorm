@@ -14,7 +14,7 @@ You can earn a badge with us simply by trying out this package! Click on the ima
 
 Quickstart
 ----------
-We have put together a [docker container](http://docker.com) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
+We have put together a [docker container](https://hub.docker.com/r/openworm/openworm) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
 
 1. Run our nervous system model, known as [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302), on your computer.  
 2. Run our body model, known as [Sibernetic](https://github.com/openworm/sibernetic), on your computer, using the output of the nervous system model.

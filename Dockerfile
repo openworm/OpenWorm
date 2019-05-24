@@ -11,12 +11,9 @@ ARG INTEL_SDK_VERSION=2017_7.0.0.2511_x64
 ARG USR=ow
 ENV USER=$USR
 
-
 RUN apt-get update && \
   apt-get upgrade -y && \
   apt-get dist-upgrade -y
-
-
 
 RUN mkdir -p /etc/sudoers.d && \
   export uid=1000 gid=1000 && \
@@ -65,7 +62,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
   libpng12-dev libxft-dev python-matplotlib xubuntu-desktop ffmpeg xvfb tmux
 
-#RUN  sudo pip install --upgrade matplotlib 
+RUN  sudo pip install --upgrade pip
 
 #RUN sudo apt-get install nvidia-opencl-dev
 
@@ -134,11 +131,6 @@ ENV NEURON_HOME=$N/$CPU
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
-
-
-
-#RUN cd sibernetic && \
-#make clean && make all
 
 # Not working with --chown=$USER:$USER
 COPY ./master_openworm.py $HOME/master_openworm.py
