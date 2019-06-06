@@ -12,12 +12,12 @@ import time
 import glob
 import math
 
-print("****************************")
-print("OpenWorm Master Script v.0.9")
-print("****************************")
+print("***************************")
+print("OpenWorm Master Script v0.9")
+print("***************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
-print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded docker instance.")
+print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance.")
 print("It will report out where steps are missing.")
 print("Eventually all the steps will be filled in.")
 print("")
@@ -25,7 +25,7 @@ print("")
 print("****************************")
 print("Step 1: Rebuild c302 from the latest PyOpenWorm")
 print("****************************")
-print("Not yet implemented.")
+print("Not yet implemented. See https://github.com/openworm/c302/issues/10")
 
 
 print("****************************")

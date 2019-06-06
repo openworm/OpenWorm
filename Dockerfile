@@ -94,28 +94,31 @@ RUN mkdir neuron && \
   
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout ow-0.8a  && \
+  git checkout ow-0.9  && \
   sudo python setup.py install
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
-  sudo python setup.py install
+  git checkout ow-0.9 && \
+  sudo apt-get install -y python-cffi && \
+  sudo python setup.py install && \
+  pow clone https://github.com/openworm/OpenWormData.git
+
+###############################RUN pyconfif
 
 RUN git clone https://github.com/openworm/c302.git && \  
   cd c302 && \
-  git checkout master
+  git checkout ow-0.9 && \
+  sudo python setup.py install
 
-#RUN git clone https://github.com/openworm/sibernetic.git && \
-#  cd sibernetic && \
-  # fixed to a specific commit in development branch:
-  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
-#  git checkout 3eb9914 
 
 RUN git clone https://github.com/pgleeson/sibernetic.git && \
   cd sibernetic && \
   # fixed to a specific commit in development branch:
   # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
   git checkout test_dev 
+
+RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
 ENV JNML_HOME=$HOME/jNeuroML
 ENV PATH=$PATH:$JNML_HOME
