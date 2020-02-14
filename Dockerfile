@@ -62,7 +62,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
   libpng12-dev libxft-dev python-matplotlib xubuntu-desktop ffmpeg xvfb tmux
 
-RUN  sudo pip install --upgrade pip
+#RUN  sudo pip install --upgrade pip
 
 #RUN sudo apt-get install nvidia-opencl-dev
 
@@ -97,6 +97,9 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   git checkout ow-0.9  && \
   sudo python setup.py install
 
+RUN pip install pyparsing==2.0.3
+RUN pip install Jinja2==2.11.1
+RUN pip install configparser==4.0.2
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
   git checkout ow-0.9 && \
