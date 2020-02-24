@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER David Lung "lungdm@gmail.com"
-
+LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
 ARG INTEL_SDK_VERSION=2017_7.0.0.2511_x64
 
@@ -31,39 +30,23 @@ ENV DEBIAN_FRONTEND noninteractive # TODO: change
 #RUN useradd -ms /bin/bash $USER
 
 
+################################################################################
+########     Update/install essential libraries
+
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  wget \
-  nano \
-  htop \
-  build-essential \
-  make \
-  git \
-  automake \
-  autoconf \
-  g++ \
-  rpm \
-  libtool \
-  libncurses5-dev \
-  zlib1g-dev \
-  bison \
-  flex \
-  lsb-core \
-  sudo \
-  xorg \
-  openbox \
-  x11-xserver-utils \
+  wget nano htop build-essential make git automake autoconf \
+  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
+  sudo xorg openbox x11-xserver-utils \
   libxext-dev libncurses-dev python-dev mercurial \
   freeglut3-dev libglu1-mesa-dev libglew-dev python-dev python-pip python-lxml python-numpy python-scipy python-tk \
-  kmod dkms \
-  linux-source linux-headers-generic \
+  kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
   python-setuptools python-yaml libnuma1 \
-  openmpi-bin  libopenmpi-dev \
+  openmpi-bin libopenmpi-dev \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
   libpng12-dev libxft-dev python-matplotlib xubuntu-desktop ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
-
 #RUN sudo apt-get install nvidia-opencl-dev
 
 RUN sudo usermod -a -G video $USER
@@ -71,6 +54,9 @@ RUN sudo usermod -a -G video $USER
 USER $USER
 ENV HOME /home/$USER
 WORKDIR $HOME
+
+################################################################################
+########     Install NEURON simulator
 
 RUN mkdir neuron && \
   cd neuron && \
@@ -92,10 +78,17 @@ RUN mkdir neuron && \
   sudo python setup.py install
 
   
+################################################################################
+########     Install pyNeuroML for handling NeuroML network model
+
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
   git checkout ow-0.9  && \
   sudo python setup.py install
+
+
+################################################################################
+########     Install PyOpenWorm
 
 RUN pip install pyparsing==2.0.3 Jinja2==2.11.1 configparser==4.0.2 GitPython==3.0.7 gitdb2==2.0.6 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
@@ -105,7 +98,9 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   sudo python setup.py install && \
   pow clone https://github.com/openworm/OpenWormData.git
 
-###############################RUN pyconfif
+
+################################################################################
+########     Install c302 for building neuronal network models
 
 RUN git clone https://github.com/openworm/c302.git && \  
   cd c302 && \
@@ -113,13 +108,19 @@ RUN git clone https://github.com/openworm/c302.git && \
   sudo python setup.py install
 
 
-RUN git clone https://github.com/pgleeson/sibernetic.git && \
+################################################################################
+########     Install Sibernetic for the worm body model
+
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  # fixed to a specific commit in development branch:
-  # https://github.com/openworm/sibernetic/commit/3eb9914db040fff852cba76ef8f4f39d0bed3294
-  git checkout test_dev 
+  # fixed to a specific branch
+  git checkout ow-0.9
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
+
+
+################################################################################
+########     Set some paths//environment variables
 
 ENV JNML_HOME=$HOME/jNeuroML
 ENV PATH=$PATH:$JNML_HOME
@@ -137,6 +138,9 @@ COPY ./master_openworm.py $HOME/master_openworm.py
 RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 
+################################################################################
+########     Install Intel OpenCL libraries needed for Sibernetic
+
 RUN mkdir intel-opencl-tmp && \
   cd intel-opencl-tmp && \
   mkdir intel-opencl && \
@@ -153,6 +157,10 @@ RUN mkdir intel-opencl-tmp && \
 RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
 sudo apt install -y ocl-icd-opencl-dev
 #sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
+
+
+################################################################################
+########     Build Sibernetic
 
 RUN cd sibernetic && \
 make clean && make all

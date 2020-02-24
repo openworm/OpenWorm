@@ -67,18 +67,19 @@ in addition for Linux instructions.
 
 #### **What is the Docker container?**
 
-The Docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
-if you are planning on working extensively with the platform, you may benefit
-from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
+The Docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above. At the moment, 
+it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the Docker container. While you do not need to know 
+much about Docker to use OpenWorm, if you are planning on working extensively with the platform, you may benefit
+from understanding some basics. [Docker Curriculum](https://docker-curriculum.com)
 is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  
 
 #### **Is it possible to modify the simulation without having to run `build.sh`?**
 
-Yes, but it is marginally more complex.  The easiest way is to modify anything in the docker container once you are inside of it - it will work just like a bash shell.  If you want to modify any code in the container, you'll need to use an editor that runs in the terminal, like nano.  Once you've modified something in the container, you don't need to re-build.  However, if you run `stop.sh` once you exit, those changes will be gone.
+Yes, but it is marginally more complex.  The easiest way is to modify anything in the Docker container once you are inside of it - it will work just like a bash shell.  If you want to modify any code in the container, you'll need to use an editor that runs in the terminal, like nano.  Once you've modified something in the container, you don't need to re-build.  However, if you run `stop.sh` once you exit, those changes will be gone.
 
 #### **How do I access more data than what is already output?**
 
-The simulation by default outputs only a few figures and movies to your home system (that is, outside of the docker container).  If you want to access the entire output of the simulation, you will need to copy it from the docker container.  
+The simulation by default outputs only a few figures and movies to your home system (that is, outside of the Docker container).  If you want to access the entire output of the simulation, you will need to copy it from the Docker container.  
 
 For example, say you want to extract the worm motion data.  This is contained in the file `worm_motion_log.txt`, which is found in the `/home/ow/sibernetic/simulations/[SPECIFIC_TIMESTAMPED_DIRECTORY]/worm_motion_log.txt`.  The directory `[SPECIFIC_TIMESTAMPED_DIRECTORY]` will have a name like `C2_FW_2018_02-12_18-36-32`, and its name can be found by checking the `output` directory.  This is actually the main output directory for the simulation, and contains all output, including cell modelling and worm movement.  
 
@@ -86,7 +87,7 @@ Once the simulation ends and you exit the container with `exit`, but before you 
 
 `docker cp openworm:/home/ow/sibernetic/simulations/[SPECIFIC_TIMESTAMPED_DIRECTORY]/worm_motion_log.txt ./worm_motion_log.txt`
 
-This will copy the file from the docker container, whose default name is `openworm`.  **It is crucial that you do not run `stop.sh` before trying to get your data out (see below)**
+This will copy the file from the Docker container, whose default name is `openworm`.  **It is crucial that you do not run `stop.sh` before trying to get your data out (see below)**
 
 #### **What is the difference between `exit` and `stop.sh`?**
 
@@ -94,11 +95,12 @@ When you are in the Docker Container `openworm`, and are done interacting with i
 
 #### **How do I enter a container I just exited?**
 
-If you run `stop.sh` you'll delete your data and reset the container for a new run.  If, however, you don't want to do that, you can re-enter the docker container like this:
+If you run `stop.sh` you'll delete your data and reset the container for a new run.  If, however, you don't want to do that, you can re-enter the Docker container like this:
 
-    sudo docker exec -it openworm bash
+    docker start openworm                 # Restarts the container
+    docker exec -it openworm /bin/bash    # Runs bash inside the container
 
-You'll need to enter your su password.  This tells docker to all you to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`.
+This tells Docker to start the container, to *execute* commands (`exec`) with an *interactive, tty* (`-it`)  bash (`bash`) shell in the container `openworm`.
 
 You'll be able to interact with the container as before.
 
@@ -107,5 +109,4 @@ Documentation
 Find out more about OpenWorm.  Documentation is available at [http://docs.openworm.org](http://docs.openworm.org).  [Join us on Slack](http://bit.ly/OpenWormVolunteer).
 
 This repository references:
-* A project-wide [Kanban board of all issues](https://waffle.io/openworm/openworm)
 * Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/milestones)
