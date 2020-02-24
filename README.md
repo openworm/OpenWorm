@@ -1,25 +1,24 @@
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 
-[![Stories in Ready](https://badge.waffle.io/openworm/openworm.png?label=ready&title=Ready)](https://waffle.io/openworm/openworm)
 
 About **OpenWorm**
 ------------------
 
 [OpenWorm](http://openworm.org) aims to build the first comprehensive computational model of *Caenorhabditis elegans* (*C. elegans*), a microscopic roundworm. With only a thousand cells, it solves basic problems such as feeding, mate-finding and predator avoidance. Despite being extremely well-studied in biology, a deep, principled understanding of the biology of this organism remains elusive.
 
-We are using a bottom-up approach, aimed at observing the worm behaviour emerge from a simulation of data derived from scientific experiments carried out over the past decade. To do so we are incorporating the data available from the scientific community into software models. We are also forging new collaborations with universities and research institutes to collect data that fill in the gaps.
+We are using a bottom-up approach, aimed at observing the worm behaviour emerge from a simulation of data derived from scientific experiments carried out over the past decade. To do so, we are incorporating the data available from the scientific community into software models. We are also forging new collaborations with universities and research institutes to collect data that fill in the gaps.
 
 You can earn a badge with us simply by trying out this package! Click on the image below to get started.
 [![OpenWorm Docker Badge](img/ow-docker-badge.png)](https://www.badgelist.com/OpenWorm/OpenWorm-Docker-Apprentice)
 
 Quickstart
 ----------
-We have put together a [docker container](https://hub.docker.com/r/openworm/openworm) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
+We have put together a [Docker container](https://hub.docker.com/r/openworm/openworm) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
 
-1. Run our nervous system model, known as [c302](https://github.com/openworm/CElegansNeuroML/tree/master/CElegans/pythonScripts/c302), on your computer.  
-2. Run our body model, known as [Sibernetic](https://github.com/openworm/sibernetic), on your computer, using the output of the nervous system model.
-3. Produce graphs from the output of the nervous system model that demonstrate its output on your computer for you to inspect.
-4. Produce a movie showing the output of the body model for you to inspect.
+1. Run our nervous system model, known as [c302](https://github.com/openworm/c302), on your computer.  
+2. Run our 3D worm body model, known as [Sibernetic](https://github.com/openworm/sibernetic), on your computer, using the output of the nervous system model.
+3. Produce graphs from the nervous system and body model that demonstrate its behavior on your computer for you to inspect.
+4. Produce a movie showing the output of the body model.
 
 **Example Output**
 
@@ -33,8 +32,8 @@ We have put together a [docker container](https://hub.docker.com/r/openworm/open
 
 Pre-requisites:
 
-1. Currently Windows is not supported (see https://github.com/openworm/OpenWorm/issues/263); you will need Mac OS or Linux (or a virtual environment on Windows that runs either of those).
-2. You should have at least 60 GB of free space on your machine and at least 2GB of RAM
+1) You should have at least 60 GB of free space on your machine and at least 2GB of RAM
+2) You should be able to clone git repositories on your machine. [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), or [this GUI](https://desktop.github.com/) may be useful. 
 
 To Install:
 
@@ -47,27 +46,28 @@ in addition for Linux instructions.
 **Running**
 
 1. Open a terminal and run: `git clone http://github.com/openworm/openworm`; `cd openworm`
-1. Run `./run.sh`.
-2. About 5-10 minutes of output will display on the screen as the steps run.
-3. The simulation will end.  Exit the container with `exit` and run `stop.sh` on your system to clean up the running container.
-4. Inspect the output in the `output` directory.
+2. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latets released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm). 
+3. Run `./run.sh` (or `run.cmd` on Windows).
+4. About 5-10 minutes of output will display on the screen as the steps run.
+5. The simulation will end.  Run `stop.sh` on your system to clean up the running container.
+6. Inspect the output in the `output` directory.
 
 **Advanced**
 
 ***Arguments***
 
-* -d [num] : Use to modify the duration of the simulation in milliseconds.  Default is 15.  Use 5000 to run for time to make the full movie above.
+* -d [num] : Use to modify the duration of the simulation in milliseconds.  Default is 15.  Use 5000 to run for time to make the full movie above (i.e. 5 seconds).
 
 ***Other things to try***
 
-* Open a terminal and run `run-shell-only.sh`.  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `stop.sh` to clean up.
-* If you modify what gets installed, you should modify Dockerfile.  If you modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.sh` in order to rebuild the image locally.  Afterwards you can run normally.
+* Open a terminal and run `./run-shell-only.sh` (or `run-shell-only.cmd` on Windows).  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `./stop.sh` to clean up.
+* If you wish to modify what gets installed, you should modify Dockerfile.  If you want to modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.sh` in order to rebuild the image locally.  Afterwards you can run normally.
 
 ### FAQ
 
-#### **What is the docker container?**
+#### **What is the Docker container?**
 
-The docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
+The Docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above.  At the moment, it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the docker container.  While you do not need to know much about Docker to use OpenWorm,
 if you are planning on working extensively with the platform, you may benefit
 from understanding some basics.  [Docker Curriculum](https://docker-curriculum.com)
 is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  
