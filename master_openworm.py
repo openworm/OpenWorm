@@ -12,12 +12,12 @@ import time
 import glob
 import math
 
-print("****************************")
-print("OpenWorm Master Script v.0.8")
-print("****************************")
+print("***************************")
+print("OpenWorm Master Script v0.9")
+print("***************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
-print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded docker instance.")
+print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance.")
 print("It will report out where steps are missing.")
 print("Eventually all the steps will be filled in.")
 print("")
@@ -25,7 +25,7 @@ print("")
 print("****************************")
 print("Step 1: Rebuild c302 from the latest PyOpenWorm")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented. See https://github.com/openworm/c302/issues/10")
 
 
 print("****************************")
@@ -38,14 +38,14 @@ if os.environ.has_key('DISPLAY'):
     orig_display_var = os.environ['DISPLAY']
     del os.environ['DISPLAY'] # https://www.neuron.yale.edu/phpBB/viewtopic.php?f=6&t=1603
 
-run_c302(DEFAULTS['reference'], 
-         DEFAULTS['c302params'], 
-         '', 
-         DEFAULTS['duration'], 
-         DEFAULTS['dt'], 
-         'jNeuroML_NEURON', 
-         data_reader=DEFAULTS['datareader'], 
-         save=True, 
+run_c302(DEFAULTS['reference'],
+         DEFAULTS['c302params'],
+         '',
+         DEFAULTS['duration'],
+         DEFAULTS['dt'],
+         'jNeuroML_NEURON',
+         data_reader=DEFAULTS['datareader'],
+         save=True,
          show_plot_already=False,
          target_directory=os.path.join(os.environ['C302_HOME'], 'examples'),
          save_fig_to='tmp_images')
@@ -89,7 +89,7 @@ def execute_with_realtime_output(command, directory, env=None):
         raise e
 
 
-sys.path.append(os.environ['C302_HOME']) 
+sys.path.append(os.environ['C302_HOME'])
 
 try:
     os.system('xhost +')
@@ -121,8 +121,8 @@ DEFAULTS = {'duration': sim_duration,
             'device': 'GPU',
             'configuration': 'worm_crawl_half_resolution',
             'noc302': False,
-            'datareader': 'UpdatedSpreadsheetDataReader',
-            'outDir': OW_OUT_DIR} 
+            'datareader': 'UpdatedSpreadsheetDataReader2',
+            'outDir': OW_OUT_DIR}
 
 my_env = os.environ.copy()
 my_env["DISPLAY"] = ":44"
@@ -130,27 +130,27 @@ my_env["DISPLAY"] = ":44"
 os.system('Xvfb :44 -listen tcp -ac -screen 0 1920x1080x24+32 &') # TODO: terminate xvfb after recording
 
 try:
-    command = """python sibernetic_c302.py 
-                -duration %s 
-                -dt %s 
-                -dtNrn %s 
-                -logstep %s 
-                -device=%s 
-                -configuration %s 
-                -reference %s 
-                -c302params %s 
-                -datareader %s 
+    command = """python sibernetic_c302.py
+                -duration %s
+                -dt %s
+                -dtNrn %s
+                -logstep %s
+                -device=%s
+                -configuration %s
+                -reference %s
+                -c302params %s
+                -datareader %s
                 -outDir %s""" % \
                 (DEFAULTS['duration'],
                 DEFAULTS['dt'],
-                DEFAULTS['dtNrn'], 
-                DEFAULTS['logstep'], 
-                DEFAULTS['device'], 
-                DEFAULTS['configuration'], 
-                DEFAULTS['reference'], 
-                DEFAULTS['c302params'], 
+                DEFAULTS['dtNrn'],
+                DEFAULTS['logstep'],
+                DEFAULTS['device'],
+                DEFAULTS['configuration'],
+                DEFAULTS['reference'],
+                DEFAULTS['c302params'],
                 DEFAULTS['datareader'],
-                'simulations') 
+                'simulations')
                 #DEFAULTS['outDir'])
     execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 except KeyboardInterrupt as e:
@@ -184,7 +184,20 @@ except OSError as e:
 # Copy PNGs, created during the Sibernetic simulation, in a separate child-directory to find them more easily
 figures = glob.glob('%s/*.png' % latest_subdir)
 for figure in figures:
+    print("Moving %s to %s"%(figure, new_sim_out))
     shutil.move(figure, new_sim_out)
+
+# Copy reports etc.
+reports = glob.glob('%s/report*' % latest_subdir)
+for report in reports:
+    print("Moving %s to %s"%(report, new_sim_out))
+    shutil.move(report, new_sim_out)
+
+# Copy WCON file(s)
+wcons = glob.glob('%s/*.wcon' % latest_subdir)
+for wcon in wcons:
+    print("Moving %s to %s"%(wcon, new_sim_out))
+    shutil.move(wcon, new_sim_out)
 
 
 # Rerun and record simulation
@@ -210,8 +223,7 @@ black_dur = None
 
 
 out = outstr[0]
-# for out in outstr:
- 
+
 black_start_pos = out.find('black_start:')
 black_end_pos = out.find('black_end:')
 black_dur_pos = out.find('black_duration:')
@@ -243,10 +255,11 @@ os.system('sudo rm -r tmp/*')
 print("****************************")
 print("Step 4: Run movement analysis")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented.")
+print("Note however the following WCON files have been generated into %s during the simulation: %s"%(new_sim_out, [w.split('/')[-1] for w in wcons]))
 
 
 print("****************************")
 print("Step 5: Report on movement analysis fit to real worm videos")
 print("****************************")
-print("not yet implemented.")
+print("Not yet implemented.")

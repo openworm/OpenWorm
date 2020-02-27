@@ -1,0 +1,6 @@
+.git
+.github
+.DS_Store
+.gitignore
+.openworm.yml
+output
