@@ -9,7 +9,7 @@ About **OpenWorm**
 We are using a bottom-up approach, aimed at observing the worm behaviour emerge from a simulation of data derived from scientific experiments carried out over the past decade. To do so, we are incorporating the data available from the scientific community into software models. We are also forging new collaborations with universities and research institutes to collect data that fill in the gaps.
 
 You can earn a badge with us simply by trying out this package! Click on the image below to get started.
-[![OpenWorm Docker Badge](img/ow-docker-badge.png)](https://www.badgelist.com/OpenWorm/OpenWorm-Docker-Apprentice)
+[![OpenWorm Docker Badge](https://raw.githubusercontent.com/openworm/OpenWorm/master/img/ow-docker-badge.png)](https://www.badgelist.com/OpenWorm/OpenWorm-Docker-Apprentice)
 
 Quickstart
 ----------
@@ -22,9 +22,9 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 
 **Example Output**
 
-![Worm Crawling](img/worm-crawling.gif)
+![Worm Crawling](https://raw.githubusercontent.com/openworm/OpenWorm/master/img/worm-crawling.gif)
 
-<img src="img/muscle-activity.png" width="250"><img src="img/neuron-activity.png" width="350">
+<img src="https://raw.githubusercontent.com/openworm/OpenWorm/master/img/muscle-activity.png" width="250"><img src="https://raw.githubusercontent.com/openworm/OpenWorm/master/img/neuron-activity.png" width="350">
 
 **NOTE**: Running the simulation for the full amount of time would produce content like the above.  However, in order to run in a reasonable amount of time, the default run time for the simulation is limited.  As such, you will see only a partial output, equivalent to about 5% of run time, compared to the examples above.  To extend the run time, use the `-d` argument as described below.
 
