@@ -16,7 +16,7 @@ Quickstart
 We have put together a [Docker container](https://hub.docker.com/r/openworm/openworm) that pulls together the major components of our simulation and runs it on your machine.  When you get it all running it does the following:
 
 1. Run our nervous system model, known as [c302](https://github.com/openworm/c302), on your computer.  
-2. Run our 3D worm body model, known as [Sibernetic](https://github.com/openworm/sibernetic), on your computer, using the output of the nervous system model.
+2. In parallel, run our 3D worm body model, known as [Sibernetic](https://github.com/openworm/sibernetic), on your computer, using the output of the nervous system model.
 3. Produce graphs from the nervous system and body model that demonstrate its behavior on your computer for you to inspect.
 4. Produce a movie showing the output of the body model.
 
@@ -46,11 +46,11 @@ in addition for Linux instructions.
 **Running**
 
 1. Open a terminal and run: `git clone http://github.com/openworm/openworm`; `cd openworm`
-2. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latets released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm). 
+2. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm). 
 3. Run `./run.sh` (or `run.cmd` on Windows).
 4. About 5-10 minutes of output will display on the screen as the steps run.
-5. The simulation will end.  Run `stop.sh` on your system to clean up the running container.
-6. Inspect the output in the `output` directory.
+5. The simulation will end.  Run `stop.sh` (`stop.cmd` on Windows) on your system to clean up the running container.
+6. Inspect the output in the `output` directory on your local machine.
 
 **Advanced**
 
@@ -60,8 +60,8 @@ in addition for Linux instructions.
 
 ***Other things to try***
 
-* Open a terminal and run `./run-shell-only.sh` (or `run-shell-only.cmd` on Windows).  This will let you log into the system before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `./stop.sh` to clean up.
-* If you wish to modify what gets installed, you should modify Dockerfile.  If you want to modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.sh` in order to rebuild the image locally.  Afterwards you can run normally.
+* Open a terminal and run `./run-shell-only.sh` (or `run-shell-only.cmd` on Windows).  This will let you log into the container before it has run `master_openworm.py`.  From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards you'll still need to run `./stop.sh` to clean up.
+* If you wish to modify what gets installed, you should modify `Dockerfile`.  If you want to modify what runs, you should modify `master_openworm.py`.  Either way you will need to run `build.sh` in order to rebuild the image locally.  Afterwards you can run normally.
 
 ### FAQ
 
