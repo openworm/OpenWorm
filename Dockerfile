@@ -90,7 +90,7 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 ################################################################################
 ########     Install PyOpenWorm
 
-RUN pip install pyparsing==2.0.3 Jinja2==2.11.1 configparser==4.0.2 GitPython==3.0.7 gitdb2==2.0.6 
+RUN pip install pyparsing==2.0.3 Jinja2==2.11.1 configparser==4.0.2 GitPython==3.0.7 gitdb2==2.0.6 numpydoc==0.9.2 Sphinx==1.8.3 future==0.18.2 setuptools==41.5.1
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
   git checkout ow-0.9 && \
