@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   python3-setuptools python3-yaml libnuma1 \
   openmpi-bin  libopenmpi-dev \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
-  libxft-dev python3-matplotlib xubuntu-desktop ffmpeg xvfb tmux
+  libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
 #RUN sudo apt-get install nvidia-opencl-dev
@@ -83,14 +83,13 @@ RUN mkdir neuron && \
 
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout ow-0.9  && \
+  git checkout master  && \
   sudo python3 setup.py install
 
 
 ################################################################################
 ########     Install PyOpenWorm
 
-#RUN pip install pyparsing==2.0.3 Jinja2==2.11.1 configparser==4.0.2 GitPython==3.0.7 gitdb2==2.0.6 numpydoc==0.9.2 Sphinx==1.8.3 future==0.18.2 setuptools==41.5.1
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
   git checkout ow-0.9 && \
@@ -105,7 +104,7 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 
 RUN git clone https://github.com/openworm/c302.git && \  
   cd c302 && \
-  git checkout ow-0.9 && \
+  git checkout ow-0.9.1 && \
   sudo python3 setup.py install
 
 
@@ -115,7 +114,7 @@ RUN git clone https://github.com/openworm/c302.git && \
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
   # fixed to a specific branch
-  git checkout ow-0.9
+  git checkout ow-0.9.1
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
