@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   python-setuptools python-yaml libnuma1 \
   openmpi-bin libopenmpi-dev \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
-  libpng12-dev libxft-dev python-matplotlib xubuntu-desktop ffmpeg xvfb tmux
+  libpng12-dev libxft-dev python-matplotlib unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
 #RUN sudo apt-get install nvidia-opencl-dev
@@ -66,13 +66,13 @@ RUN mkdir neuron && \
   git checkout 76c123b && \
   ./build.sh && \
   ./configure --prefix=`pwd` && \
-  make && \
+  make -j3 && \
   sudo make install && \
   cd ../nrn && \
   git checkout e0950a1 && \
   ./build.sh && \
   ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python --with-paranrn && \
-  make && \
+  make -j3 && \
   sudo make install && \
   cd src/nrnpython && \
   sudo python setup.py install
@@ -81,9 +81,10 @@ RUN mkdir neuron && \
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
 
+RUN pip install cachetools==0.8.0
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
-  git checkout ow-0.9  && \
+  git checkout master  && \
   sudo python setup.py install
 
 
@@ -104,7 +105,7 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 
 RUN git clone https://github.com/openworm/c302.git && \  
   cd c302 && \
-  git checkout ow-0.9 && \
+  git checkout ow-0.9.1 && \
   sudo python setup.py install
 
 
@@ -113,8 +114,7 @@ RUN git clone https://github.com/openworm/c302.git && \
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  # fixed to a specific branch
-  git checkout ow-0.9
+  git checkout ow-0.9.1 # fixed to a specific branch
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
@@ -155,7 +155,7 @@ RUN mkdir intel-opencl-tmp && \
   sudo rm -r intel-opencl-tmp
 
 RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
-sudo apt install -y ocl-icd-opencl-dev
+sudo apt install -y ocl-icd-opencl-dev vim
 #sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
 
 
@@ -179,3 +179,8 @@ make clean && make all
 ## sudo apt-get update
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
+
+
+RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
+
+RUN echo "Built the OpenWorm Docker image!"
