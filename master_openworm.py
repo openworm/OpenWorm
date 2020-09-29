@@ -3,7 +3,7 @@ import errno
 import matplotlib
 matplotlib.use('Agg')
 import shutil
-from subprocess import call, Popen, PIPE, check_output
+from subprocess import Popen, PIPE, check_output
 import os
 import pwd
 import shlex
@@ -215,7 +215,7 @@ time.sleep(3)
 
 # Remove black frames at the beginning of the recorded video
 command = "ffmpeg -i %s/%s -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1 | grep blackdetect" % (new_sim_out, sibernetic_movie_name)
-outstr = check_output(command, shell=True)
+outstr = str(check_output(command, shell=True).decode('utf-8'))
 outstr = outstr.split('\n')
 
 black_start = 0.0
