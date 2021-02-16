@@ -12,9 +12,9 @@ import time
 import glob
 import math
 
-print("***************************")
-print("OpenWorm Master Script v0.9")
-print("***************************")
+print("*****************************")
+print("OpenWorm Master Script v0.9.1")
+print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
 print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance.")

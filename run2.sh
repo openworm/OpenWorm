@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# For generating/running a Dockerfile image based on Python 2
+# Note: Python 2 is no longer officially supported and this Docker image will
+# probably stop working eventually...
+
 #from: https://unix.stackexchange.com/a/129401
 while getopts ":d:p:" opt; do
   case $opt in
@@ -25,7 +29,7 @@ else #Duration is set, use it.
 fi
 
 docker run -d \
---name openworm3 \
+--name openworm2 \
 --device=/dev/dri:/dev/dri \
 -e DISPLAY=$DISPLAY \
 $DURATION_PART \
@@ -33,7 +37,7 @@ $DURATION_PART \
 -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 --privileged \
 -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-openworm/openworm:0.9_py3 \
+openworm/openworm:0.9.1_py2 \
 bash -c "DISPLAY=:44 python master_openworm.py"
 
-docker logs -f openworm3
+docker logs -f openworm2

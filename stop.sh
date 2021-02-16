@@ -1,4 +1,4 @@
 docker stop openworm
 docker rm openworm
-docker stop openworm3
-docker rm openworm3
+docker stop openworm2
+docker rm openworm2

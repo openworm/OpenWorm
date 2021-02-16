@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -38,13 +38,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
   sudo xorg openbox x11-xserver-utils \
   libxext-dev libncurses-dev python-dev mercurial \
-  freeglut3-dev libglu1-mesa-dev libglew-dev python-dev python-pip python-lxml python-numpy python-scipy python-tk \
+  freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
   kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
-  python-setuptools python-yaml libnuma1 \
-  openmpi-bin libopenmpi-dev \
+  python3-setuptools python3-yaml libnuma1 \
+  openmpi-bin  libopenmpi-dev \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
-  libpng12-dev libxft-dev python-matplotlib unzip ffmpeg xvfb tmux
+  libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
 #RUN sudo apt-get install nvidia-opencl-dev
@@ -71,32 +71,30 @@ RUN mkdir neuron && \
   cd ../nrn && \
   git checkout e0950a1 && \
   ./build.sh && \
-  ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python --with-paranrn && \
+  ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python3 --with-paranrn && \
   make -j3 && \
   sudo make install && \
   cd src/nrnpython && \
-  sudo python setup.py install
+  sudo python3 setup.py install
 
   
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
 
-RUN pip install cachetools==0.8.0
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
   git checkout master  && \
-  sudo python setup.py install
+  sudo python3 setup.py install
 
 
 ################################################################################
 ########     Install PyOpenWorm
 
-RUN pip install pyparsing==2.0.3 Jinja2==2.11.1 configparser==4.0.2 GitPython==3.0.7 gitdb2==2.0.6 numpydoc==0.9.2 Sphinx==1.8.3 future==0.18.2 setuptools==41.5.1
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
   git checkout ow-0.9 && \
-  sudo apt-get install -y python-cffi && \
-  sudo python setup.py install && \
+  sudo apt-get install -y python3-cffi && \
+  sudo python3 setup.py install && \
   pow clone https://github.com/openworm/OpenWormData.git
 
 
@@ -106,7 +104,7 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 RUN git clone https://github.com/openworm/c302.git && \  
   cd c302 && \
   git checkout ow-0.9.1 && \
-  sudo python setup.py install
+  sudo python3 setup.py install
 
 
 ################################################################################
@@ -163,7 +161,9 @@ sudo apt install -y ocl-icd-opencl-dev vim
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-make clean && make all
+    sed -i -e "s/lpython2.7/lpython3.6m/g" makefile && \
+    sed -i -e "s/n2.7/n3.6/g" makefile && \
+    make clean && make all  # Use python 3 libs
 
 # intel i5, hd 5500, linux 4.15.0-39-generic
 # ./Release/Sibernetic -f worm -no_g device=CPU    190ms
@@ -180,6 +180,10 @@ make clean && make all
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
+
+
+#### TODO: check that this is the best way to switch to py3...
+RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
