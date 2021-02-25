@@ -3,7 +3,7 @@ import errno
 import matplotlib
 matplotlib.use('Agg')
 import shutil
-from subprocess import call, Popen, PIPE, check_output
+from subprocess import Popen, PIPE, check_output
 import os
 import pwd
 import shlex
@@ -12,9 +12,9 @@ import time
 import glob
 import math
 
-print("***************************")
-print("OpenWorm Master Script v0.9")
-print("***************************")
+print("*****************************")
+print("OpenWorm Master Script v0.9.1")
+print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
 print("This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance.")
@@ -100,7 +100,7 @@ OW_OUT_DIR = os.environ['OW_OUT_DIR']
 
 
 try:
-    if pwd.getpwuid(os.stat(OW_OUT_DIR).st_uid).pw_name != os.environ['USER']:
+    if os.access(OW_OUT_DIR, os.W_OK) is not True:
         os.system('sudo chown -R %s:%s %s' % (os.environ['USER'], os.environ['USER'], OW_OUT_DIR))
 except:
     print("Unexpected error: %s" % sys.exc_info()[0])
@@ -215,7 +215,7 @@ time.sleep(3)
 
 # Remove black frames at the beginning of the recorded video
 command = "ffmpeg -i %s/%s -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1 | grep blackdetect" % (new_sim_out, sibernetic_movie_name)
-outstr = check_output(command, shell=True)
+outstr = str(check_output(command, shell=True).decode('utf-8'))
 outstr = outstr.split('\n')
 
 black_start = 0.0
