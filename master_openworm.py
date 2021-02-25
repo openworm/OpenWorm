@@ -100,7 +100,7 @@ OW_OUT_DIR = os.environ['OW_OUT_DIR']
 
 
 try:
-    if pwd.getpwuid(os.stat(OW_OUT_DIR).st_uid).pw_name != os.environ['USER']:
+    if os.access(OW_OUT_DIR, os.W_OK) is not True:
         os.system('sudo chown -R %s:%s %s' % (os.environ['USER'], os.environ['USER'], OW_OUT_DIR))
 except:
     print("Unexpected error: %s" % sys.exc_info()[0])
