@@ -43,7 +43,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   maven openjdk-8-jdk \
   python3-setuptools python3-yaml libnuma1 \
   openmpi-bin  libopenmpi-dev \
-  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
+  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \
   libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
@@ -77,7 +77,7 @@ RUN mkdir neuron && \
   cd src/nrnpython && \
   sudo python3 setup.py install
 
-  
+
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
 
@@ -101,7 +101,7 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 ################################################################################
 ########     Install c302 for building neuronal network models
 
-RUN git clone https://github.com/openworm/c302.git && \  
+RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout ow-0.9.1 && \
   sudo python3 setup.py install
