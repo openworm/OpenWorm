@@ -58,24 +58,7 @@ WORKDIR $HOME
 ################################################################################
 ########     Install NEURON simulator
 
-RUN mkdir neuron && \
-  cd neuron && \
-  git clone https://github.com/nrnhines/iv.git && \
-  git clone https://github.com/nrnhines/nrn.git && \
-  cd iv && \
-  git checkout 76c123b && \
-  ./build.sh && \
-  ./configure --prefix=`pwd` && \
-  make -j3 && \
-  sudo make install && \
-  cd ../nrn && \
-  git checkout e0950a1 && \
-  ./build.sh && \
-  ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python3 --with-paranrn && \
-  make -j3 && \
-  sudo make install && \
-  cd src/nrnpython && \
-  sudo python3 setup.py install
+RUN sudo pip3 install neuron==7.8.1
 
 
 ################################################################################
@@ -120,13 +103,6 @@ RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be ru
 ################################################################################
 ########     Set some paths//environment variables
 
-ENV JNML_HOME=$HOME/jNeuroML
-ENV PATH=$PATH:$JNML_HOME
-ENV IV=$HOME/neuron/iv
-ENV N=$HOME/neuron/nrn
-ENV CPU=x86_64
-ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
-ENV NEURON_HOME=$N/$CPU
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
