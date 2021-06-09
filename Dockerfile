@@ -71,14 +71,11 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 
 
 ################################################################################
-########     Install PyOpenWorm
+########     Install owmeta
 
-RUN git clone https://github.com/openworm/PyOpenWorm.git && \
-  cd PyOpenWorm && \
-  git checkout ow-0.9 && \
-  sudo apt-get install -y python3-cffi && \
-  sudo python3 setup.py install && \
-  pow clone https://github.com/openworm/OpenWormData.git
+RUN sudo pip3 install owmeta_core==0.13.0 owmeta==0.12.3
+#RUN owm clone https://github.com/openworm/OpenWormData.git --branch owmeta
+RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 ################################################################################
@@ -86,8 +83,9 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.1 && \
+  git checkout master && \
   sudo python3 setup.py install
+
 
 
 ################################################################################
