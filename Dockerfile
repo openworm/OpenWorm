@@ -73,9 +73,10 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 ################################################################################
 ########     Install owmeta
 
-RUN sudo pip3 install owmeta_core==0.13.0 owmeta==0.12.3
-#RUN owm clone https://github.com/openworm/OpenWormData.git --branch owmeta
-RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+# Installed with c302 below...
+#RUN sudo pip3 install owmeta_core==0.13.0 owmeta==0.12.3
+#RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+#RUN owm clone https://github.com/openworm/OpenWormData.git
 
 
 ################################################################################
@@ -84,7 +85,9 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout master && \
-  sudo python3 setup.py install
+  sudo pip3 install .
+
+RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 
@@ -104,10 +107,6 @@ RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be ru
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
-
-# Not working with --chown=$USER:$USER
-COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 
 ################################################################################
@@ -155,6 +154,16 @@ RUN cd sibernetic && \
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
 
+################################################################################
+########     Copy some files in
+
+# Not working with --chown=$USER:$USER
+COPY ./master_openworm.py $HOME/master_openworm.py
+RUN sudo chown $USER:$USER $HOME/master_openworm.py
+
+
+################################################################################
+########     Finish up
 
 #### TODO: check that this is the best way to switch to py3...
 RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
