@@ -74,9 +74,9 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 ########     Install owmeta
 
 # Installed with c302 below...
-#RUN sudo pip3 install owmeta_core==0.13.0 owmeta==0.12.3
-#RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
-#RUN owm clone https://github.com/openworm/OpenWormData.git
+RUN sudo pip3 install owmeta_core==0.13.2 owmeta==0.12.3
+RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+RUN owm clone https://github.com/openworm/OpenWormData.git
 
 
 ################################################################################
@@ -87,7 +87,7 @@ RUN git clone https://github.com/openworm/c302.git && \
   git checkout master && \
   sudo pip3 install .
 
-RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+#RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 
