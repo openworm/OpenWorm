@@ -39,12 +39,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   sudo xorg openbox x11-xserver-utils \
   libxext-dev libncurses-dev python-dev mercurial \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
-  kmod dkms linux-source linux-headers-generic \
-  maven openjdk-8-jdk \
-  python3-setuptools python3-yaml libnuma1 \
-  openmpi-bin  libopenmpi-dev \
-  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \
-  libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
+  python3-setuptools python3-yaml 
 
 #RUN  sudo pip install --upgrade pip
 #RUN sudo apt-get install nvidia-opencl-dev
