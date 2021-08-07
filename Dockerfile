@@ -27,85 +27,10 @@ RUN mkdir -p /etc/sudoers.d && \
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
 
-#RUN useradd -ms /bin/bash $USER
-
-
-################################################################################
-########     Update/install essential libraries
-
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
-  wget nano htop build-essential make git automake autoconf \
-  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
-  sudo xorg openbox x11-xserver-utils \
-  libxext-dev libncurses-dev python-dev mercurial \
-  freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
-  python3-setuptools python3-yaml 
-
-#RUN  sudo pip install --upgrade pip
-#RUN sudo apt-get install nvidia-opencl-dev
-
-RUN sudo usermod -a -G video $USER
-
-USER $USER
-ENV HOME /home/$USER
-WORKDIR $HOME
-
-################################################################################
-########     Install NEURON simulator
-
-RUN sudo pip3 install neuron==7.8.1
-
-
-################################################################################
-########     Install pyNeuroML for handling NeuroML network model
-
-RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
-  cd pyNeuroML && \
-  git checkout master  && \
-  sudo python3 setup.py install
-
-
-################################################################################
-########     Install owmeta
-
-# Installed with c302 below...
-RUN sudo pip3 install owmeta_core==0.13.2 owmeta==0.12.3
-RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
-RUN owm clone https://github.com/openworm/OpenWormData.git
-
-
-################################################################################
-########     Install c302 for building neuronal network models
-
-RUN git clone https://github.com/openworm/c302.git && \
-  cd c302 && \
-  git checkout master && \
-  sudo pip3 install .
-
-#RUN owm bundle  remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
-
-
-
-################################################################################
-########     Install Sibernetic for the worm body model
-
-RUN git clone https://github.com/openworm/sibernetic.git && \
-  cd sibernetic && \
-  git checkout ow-0.9.1 # fixed to a specific branch
-
-RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
-
-
-################################################################################
-########     Set some paths//environment variables
-
-ENV C302_HOME=$HOME/c302/c302
-ENV SIBERNETIC_HOME=$HOME/sibernetic
-ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
-
-
 ################################################################################
 ########     Install Intel OpenCL libraries needed for Sibernetic
+
+RUN apt-get update && apt-get install -y --no-install-recommends unzip wget xz-utils
 
 RUN mkdir intel-opencl-tmp && \
   cd intel-opencl-tmp && \
@@ -115,23 +40,127 @@ RUN mkdir intel-opencl-tmp && \
   tar -C intel-opencl -Jxf intel-opencl-r5.0-63503.x86_64.tar.xz && \
   tar -C intel-opencl -Jxf intel-opencl-devel-r5.0-63503.x86_64.tar.xz && \
   tar -C intel-opencl -Jxf intel-opencl-cpu-r5.0-63503.x86_64.tar.xz && \
-  sudo cp -R intel-opencl/* / && \
-  sudo ldconfig && \
+  cp -R intel-opencl/* / && \
+  ldconfig && \
   cd .. && \
-  sudo rm -r intel-opencl-tmp
+  rm -r intel-opencl-tmp
 
-RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
-sudo apt install -y ocl-icd-opencl-dev vim
-#sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
+################################################################################
+########     Update/install essential libraries
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  make \
+  git \
+  g++ \
+  sudo \
+  ffmpeg \
+  libavcodec-dev \
+  libavutil-dev \
+  openjdk-8-jdk \
+  libxext-dev \
+  freeglut3-dev \
+  libglu1-mesa-dev \
+  libglew-dev
+
+RUN usermod -a -G video $USER
+
+# XXX: Not actually sure what this is for...
+RUN cp -R /opt/intel/opencl/include/CL /usr/include/ && \
+  apt install -y ocl-icd-opencl-dev
+# sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
+
+# Install python-dev separately and after the packages above so changes don't
+# bust the cache and force everything to be reinstalled.
+#
+# The python version has a dot which some versions of apt-get interpret as a
+# regex or glob, so we use regex anchors to make sure we don't match a
+# libpython-dev package instead, which wouldn't install the pythonX.Y-config
+# script we need
+ENV PYTHON_VERSION 3.8
+# FOR SOME REASON "-specs=/usr/share/dpkg/no-pie-compile.specs" gets added to
+# CFLAGS even though libdpkg-perl, which provides this file, is not
+# installed...anway, we install it here
+#
+# for some reason, we need to install python3-distutils in addition to
+# pythonX.Y-venv
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  "^python${PYTHON_VERSION}-dev$" \
+  python${PYTHON_VERSION}-venv \
+  python${PYTHON_VERSION}-distutils \
+  libdpkg-perl
+
+# Get the base name of the version of Python installed so later steps can use
+# rather than trying to detect the right one to use. 
+ENV PYTHON_ABIFLAGS ''
+ENV PYTHON_BASENAME python${PYTHON_VERSION}${PYTHON_ABIFLAGS}
+ENV PYTHON_LIBDIR_BASENAME python${PYTHON_VERSION}
+ENV PYTHON_CONFIG /usr/bin/${PYTHON_BASENAME}-config
+# Make sure the python config script exists
+RUN echo PYTHON_CONFIG=$PYTHON_CONFIG
+RUN test -x $PYTHON_CONFIG
+
+USER $USER
+ENV HOME /home/$USER
+WORKDIR $HOME
+
+RUN $PYTHON_BASENAME -m venv env
+ENV VENV $HOME/env
+ENV PIP $VENV/bin/pip
+ENV PYTHON $VENV/bin/python
+ENV PYTHON_LIBDIR $VENV/lib/$PYTHON_LIBDIR_BASENAME
+# Make sure the virtualenv python libdir exists
+RUN test -d $PYTHON_LIBDIR
+RUN $PIP install --upgrade pip
+
+
+################################################################################
+########     Install NEURON simulator
+
+RUN $PIP install 'matplotlib<=3.4.1'
+RUN $PIP install neuron==7.8.1
+
+
+################################################################################
+########     Install pyNeuroML for handling NeuroML network model
+
+RUN git clone https://github.com/mwatts15/pyNeuroML.git && \
+  cd  pyNeuroML && \
+  git checkout mwatts-test && \
+  $PIP install .
+
+
+################################################################################
+########     Install c302 for building neuronal network models
+
+RUN git clone https://github.com/openworm/c302.git && \
+  cd c302 && \
+  git checkout master && \
+  $PIP install .
+
+RUN $PYTHON -m owmeta_core.cli bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+
+# Fetch the bundle now so executions go by more quickly
+# TODO: Externalize the bundle name and version so both C302 and Dockerfile can be sure to stay in sync
+RUN $PYTHON -m owmeta_core.cli bundle fetch --bundle-version=6 openworm/owmeta-data 
+
+
+################################################################################
+########     Set some paths//environment variables
+
+ENV C302_HOME=$HOME/c302/c302
+ENV SIBERNETIC_HOME=$HOME/sibernetic
+ENV PYTHONPATH=$PYTHON_LIBDIR/site-packages:$HOME/c302:$SIBERNETIC_HOME
+ENV NEURON_HOME $VENV
 
 
 ################################################################################
 ########     Build Sibernetic
 
-RUN cd sibernetic && \
-    sed -i -e "s/lpython2.7/lpython3.6m/g" makefile && \
-    sed -i -e "s/n2.7/n3.6/g" makefile && \
-    make clean && make all  # Use python 3 libs
+RUN sudo apt-get install libswscale-dev 
+RUN git clone https://github.com/openworm/sibernetic.git && \
+    cd sibernetic && \
+    git checkout mwatts-test  && \
+    make clean && FFMPEG=true make debug  # Use python 3 libs.
 
 # intel i5, hd 5500, linux 4.15.0-39-generic
 # ./Release/Sibernetic -f worm -no_g device=CPU    190ms
@@ -148,13 +177,11 @@ RUN cd sibernetic && \
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
-
-################################################################################
-########     Copy some files in
-
-# Not working with --chown=$USER:$USER
-COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
+# We shouldn't really need this typing.py anyway, but it breaks when running
+# the sibernetic_c302.py script on Python 3.7. We can't use pip either since it
+# has the same problem as sibernetic_c302.py
+# See https://stackoverflow.com/a/58067012/638671
+RUN rm $PYTHON_LIBDIR/site-packages/typing.py
 
 
 ################################################################################
@@ -164,5 +191,3 @@ RUN sudo chown $USER:$USER $HOME/master_openworm.py
 RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
-
-RUN echo "Built the OpenWorm Docker image!"

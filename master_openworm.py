@@ -1,6 +1,4 @@
 import errno
-import matplotlib
-matplotlib.use('Agg')
 import shutil
 from subprocess import Popen, PIPE, check_output
 import os
@@ -10,6 +8,10 @@ import sys
 import time
 import glob
 import math
+
+import matplotlib
+
+matplotlib.use('Agg')
 
 print("*****************************")
 print("OpenWorm Master Script v0.9.2")
@@ -76,10 +78,15 @@ OW_OUT_DIR = os.environ['OW_OUT_DIR']
 def execute_with_realtime_output(command, directory, env=None):
     p = None
     try:
-        p = Popen(shlex.split(command), stdout=PIPE, bufsize=1, cwd=directory, env=env)
+        p = Popen(shlex.split(command),
+            stdout=PIPE,
+            bufsize=1,
+            cwd=directory,
+            env=env,
+            text=True)
         with p.stdout:
-            for line in iter(p.stdout.readline, b''):
-                print(line.decode('utf-8'), end='')
+            for line in iter(p.stdout.readline, ''):
+                print(line, end='')
         p.wait() # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")
@@ -89,11 +96,6 @@ def execute_with_realtime_output(command, directory, env=None):
 
 
 sys.path.append(os.environ['C302_HOME'])
-
-try:
-    os.system('xhost +')
-except:
-    print("Unexpected error: %s" % sys.exc_info()[0])
 
 OW_OUT_DIR = os.environ['OW_OUT_DIR']
 
@@ -124,9 +126,6 @@ DEFAULTS = {'duration': sim_duration,
             'outDir': OW_OUT_DIR}
 
 my_env = os.environ.copy()
-my_env["DISPLAY"] = ":44"
-
-os.system('Xvfb :44 -listen tcp -ac -screen 0 1920x1080x24+32 &') # TODO: terminate xvfb after recording
 
 try:
     command = """python sibernetic_c302.py
@@ -200,21 +199,25 @@ for wcon in wcons:
 
 
 # Rerun and record simulation
-os.system('export DISPLAY=:44')
 sibernetic_movie_name = '%s.mp4' % os.path.split(latest_subdir)[-1]
-os.system('tmux new-session -d -s SiberneticRecording "DISPLAY=:44 ffmpeg -r 30 -f x11grab -draw_mouse 0 -s 1920x1080 -i :44 -filter:v "crop=1200:800:100:100" -cpu-used 0 -b:v 384k -qmin 10 -qmax 42 -maxrate 384k -bufsize 1000k -an %s/%s"' % (new_sim_out, sibernetic_movie_name))
+sibernetic_movie_filename = f"{new_sim_out}/{sibernetic_movie_name}"
+display = os.environ['DISPLAY']
 
-command = './Release/Sibernetic -f %s -l_from lpath=%s' % (DEFAULTS['configuration'], latest_subdir)
+command = f'./Release/Sibernetic -f {DEFAULTS["configuration"]} -l_from lpath={latest_subdir} -vout "{sibernetic_movie_filename}" -vcodec mpeg4'
 execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 
-os.system('tmux send-keys -t SiberneticRecording q')
-os.system('tmux send-keys -t SiberneticRecording "exit" C-m')
-
-time.sleep(3)
-
 # Remove black frames at the beginning of the recorded video
-command = "ffmpeg -i %s/%s -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1 | grep blackdetect" % (new_sim_out, sibernetic_movie_name)
-outstr = str(check_output(command, shell=True).decode('utf-8'))
+#command = "ffmpeg -nostdin -i %s/%s -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1 | grep blackdetect" % (new_sim_out, sibernetic_movie_name)
+command = f'ffmpeg -nostdin -i "{sibernetic_movie_filename}" -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1'
+
+try:
+    outstr = str(check_output(command, shell=True).decode('utf-8'))
+except Exception as e:
+    print(f"----------------------OUTPUT------------------------\n{e.output.decode('utf-8')}")
+    raise
+
+print(f"----------------------OUTPUT------------------------\n{outstr}")
+
 outstr = outstr.split('\n')
 
 black_start = 0.0
@@ -230,12 +233,16 @@ if black_start_pos != -1:
     black_start = float(out[black_start_pos + len('black_start:') : black_end_pos])
     black_dur = float(out[black_dur_pos + len('black_duration:'):])
 
+
 if black_start == 0.0 and black_dur:
+    sibernetic_movie_trimmed_filename = f"{new_sim_out}/cut_{sibernetic_movie_name}" 
     black_dur = int(math.ceil(black_dur))
-    command = 'ffmpeg -ss 00:00:0%s -i %s/%s -c copy -avoid_negative_ts 1 %s/cut_%s' % (black_dur, new_sim_out, sibernetic_movie_name, new_sim_out, sibernetic_movie_name)
-    if black_dur > 9:
-        command = 'ffmpeg -ss 00:00:%s -i %s/%s -c copy -avoid_negative_ts 1 %s/cut_%s' % (black_dur, new_sim_out, sibernetic_movie_name, new_sim_out, sibernetic_movie_name)
+    time = f'00:00:{black_dur:02}'
+    command = f'ffmpeg -nostdin -ss {time} -i "{sibernetic_movie_filename}" -c copy -avoid_negative_ts 1 "{sibernetic_movie_trimmed_filename}"'
     os.system(command)
+    os.rename(sibernetic_movie_trimmed_filename, sibernetic_movie_filename)
+else:
+    print('No black frames detected')
 
 # SPEED-UP
 try:
@@ -244,8 +251,9 @@ except OSError as e:
     if e.errno != errno.EEXIST:
         raise
 
-os.system('ffmpeg -ss 1 -i %s/cut_%s -vf "select=gt(scene\,0.1)" -vsync vfr -vf fps=fps=1/1 %s' % (new_sim_out, sibernetic_movie_name, 'tmp/out%06d.jpg'))
-os.system('ffmpeg -r 100 -i %s -r 100 -vb 60M %s/speeded_%s' % ('tmp/out%06d.jpg', new_sim_out, sibernetic_movie_name))
+temp_movie_filename = 'tmp/out%06d.jpg'
+os.system(f'ffmpeg -nostdin -ss 1 -i "{sibernetic_movie_filename}" -vf "select=gt(scene\,0.1)" -vsync vfr -vf fps=fps=1/1 "{temp_movie_filename}"')
+os.system(f'ffmpeg -nostdin -r 100 -i "{temp_movie_filename}" -r 100 -vb 60M "{new_sim_out}/speeded_{sibernetic_movie_name}"')
 
 os.system('sudo rm -r tmp/*')
 
