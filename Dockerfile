@@ -73,6 +73,13 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 ################################################################################
 ########     Install PyOpenWorm
 
+# TODO remove this line after we have better dependency management.  The
+# current version of gitpython requires python >= 3.7, which is newer than the
+# python included in the base image. Therefore, we manually install an older
+# gitpython to be used with OpenWormData.
+# See https://github.com/openworm/OpenWorm/pull/316
+RUN sudo pip3 install 'gitpython==2.1.15'
+
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
   git checkout ow-0.9 && \
