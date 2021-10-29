@@ -26,7 +26,6 @@ RUN mkdir -p /etc/sudoers.d && \
 
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
-
 #RUN useradd -ms /bin/bash $USER
 
 
@@ -55,46 +54,37 @@ USER $USER
 ENV HOME /home/$USER
 WORKDIR $HOME
 
+#### TODO: check that this is the best way to switch to py3...
+RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
+
+
 ################################################################################
 ########     Install NEURON simulator
 
-RUN sudo pip3 install neuron==7.8.1
+RUN sudo pip install neuron==7.8.1
 
 
 ################################################################################
-########     Install pyNeuroML for handling NeuroML network model
+########     Install c302 for building neuronal network models
 
-RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
-  cd pyNeuroML && \
-  git checkout master  && \
-  sudo python3 setup.py install
-
-
-################################################################################
-########     Install PyOpenWorm
 
 # TODO remove this line after we have better dependency management.  The
 # current version of gitpython requires python >= 3.7, which is newer than the
 # python included in the base image. Therefore, we manually install an older
 # gitpython to be used with OpenWormData.
 # See https://github.com/openworm/OpenWorm/pull/316
-RUN sudo pip3 install 'gitpython==2.1.15'
-
-RUN git clone https://github.com/openworm/PyOpenWorm.git && \
-  cd PyOpenWorm && \
-  git checkout ow-0.9 && \
-  sudo apt-get install -y python3-cffi && \
-  sudo python3 setup.py install && \
-  pow clone https://github.com/openworm/OpenWormData.git
-
-
-################################################################################
-########     Install c302 for building neuronal network models
+RUN sudo pip install 'gitpython==2.1.15'
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.1 && \
-  sudo python3 setup.py install
+  git checkout ow-0.9.2 && \
+  sudo python setup.py install
+
+# Note: owmeta, owmeta-core and pyNeuroML installed with the above library
+        
+RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
+
 
 
 ################################################################################
@@ -163,10 +153,6 @@ RUN cd sibernetic && \
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
-
-
-#### TODO: check that this is the best way to switch to py3...
-RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
