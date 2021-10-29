@@ -79,7 +79,7 @@ RUN sudo pip install 'gitpython==2.1.15'
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout ow-0.9.2 && \
-  sudo python setup.py install
+  sudo pip install .
 
 # Note: owmeta, owmeta-core and pyNeuroML installed with the above library
         

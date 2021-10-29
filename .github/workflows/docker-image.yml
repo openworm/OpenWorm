@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag openworm:$(date +%s)
+      run: |
+        docker build . --file Dockerfile --tag openworm:$(date +%s)
+        ./run.sh
