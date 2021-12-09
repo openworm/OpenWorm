@@ -190,14 +190,4 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 # See https://stackoverflow.com/a/58067012/638671
 RUN rm $PYTHON_LIBDIR/site-packages/typing.py
 
-<<<<<<< HEAD
-
-################################################################################
-########     Finish up
-
-#### TODO: check that this is the best way to switch to py3...
-RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-
-=======
->>>>>>> origin/development
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
