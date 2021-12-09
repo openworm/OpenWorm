@@ -235,7 +235,7 @@ if black_start_pos != -1:
 
 
 if black_start == 0.0 and black_dur:
-    sibernetic_movie_trimmed_filename = f"{new_sim_out}/cut_{sibernetic_movie_name}" 
+    sibernetic_movie_trimmed_filename = f"{new_sim_out}/cut_{sibernetic_movie_name}"
     black_dur = int(math.ceil(black_dur))
     time = f'00:00:{black_dur:02}'
     command = f'ffmpeg -nostdin -ss {time} -i "{sibernetic_movie_filename}" -c copy -avoid_negative_ts 1 "{sibernetic_movie_trimmed_filename}"'

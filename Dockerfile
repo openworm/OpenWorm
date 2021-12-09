@@ -123,14 +123,21 @@ RUN $PIP install neuron==7.8.1
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
 
-RUN git clone https://github.com/mwatts15/pyNeuroML.git && \
-  cd  pyNeuroML && \
-  git checkout mwatts-test && \
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
+  cd pyNeuroML && \
+  git checkout development && \
   $PIP install .
 
 
 ################################################################################
 ########     Install c302 for building neuronal network models
+
+# TODO remove this line after we have better dependency management.  The
+# current version of gitpython requires python >= 3.7, which is newer than the
+# python included in the base image. Therefore, we manually install an older
+# gitpython to be used with OpenWormData.
+# See https://github.com/openworm/OpenWorm/pull/316
+RUN sudo pip install 'gitpython==2.1.15'
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
@@ -183,6 +190,7 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 # See https://stackoverflow.com/a/58067012/638671
 RUN rm $PYTHON_LIBDIR/site-packages/typing.py
 
+<<<<<<< HEAD
 
 ################################################################################
 ########     Finish up
@@ -190,4 +198,6 @@ RUN rm $PYTHON_LIBDIR/site-packages/typing.py
 #### TODO: check that this is the best way to switch to py3...
 RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
+=======
+>>>>>>> origin/development
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc

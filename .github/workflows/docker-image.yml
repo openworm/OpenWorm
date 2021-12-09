@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master, dev* ]
+  pull_request:
+    branches: [ master, dev* ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: |
+        ./build.sh
+    - name: Run the Docker image
+      run: |
+        ./run.sh
+        ls -alt output
