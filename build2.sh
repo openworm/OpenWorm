@@ -4,4 +4,4 @@
 # Note: Python 2 is no longer officially supported and this Docker image will
 # probably stop working eventually...
 
-docker build "$@" -t "openworm/openworm:0.9.1_py2"  -f Dockerfile2 .
+docker build "$@" -t "openworm/openworm:0.9.2_py2"  -f Dockerfile2 .

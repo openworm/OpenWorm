@@ -1,5 +1,5 @@
 repo: openworm/OpenWorm
 shortDescription: "Project Home repo for Central Dockerfile and Project-wide issues"
-contributor-guide: "http://docs.openworm.org/en/latest/community/#contribution-best-practices"
+contributor-guide: "http://docs.openworm.org/community/#contribution-best-practices"
 coordinator: stephen@openworm.org
-documentation: "http://docs.openworm.org/en/latest/"
+documentation: "http://docs.openworm.org"
