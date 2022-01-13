@@ -169,4 +169,6 @@ RUN cd sibernetic && \
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
+RUN pip list
+
 RUN echo "Built the OpenWorm Docker image!"
