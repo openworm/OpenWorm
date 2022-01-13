@@ -26,7 +26,6 @@ RUN mkdir -p /etc/sudoers.d && \
 
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
-
 #RUN useradd -ms /bin/bash $USER
 
 
@@ -43,7 +42,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   maven openjdk-8-jdk \
   python3-setuptools python3-yaml libnuma1 \
   openmpi-bin  libopenmpi-dev \
-  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \ 
+  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \
   libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
@@ -55,27 +54,15 @@ USER $USER
 ENV HOME /home/$USER
 WORKDIR $HOME
 
+#### TODO: check that this is the best way to switch to py3...
+RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
+
+
 ################################################################################
 ########     Install NEURON simulator
 
-RUN mkdir neuron && \
-  cd neuron && \
-  git clone https://github.com/nrnhines/iv.git && \
-  git clone https://github.com/nrnhines/nrn.git && \
-  cd iv && \
-  git checkout 76c123b && \
-  ./build.sh && \
-  ./configure --prefix=`pwd` && \
-  make -j3 && \
-  sudo make install && \
-  cd ../nrn && \
-  git checkout e0950a1 && \
-  ./build.sh && \
-  ./configure --prefix=`pwd` --with-iv=$HOME/neuron/iv --with-nrnpython=/usr/bin/python3 --with-paranrn && \
-  make -j3 && \
-  sudo make install && \
-  cd src/nrnpython && \
-  sudo python3 setup.py install
+RUN sudo pip install neuron==7.8.1
 
   
 ################################################################################
@@ -86,16 +73,12 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   git checkout master  && \
   sudo python3 setup.py install
 
-
-################################################################################
-########     Install PyOpenWorm
-
 # TODO remove this line after we have better dependency management.  The
 # current version of gitpython requires python >= 3.7, which is newer than the
 # python included in the base image. Therefore, we manually install an older
 # gitpython to be used with OpenWormData.
 # See https://github.com/openworm/OpenWorm/pull/316
-RUN sudo pip3 install 'gitpython==2.1.15'
+RUN sudo pip install 'gitpython==2.1.15'
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
@@ -104,7 +87,7 @@ RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   sudo python3 setup.py install && \
   pow clone https://github.com/openworm/OpenWormData.git
 
-
+        
 ################################################################################
 ########     Install c302 for building neuronal network models
 
@@ -129,11 +112,7 @@ RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be ru
 
 ENV JNML_HOME=$HOME/jNeuroML
 ENV PATH=$PATH:$JNML_HOME
-ENV IV=$HOME/neuron/iv
-ENV N=$HOME/neuron/nrn
-ENV CPU=x86_64
-ENV PATH=$PATH:$IV/$CPU/bin:$N/$CPU/bin
-ENV NEURON_HOME=$N/$CPU
+
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
@@ -187,10 +166,6 @@ RUN cd sibernetic && \
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
-
-
-#### TODO: check that this is the best way to switch to py3...
-RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
