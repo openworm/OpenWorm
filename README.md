@@ -111,3 +111,5 @@ Find out more about OpenWorm.  Documentation is available at [http://docs.openwo
 
 This repository references:
 * Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/milestones)
+
+[![Docker Image CI](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml)
