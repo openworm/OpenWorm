@@ -78,7 +78,7 @@ RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
 # python included in the base image. Therefore, we manually install an older
 # gitpython to be used with OpenWormData.
 # See https://github.com/openworm/OpenWorm/pull/316
-RUN sudo pip install 'gitpython==2.1.15'
+RUN sudo pip install 'gitpython==2.1.15' markupsafe
 
 RUN git clone https://github.com/openworm/PyOpenWorm.git && \
   cd PyOpenWorm && \
