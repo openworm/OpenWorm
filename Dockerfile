@@ -93,7 +93,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.1 # fixed to a specific branch
+  git checkout development # fixed to a specific branch
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
@@ -135,8 +135,7 @@ sudo apt install -y ocl-icd-opencl-dev vim
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-    sed -i -e "s/lpython2.7/lpython3.6m/g" makefile && \
-    sed -i -e "s/n2.7/n3.6/g" makefile && \
+    sed -i -e "s/n3.7/n3.6/g" makefile && \
     make clean && make all  # Use python 3 libs
 
 # intel i5, hd 5500, linux 4.15.0-39-generic
