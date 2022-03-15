@@ -33,7 +33,7 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 Pre-requisites:
 
 1) You should have at least 60 GB of free space on your machine and at least 2GB of RAM
-2) You should be able to clone git repositories on your machine. [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), or [this GUI](https://desktop.github.com/) may be useful. 
+2) You should be able to clone git repositories on your machine. [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), or [this GUI](https://desktop.github.com/) may be useful.
 
 To Install:
 
@@ -45,9 +45,9 @@ in addition for Linux instructions.
 
 **Running**
 
-1. Ensure the Docker daemon is running in the background (on MacOS/Windows there should be an icon with the Docker whale logo showing in the menu bar/system tray). 
+1. Ensure the Docker daemon is running in the background (on MacOS/Windows there should be an icon with the Docker whale logo showing in the menu bar/system tray).
 2. Open a terminal and run: `git clone http://github.com/openworm/openworm`; `cd openworm`
-3. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm). 
+3. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm).
 4. Run `./run.sh` (or `run.cmd` on Windows).
 5. About 5-10 minutes of output will display on the screen as the steps run.
 6. The simulation will end.  Run `stop.sh` (`stop.cmd` on Windows) on your system to clean up the running container.
@@ -68,8 +68,8 @@ in addition for Linux instructions.
 
 #### **What is the Docker container?**
 
-The Docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above. At the moment, 
-it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the Docker container. While you do not need to know 
+The Docker container is a self-contained environment in which you can run OpenWorm simulations.  It's fully set up to get you started by following the steps above. At the moment,
+it runs simulations and produces visualizations for you, but these visualizations must be viewed outside of the Docker container. While you do not need to know
 much about Docker to use OpenWorm, if you are planning on working extensively with the platform, you may benefit
 from understanding some basics. [Docker Curriculum](https://docker-curriculum.com)
 is an excellent tutorial for beginners that is straightforward to work through (Sections 1 - 2.5 are plenty sufficient).  

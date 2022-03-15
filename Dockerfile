@@ -74,7 +74,7 @@ RUN sudo pip install neuron==7.8.1
 # python included in the base image. Therefore, we manually install an older
 # gitpython to be used with OpenWormData.
 # See https://github.com/openworm/OpenWorm/pull/316
-RUN sudo pip install 'gitpython==2.1.15'
+RUN sudo pip install 'gitpython==2.1.15' markupsafe
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
@@ -82,9 +82,8 @@ RUN git clone https://github.com/openworm/c302.git && \
   sudo pip install .
 
 # Note: owmeta, owmeta-core and pyNeuroML installed with the above library
-        
-RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
+RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 ################################################################################
@@ -115,7 +114,7 @@ RUN sudo chown $USER:$USER $HOME/master_openworm.py
 RUN mkdir intel-opencl-tmp && \
   cd intel-opencl-tmp && \
   mkdir intel-opencl && \
-  wget http://registrationcenter-download.intel.com/akdlm/irc_nas/11396/SRB5.0_linux64.zip && \
+  wget https://github.com/openworm/OpenWorm/raw/dev_inte/SRB5.0_linux64.zip && \
   unzip SRB5.0_linux64.zip && \
   tar -C intel-opencl -Jxf intel-opencl-r5.0-63503.x86_64.tar.xz && \
   tar -C intel-opencl -Jxf intel-opencl-devel-r5.0-63503.x86_64.tar.xz && \
@@ -155,5 +154,7 @@ RUN cd sibernetic && \
 
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
+
+RUN pip list
 
 RUN echo "Built the OpenWorm Docker image!"
