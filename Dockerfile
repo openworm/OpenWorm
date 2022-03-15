@@ -1,11 +1,14 @@
+################################################################################
+########    The core OpenWorm Dockerfile
+########    Installs Sibernetic, c302, NeuroML libraries, NEURON and owmeta
+################################################################################
+
 FROM ubuntu:18.04
+
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
 ARG INTEL_SDK_VERSION=2017_7.0.0.2511_x64
-
-#COPY ./silent-intel-sdk.cfg /tmp/silent-intel-sdk.cfg
-
 
 ARG USR=ow
 ENV USER=$USR
@@ -22,7 +25,6 @@ RUN mkdir -p /etc/sudoers.d && \
   echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER && \
   chmod 0440 /etc/sudoers.d/$USER && \
   chown ${uid}:${gid} -R /home/$USER
-
 
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
@@ -68,7 +70,6 @@ RUN sudo pip install neuron==7.8.1
 ################################################################################
 ########     Install c302 for building neuronal network models
 
-
 # TODO remove this line after we have better dependency management.  The
 # current version of gitpython requires python >= 3.7, which is newer than the
 # python included in the base image. Therefore, we manually install an older
@@ -76,9 +77,10 @@ RUN sudo pip install neuron==7.8.1
 # See https://github.com/openworm/OpenWorm/pull/316
 RUN sudo pip install 'gitpython==2.1.15' markupsafe
 
+RUN sudo pip install git+https://github.com/NeuralEnsemble/libNeuroML.git@development # temp!
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.2 && \
+  git checkout development && \
   sudo pip install .
 
 # Note: owmeta, owmeta-core and pyNeuroML installed with the above library
