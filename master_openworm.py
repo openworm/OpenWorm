@@ -1,4 +1,3 @@
-from __future__ import print_function
 import errno
 import matplotlib
 matplotlib.use('Agg')
@@ -13,7 +12,7 @@ import glob
 import math
 
 print("*****************************")
-print("OpenWorm Master Script v0.9.1")
+print("OpenWorm Master Script v0.9.2")
 print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
@@ -23,7 +22,7 @@ print("Eventually all the steps will be filled in.")
 print("")
 
 print("****************************")
-print("Step 1: Rebuild c302 from the latest PyOpenWorm")
+print("Step 1: Rebuild c302 from the latest owmeta")
 print("****************************")
 print("Not yet implemented. See https://github.com/openworm/c302/issues/10")
 
@@ -80,7 +79,7 @@ def execute_with_realtime_output(command, directory, env=None):
         p = Popen(shlex.split(command), stdout=PIPE, bufsize=1, cwd=directory, env=env)
         with p.stdout:
             for line in iter(p.stdout.readline, b''):
-                print(line, end="")
+                 print(line.decode('utf-8'), end='')     
         p.wait() # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")

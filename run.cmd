@@ -20,7 +20,7 @@ docker run -d ^
   -e DURATION=%DURATION% ^
   --privileged ^
   -v %HOST_OUT_DIR%:%OW_OUT_DIR%:rw ^
-  openworm/openworm:0.9.1 ^
+  openworm/openworm:0.9.2 ^
   /bin/bash -c "python master_openworm.py"
 
 docker logs -f openworm
