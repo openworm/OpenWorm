@@ -78,6 +78,8 @@ RUN sudo pip install neuron==7.8.1
 RUN sudo pip install 'gitpython==2.1.15' markupsafe
 
 RUN sudo pip install git+https://github.com/NeuralEnsemble/libNeuroML.git@development # temp!
+RUN sudo pip install 'NeuroMLlite<0.5.0' # for python 3.6...
+
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout development && \
