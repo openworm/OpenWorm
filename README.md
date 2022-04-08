@@ -1,5 +1,6 @@
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 
+[![Docker Image CI](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml)
 
 About **OpenWorm**
 ------------------
@@ -107,9 +108,6 @@ You'll be able to interact with the container as before.
 
 Documentation
 -------------
-Find out more about OpenWorm.  Documentation is available at [http://docs.openworm.org](http://docs.openworm.org).  [Join us on Slack](http://bit.ly/OpenWormVolunteer).
+to find out more about OpenWorm, please see the documentation at [http://docs.openworm.org](http://docs.openworm.org) or [join us on Slack](http://bit.ly/OpenWormVolunteer).
 
-This repository references:
-* Project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues?labels=&milestone=&page=1&state=open) and [milestones](https://github.com/openworm/OpenWorm/milestones)
-
-[![Docker Image CI](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml)
+This repository also contains project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues) and [milestones](https://github.com/openworm/OpenWorm/milestones).
