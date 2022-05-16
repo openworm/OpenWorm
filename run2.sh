@@ -37,7 +37,7 @@ $DURATION_PART \
 -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 --privileged \
 -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-openworm/openworm:0.9.2_py2 \
+openworm/openworm:0.9.3_py2 \
 bash -c "DISPLAY=:44 python master_openworm.py"
 
 docker logs -f openworm2
