@@ -12,7 +12,7 @@ import glob
 import math
 
 print("*****************************")
-print("OpenWorm Master Script v0.9.2")
+print("OpenWorm Master Script v0.9.3")
 print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
@@ -79,7 +79,7 @@ def execute_with_realtime_output(command, directory, env=None):
         p = Popen(shlex.split(command), stdout=PIPE, bufsize=1, cwd=directory, env=env)
         with p.stdout:
             for line in iter(p.stdout.readline, b''):
-                 print(line.decode('utf-8'), end='')     
+                 print(line.decode('utf-8'), end='')
         p.wait() # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")
