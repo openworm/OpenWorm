@@ -95,7 +95,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout development # fixed to a specific branch
+  git checkout ow-githubactions # fixed to a specific branch
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
