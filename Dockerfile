@@ -69,34 +69,24 @@ RUN apt-get install -y python3-cffi # for pyopenworm
 RUN pip3 install neuron==7.8.1
 
 
-################################################################################
-########     Install pyNeuroML for handling NeuroML network model
-
-RUN pip3 install pyNeuroML
-
-
-# TODO remove this line after we have better dependency management.  The
-# current version of gitpython requires python >= 3.7, which is newer than the
-# python included in the base image. Therefore, we manually install an older
-# gitpython to be used with OpenWormData.
-# See https://github.com/openworm/OpenWorm/pull/316
-RUN pip3 install 'gitpython==2.1.15' markupsafe
-
-RUN git clone https://github.com/openworm/PyOpenWorm.git && \
-  cd PyOpenWorm && \
-  git checkout ow-0.9 && \
-  pip3 install . && \
-  pow clone https://github.com/openworm/OpenWormData.git
-
 
 ################################################################################
 ########     Install c302 for building neuronal network models
 
+RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
+  cd pyNeuroML && \
+  git checkout development  && \
+  sudo python3 setup.py install
+
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.1 && \
-  python3 setup.py install
+  git checkout master && \
+  sudo pip install .
 
+# Note: owmeta, owmeta-core and pyNeuroML installed with the above library
+
+RUN pip3 install owmeta-core==0.13.5
+RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 
