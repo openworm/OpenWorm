@@ -16,12 +16,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
+        ls -alt
         ./build.sh
     - name: Run the Docker image
       run: |
         ./run.sh
     - name: Info on generated files
       run: |
+        ls -alt
         ls -alt output
         ls -alt output/C2*
         cat output/C2_*/report.json
