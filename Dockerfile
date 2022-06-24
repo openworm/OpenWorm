@@ -161,7 +161,7 @@ RUN cd sibernetic && \
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
 
-RUN chown -R $USER:$USER $HOME/master_openworm.py c302 sibernetic ow
+RUN chown -R $USER:$USER $HOME/master_openworm.py c302 sibernetic $HOME/.owmeta
 
 USER $USER
 
