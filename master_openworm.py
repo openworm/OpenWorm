@@ -110,6 +110,10 @@ sim_duration = 15.0
 if 'DURATION' in os.environ:
     sim_duration = float(os.environ['DURATION'])
 
+noc302 = False
+if 'NOC302' in os.environ:
+    noc302 = bool(os.environ['NOC302'])
+
 DEFAULTS = {'duration': sim_duration,
             'dt': 0.005,
             'dtNrn': 0.05,
@@ -119,7 +123,7 @@ DEFAULTS = {'duration': sim_duration,
             'verbose': False,
             'device': 'GPU',
             'configuration': 'worm_crawl_half_resolution',
-            'noc302': False,
+            'noc302': noc302,
             'datareader': 'UpdatedSpreadsheetDataReader2',
             'outDir': OW_OUT_DIR}
 
@@ -151,6 +155,9 @@ try:
                 DEFAULTS['datareader'],
                 'simulations')
                 #DEFAULTS['outDir'])
+
+    if noc302: command += ' -noc302'
+
     execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 except KeyboardInterrupt as e:
     pass
@@ -161,6 +168,8 @@ all_subdirs = []
 for dirpath, dirnames, filenames in os.walk(sibernetic_sim_dir):
     for directory in dirnames:
         if directory.startswith('%s_%s' % (DEFAULTS['c302params'], DEFAULTS['reference'])):
+            all_subdirs.append(os.path.join(dirpath, directory))
+        if directory.startswith('Sibernetic'):
             all_subdirs.append(os.path.join(dirpath, directory))
 
 latest_subdir = max(all_subdirs, key=os.path.getmtime)
