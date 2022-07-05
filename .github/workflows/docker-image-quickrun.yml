@@ -29,5 +29,5 @@ jobs:
       run: |
         ls -alt
         ls -alt output
-        ls -alt output/C2*
-        cat output/C2_*/report.json
+        ls -alt output/S*
+        cat output/S*/report.json
