@@ -1,0 +1,33 @@
+name: Docker Image Test Build
+
+on:
+  push:
+    branches: [ master, dev* ]
+  pull_request:
+    branches: [ master, dev* ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: |
+        chmod a+w output/
+        ls -alt
+        ./build.sh
+    - name: Info on Docker images
+      run: |
+        docker images
+    - name: Run the Docker image
+      run: |
+        ./run-quick.sh
+    - name: Info on generated files
+      run: |
+        ls -alt
+        ls -alt output
+        ls -alt output/C2*
+        cat output/C2_*/report.json
