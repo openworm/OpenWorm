@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -66,7 +66,7 @@ RUN apt-get install -y python3-cffi # for pyopenworm
 ################################################################################
 ########     Install NEURON simulator
 
-RUN pip3 install neuron==7.8.1
+RUN pip3 install neuron==8.0.1
 
 
 
