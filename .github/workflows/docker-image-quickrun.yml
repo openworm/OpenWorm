@@ -1,4 +1,4 @@
-name: Docker Image Test Build
+name: Docker Image Test - quick
 
 on:
   push:
