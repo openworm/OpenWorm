@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:18.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   wget nano htop build-essential make git automake autoconf \
   g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
   sudo xorg openbox x11-xserver-utils \
-  libxext-dev libncurses-dev python3-dev mercurial \
+  libxext-dev libncurses-dev python-dev mercurial \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
   kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 
 RUN sudo usermod -a -G video $USER
 
-#USER $USER
+USER $USER
 ENV HOME /home/$USER
 WORKDIR $HOME
 
@@ -62,7 +62,8 @@ RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 ################################################################################
 ########     Install NEURON simulator
 
-RUN pip3 install neuron==8.0.1
+RUN sudo pip install neuron==7.8.1
+
 
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
@@ -149,7 +150,8 @@ sudo apt install -y ocl-icd-opencl-dev vim
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-    sed -i -e "s/n2.7/n3.10/g" makefile && \
+    sed -i -e "s/lpython2.7/lpython3.6m/g" makefile && \
+    sed -i -e "s/n2.7/n3.6/g" makefile && \
     make clean && make all  # Use python 3 libs
 
 # intel i5, hd 5500, linux 4.15.0-39-generic
