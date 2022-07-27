@@ -67,6 +67,9 @@ RUN pip3 install neuron==8.0.1
 ################################################################################
 ########     Install pyNeuroML for handling NeuroML network model
 
+# Pin version of pymongo required for py3.6... TODO remove...
+RUN sudo pip install pymongo==4.1.1
+
 RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
   cd pyNeuroML && \
   git checkout master  && \
