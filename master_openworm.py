@@ -2,7 +2,7 @@ import errno
 import matplotlib
 matplotlib.use('Agg')
 import shutil
-from subprocess import Popen, PIPE, check_output
+from subprocess import Popen, PIPE, check_output, STDOUT
 import os
 import pwd
 import shlex
@@ -76,16 +76,28 @@ OW_OUT_DIR = os.environ['OW_OUT_DIR']
 def execute_with_realtime_output(command, directory, env=None):
     p = None
     try:
-        p = Popen(shlex.split(command), stdout=PIPE, bufsize=1, cwd=directory, env=env)
+
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        print('>> Executing command: %s'%command)
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        p = Popen(shlex.split(command),
+                  stdout=PIPE,
+                  stderr=STDOUT,
+                  cwd=directory,
+                  env=env)
         with p.stdout:
             for line in iter(p.stdout.readline, b''):
-                 print(line.decode('utf-8'), end='')     
+                 print('>> %s'%line.decode('utf-8'), end='')
         p.wait() # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")
         if p:
             p.kill()
         raise e
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    print('>> Command exited with %i: %s'%(p.returncode,command))
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n')
+
 
 
 sys.path.append(os.environ['C302_HOME'])
@@ -110,6 +122,10 @@ sim_duration = 15.0
 if 'DURATION' in os.environ:
     sim_duration = float(os.environ['DURATION'])
 
+noc302 = False
+if 'NOC302' in os.environ:
+    noc302 = bool(os.environ['NOC302'])
+
 DEFAULTS = {'duration': sim_duration,
             'dt': 0.005,
             'dtNrn': 0.05,
@@ -119,7 +135,7 @@ DEFAULTS = {'duration': sim_duration,
             'verbose': False,
             'device': 'GPU',
             'configuration': 'worm_crawl_half_resolution',
-            'noc302': False,
+            'noc302': noc302,
             'datareader': 'UpdatedSpreadsheetDataReader2',
             'outDir': OW_OUT_DIR}
 
@@ -151,6 +167,9 @@ try:
                 DEFAULTS['datareader'],
                 'simulations')
                 #DEFAULTS['outDir'])
+
+    if noc302: command += ' -noc302'
+
     execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 except KeyboardInterrupt as e:
     pass
@@ -162,9 +181,13 @@ for dirpath, dirnames, filenames in os.walk(sibernetic_sim_dir):
     for directory in dirnames:
         if directory.startswith('%s_%s' % (DEFAULTS['c302params'], DEFAULTS['reference'])):
             all_subdirs.append(os.path.join(dirpath, directory))
+        if directory.startswith('Sibernetic'):
+            all_subdirs.append(os.path.join(dirpath, directory))
 
 latest_subdir = max(all_subdirs, key=os.path.getmtime)
-
+print('\n========================================================================\n')
+print('Finished main simulation, data saved in: %s'%latest_subdir)
+execute_with_realtime_output('ls -alt %s'%latest_subdir, os.environ['SIBERNETIC_HOME'], env=my_env)
 
 try:
     os.mkdir('%s/output' % OW_OUT_DIR)
@@ -198,6 +221,9 @@ for wcon in wcons:
     print("Moving %s to %s"%(wcon, new_sim_out))
     shutil.move(wcon, new_sim_out)
 
+time.sleep(2)
+
+
 
 # Rerun and record simulation
 os.system('export DISPLAY=:44')
@@ -210,7 +236,9 @@ execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 os.system('tmux send-keys -t SiberneticRecording q')
 os.system('tmux send-keys -t SiberneticRecording "exit" C-m')
 
-time.sleep(3)
+time.sleep(5)
+
+execute_with_realtime_output('ls -alt %s'%latest_subdir, os.environ['SIBERNETIC_HOME'], env=my_env)
 
 # Remove black frames at the beginning of the recorded video
 command = "ffmpeg -i %s/%s -vf blackdetect=d=0:pic_th=0.70:pix_th=0.10 -an -f null - 2>&1 | grep blackdetect" % (new_sim_out, sibernetic_movie_name)
@@ -247,7 +275,7 @@ except OSError as e:
 os.system('ffmpeg -ss 1 -i %s/cut_%s -vf "select=gt(scene\,0.1)" -vsync vfr -vf fps=fps=1/1 %s' % (new_sim_out, sibernetic_movie_name, 'tmp/out%06d.jpg'))
 os.system('ffmpeg -r 100 -i %s -r 100 -vb 60M %s/speeded_%s' % ('tmp/out%06d.jpg', new_sim_out, sibernetic_movie_name))
 
-os.system('sudo rm -r tmp/*')
+os.system('rm -r tmp/*')
 
 
 
