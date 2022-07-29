@@ -100,14 +100,14 @@ def execute_with_realtime_output(command, directory, env=None):
 
     if p.returncode!=0:
         print('Exiting as the last command failed')
-        exit(p.returncode)
+        #exit(p.returncode)
 
 
 
 sys.path.append(os.environ['C302_HOME'])
 
 try:
-    os.system('xhost +')
+    os.system('echo Granting permissions for xhost && xhost +')
 except:
     print("Unexpected error: %s" % sys.exc_info()[0])
 
@@ -144,11 +144,12 @@ DEFAULTS = {'duration': sim_duration,
             'outDir': OW_OUT_DIR}
 
 my_env = os.environ.copy()
-my_env["DISPLAY"] = ":44"
+DISPLAY = ':44'
+my_env["DISPLAY"] = DISPLAY
 
 # Xvfb or X virtual framebuffer is a display server implementing the X11 display server protocol.
 # In contrast to other display servers, Xvfb performs all graphical operations in virtual memory without showing any screen output.
-os.system('Xvfb :44 -listen tcp -ac -screen 0 1920x1080x24+32 &') # TODO: terminate xvfb after recording
+os.system('echo Starting xvfb && Xvfb %s -listen tcp -ac -screen 0 1920x1080x24+32 &'%DISPLAY) # TODO: terminate xvfb after recording
 
 try:
     command = """python sibernetic_c302.py
@@ -230,9 +231,11 @@ for wcon in wcons:
 time.sleep(2)
 
 # Rerun and record simulation
-os.system('export DISPLAY=:44')
+execute_with_realtime_output('ls -alt /tmp/.X11-unix', os.environ['SIBERNETIC_HOME'], env=my_env)
+os.system('export DISPLAY=%s'%DISPLAY)
+execute_with_realtime_output('ls -alt /tmp/.X11-unix', os.environ['SIBERNETIC_HOME'], env=my_env)
 sibernetic_movie_name = '%s.mp4' % os.path.split(latest_subdir)[-1]
-command = 'tmux new-session -d -s SiberneticRecording "DISPLAY=:44 ffmpeg -r 30 -f x11grab -draw_mouse 0 -s 1920x1080 -i :44 -filter:v "crop=1200:800:100:100" -cpu-used 0 -b:v 384k -qmin 10 -qmax 42 -maxrate 384k -bufsize 1000k -an %s/%s"' % (new_sim_out, sibernetic_movie_name)
+command = 'tmux new-session -d -P -s SiberneticRecording "DISPLAY=%s ffmpeg -r 30 -f x11grab -draw_mouse 0 -s 1920x1080 -i %s -filter:v "crop=1200:800:100:100" -cpu-used 0 -b:v 384k -qmin 10 -qmax 42 -maxrate 384k -bufsize 1000k -an %s/%s"' % (DISPLAY, DISPLAY, new_sim_out, sibernetic_movie_name)
 execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 
 time.sleep(3)
