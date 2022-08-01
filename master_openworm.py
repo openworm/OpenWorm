@@ -12,7 +12,7 @@ import glob
 import math
 
 print("*****************************")
-print("OpenWorm Master Script v0.9.2")
+print("OpenWorm Master Script v0.9.3")
 print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
@@ -79,7 +79,7 @@ def execute_with_realtime_output(command, directory, env=None):
 
         print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         print('>> Executing command: %s'%command)
-        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        print('>> --------------------------------------------------------------')
         p = Popen(shlex.split(command),
                   stdout=PIPE,
                   stderr=STDOUT,
@@ -87,16 +87,20 @@ def execute_with_realtime_output(command, directory, env=None):
                   env=env)
         with p.stdout:
             for line in iter(p.stdout.readline, b''):
-                 print('>> %s'%line.decode('utf-8'), end='')
+                 print('>>  %s'%line.decode('utf-8'), end='')
         p.wait() # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")
         if p:
             p.kill()
         raise e
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    print('>> --------------------------------------------------------------')
     print('>> Command exited with %i: %s'%(p.returncode,command))
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n')
+
+    if p.returncode!=0:
+        print('Exiting as the last command failed')
+        exit(p.returncode)
 
 
 
@@ -142,6 +146,8 @@ DEFAULTS = {'duration': sim_duration,
 my_env = os.environ.copy()
 my_env["DISPLAY"] = ":44"
 
+# Xvfb or X virtual framebuffer is a display server implementing the X11 display server protocol.
+# In contrast to other display servers, Xvfb performs all graphical operations in virtual memory without showing any screen output.
 os.system('Xvfb :44 -listen tcp -ac -screen 0 1920x1080x24+32 &') # TODO: terminate xvfb after recording
 
 try:
@@ -223,18 +229,21 @@ for wcon in wcons:
 
 time.sleep(2)
 
-
-
 # Rerun and record simulation
 os.system('export DISPLAY=:44')
 sibernetic_movie_name = '%s.mp4' % os.path.split(latest_subdir)[-1]
-os.system('tmux new-session -d -s SiberneticRecording "DISPLAY=:44 ffmpeg -r 30 -f x11grab -draw_mouse 0 -s 1920x1080 -i :44 -filter:v "crop=1200:800:100:100" -cpu-used 0 -b:v 384k -qmin 10 -qmax 42 -maxrate 384k -bufsize 1000k -an %s/%s"' % (new_sim_out, sibernetic_movie_name))
+command = 'tmux new-session -d -s SiberneticRecording "DISPLAY=:44 ffmpeg -r 30 -f x11grab -draw_mouse 0 -s 1920x1080 -i :44 -filter:v "crop=1200:800:100:100" -cpu-used 0 -b:v 384k -qmin 10 -qmax 42 -maxrate 384k -bufsize 1000k -an %s/%s"' % (new_sim_out, sibernetic_movie_name)
+execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
+
+time.sleep(3)
+
+execute_with_realtime_output('tmux list-sessions', os.environ['SIBERNETIC_HOME'], env=my_env)
 
 command = './Release/Sibernetic -f %s -l_from lpath=%s' % (DEFAULTS['configuration'], latest_subdir)
 execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 
-os.system('tmux send-keys -t SiberneticRecording q')
-os.system('tmux send-keys -t SiberneticRecording "exit" C-m')
+execute_with_realtime_output('tmux send-keys -t SiberneticRecording q', os.environ['SIBERNETIC_HOME'], env=my_env)
+execute_with_realtime_output('tmux send-keys -t SiberneticRecording "exit" C-m', os.environ['SIBERNETIC_HOME'], env=my_env)
 
 time.sleep(5)
 
