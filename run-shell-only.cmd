@@ -6,5 +6,5 @@ docker run -it ^
     -e OW_OUT_DIR=%OW_OUT_DIR% ^
     --privileged ^
     -v %HOST_OUT_DIR%:%OW_OUT_DIR%:rw ^
-    openworm/openworm:0.9.3 ^
+    openworm/openworm:0.9.2 ^
     /bin/bash

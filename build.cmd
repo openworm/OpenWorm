@@ -1,1 +1,1 @@
-docker build -t "openworm/openworm:0.9.3" .
+docker build -t "openworm/openworm:0.9.2" .
