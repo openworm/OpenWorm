@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM  debian:buster
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -34,12 +34,12 @@ ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   wget nano htop build-essential make git automake autoconf \
-  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
+  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex  \
   sudo xorg openbox x11-xserver-utils \
   libxext-dev libncurses-dev python3-dev mercurial \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
-  kmod dkms linux-source linux-headers-generic \
-  maven openjdk-8-jdk \
+  kmod dkms  \
+  maven openjdk-11-jdk \
   python3-setuptools python3-yaml libnuma1 \
   openmpi-bin  libopenmpi-dev \
   libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \
@@ -149,7 +149,8 @@ sudo apt install -y ocl-icd-opencl-dev vim
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-    sed -i -e "s/n2.7/n3.10/g" makefile && \
+    sed -i -e "s/lpython2.7/lpython3.7m/g" makefile && \
+    sed -i -e "s/n2.7/n3.7/g" makefile && \
     make clean && make all  # Use python 3 libs
 
 # intel i5, hd 5500, linux 4.15.0-39-generic
