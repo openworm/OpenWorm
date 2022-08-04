@@ -102,9 +102,9 @@ RUN git clone https://github.com/openworm/c302.git && \
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/pgleeson/sibernetic.git && \
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-githubactions2 # fixed to a specific branch
+  git checkout ow-0.9.3  # fixed to a specific branch
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
