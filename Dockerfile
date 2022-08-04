@@ -102,9 +102,9 @@ RUN git clone https://github.com/openworm/c302.git && \
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
+RUN git clone https://github.com/pgleeson/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.1 # fixed to a specific branch
+  git checkout ow-githubactions2 # fixed to a specific branch
 
 RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
 
@@ -119,9 +119,6 @@ ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
 
-# Not working with --chown=$USER:$USER
-COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 
 ################################################################################
@@ -167,6 +164,9 @@ RUN cd sibernetic && \
 ## sudo apt-get install -y cuda-drivers
 # ./Release/Sibernetic -f worm -no_g device=GPU    37ms
 
+# Not working with --chown=$USER:$USER
+COPY ./master_openworm.py $HOME/master_openworm.py
+RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
