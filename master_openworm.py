@@ -100,7 +100,7 @@ def execute_with_realtime_output(command, directory, env=None):
 
     if p.returncode!=0:
         print('Exiting as the last command failed')
-        #exit(p.returncode)
+        exit(p.returncode)
 
 
 
