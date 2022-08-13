@@ -64,27 +64,19 @@ RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 
 RUN pip3 install neuron==8.0.1
 
+
 ################################################################################
 ########     Install c302 for building neuronal network models
 
-# Pin version of pymongo required for py3.6... TODO remove...
-RUN sudo pip install pymongo==4.1.1
-
-RUN git clone https://github.com/NeuroML/pyNeuroML.git && \
-  cd pyNeuroML && \
-  git checkout master  && \
-  sudo python3 setup.py install
-
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout master && \
+  git checkout ow-0.9.3 && \
   sudo pip install .
 
-# Note: owmeta, owmeta-core and pyNeuroML installed with the above library
+# Note: pyNeuroML installed with the above library
 
 RUN pip3 install owmeta-core==0.13.5
 RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
-
 
 
 ################################################################################
@@ -106,7 +98,6 @@ ENV PATH=$PATH:$JNML_HOME
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
-
 
 
 ################################################################################
@@ -137,20 +128,9 @@ RUN cd sibernetic && \
     sed -i -e "s/n2.7/n3.10/g" makefile && \
     make clean && make all  # Use python 3 libs
 
-# intel i5, hd 5500, linux 4.15.0-39-generic
-# ./Release/Sibernetic -f worm -no_g device=CPU    190ms
-# ./Release/Sibernetic -f worm -no_g device=GPU    150ms (initialization takes some time)
 
-# Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz, linux 4.4.0-139-generic
-# ./Release/Sibernetic -f worm -no_g device=CPU    60ms
-#
-# after installing the nvidia driver used in host:
-## wget http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
-## sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
-## sudo apt-key add /var/nvidia-diag-driver-local-repo-390.30/7fa2af80.pub
-## sudo apt-get update
-## sudo apt-get install -y cuda-drivers
-# ./Release/Sibernetic -f worm -no_g device=GPU    37ms
+################################################################################
+########     Copy master python script
 
 # Not working with --chown=$USER:$USER
 COPY ./master_openworm.py $HOME/master_openworm.py
