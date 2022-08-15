@@ -16,14 +16,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        build.cmd
+        ./build.cmd
     - name: Info on Docker images
       run: |
         docker -v
         docker images
     - name: Run the Docker image
       run: |
-        run.cmd
+        ./run.cmd
     - name: Info on generated files
       run: |
         ls -alt
