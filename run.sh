@@ -15,6 +15,8 @@ done
 OW_OUT_DIR=/home/ow/shared
 HOST_OUT_DIR=$PWD
 
+version=$(<VERSION) # Read version of Dockerfile from file VERSION
+
 xhost +
 
 if [ -z "$duration" ]
@@ -25,7 +27,7 @@ else #Duration is set, use it.
 fi
 
 docker run -d \
---name openworm \
+--name openworm_$version \
 --device=/dev/dri:/dev/dri \
 -e DISPLAY=$DISPLAY \
 $DURATION_PART \
@@ -33,7 +35,7 @@ $DURATION_PART \
 -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 --privileged \
 -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
-openworm/openworm:0.9.2 \
+openworm/openworm:$version \
 bash -c "DISPLAY=:44 python master_openworm.py"
 
-docker logs -f openworm
+docker logs -f openworm_$version

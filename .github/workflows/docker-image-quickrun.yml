@@ -1,4 +1,4 @@
-name: Docker Image Test Build
+name: Docker Image Test - quick
 
 on:
   push:
@@ -10,8 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
-
+    runs-on: [ ubuntu-18.04, ubuntu-20.04, ubuntu-22.04 ]
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
@@ -21,13 +20,14 @@ jobs:
         ./build.sh
     - name: Info on Docker images
       run: |
+        docker -v
         docker images
     - name: Run the Docker image
       run: |
-        ./run.sh
+        ./run-quick.sh
     - name: Info on generated files
       run: |
         ls -alt
         ls -alt output
-        ls -alt output/C2*
-        cat output/C2_*/report.json
+        ls -alt output/S*
+        cat output/S*/report.json

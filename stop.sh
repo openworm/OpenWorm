@@ -1,4 +1,6 @@
-docker stop openworm
-docker rm openworm
-docker stop openworm2
-docker rm openworm2
+#!/bin/bash
+
+version=$(<VERSION) # Read version of Dockerfile from file VERSION
+
+docker stop openworm_${version}
+docker rm openworm_${version}
