@@ -126,7 +126,7 @@ sudo apt install -y ocl-icd-opencl-dev vim
 
 RUN cd sibernetic && \
     sed -i -e "s/n2.7/n3.10/g" makefile && \
-    make clean && make all  # Use python 3 libs
+    make clean && make all && ldd ./Release/Sibernetic  # Use python 3 libs
 
 
 ################################################################################
