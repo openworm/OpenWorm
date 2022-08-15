@@ -14,9 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Info on Docker images
+      run: |
+        docker -v
+        docker images
     - name: Build the Docker image
       run: |
-        ./build.cmd
+        docker --experimental build -t "openworm/openworm:0.9.3" .
     - name: Info on Docker images
       run: |
         docker -v
