@@ -21,6 +21,7 @@ jobs:
         ./build.sh
     - name: Info on Docker images
       run: |
+        docker -v
         docker images
     - name: Run the Docker image
       run: |
@@ -30,4 +31,4 @@ jobs:
         ls -alt
         ls -alt output
         ls -alt output/C2*
-        cat output/C2_*/report.json
+        cat output/C2*/report.json
