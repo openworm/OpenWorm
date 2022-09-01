@@ -20,7 +20,7 @@ xhost +
 
 
 NOC302_PART="-e NOC302=1"
-DURATION_PART="-e DURATION=3"
+DURATION_PART="-e DURATION=10"
 
 docker run -d \
 --name openworm_$version \

@@ -86,8 +86,6 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
   git checkout ow-0.9.3  # fixed to a specific branch
 
-RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
-
 
 ################################################################################
 ########     Set some paths//environment variables

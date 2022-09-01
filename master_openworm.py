@@ -248,7 +248,7 @@ execute_with_realtime_output(command, os.environ['SIBERNETIC_HOME'], env=my_env)
 execute_with_realtime_output('tmux send-keys -t SiberneticRecording q', os.environ['SIBERNETIC_HOME'], env=my_env)
 execute_with_realtime_output('tmux send-keys -t SiberneticRecording "exit" C-m', os.environ['SIBERNETIC_HOME'], env=my_env)
 
-time.sleep(5)
+time.sleep(3)
 
 execute_with_realtime_output('ls -alt %s'%latest_subdir, os.environ['SIBERNETIC_HOME'], env=my_env)
 
