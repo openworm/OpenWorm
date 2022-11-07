@@ -1,3 +1,4 @@
 #!/bin/bash
 
-docker build "$@" -t "openworm/openworm:0.9.3" .
+version=$(<VERSION) # Read version of Dockerfile from file VERSION
+docker build "$@" -t "openworm/openworm:$version" .

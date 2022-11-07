@@ -1,4 +1,4 @@
-name: Docker Image Test Build
+name: Docker Image Test - quick
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         docker images
     - name: Run the Docker image
       run: |
-        ./run.sh
+        ./run-quick.sh
     - name: Info on generated files
       run: |
         ls -alt

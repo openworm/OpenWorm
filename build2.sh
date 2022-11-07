@@ -4,4 +4,5 @@
 # Note: Python 2 is no longer officially supported and this Docker image will
 # probably stop working eventually...
 
-docker build "$@" -t "openworm/openworm:0.9.3_py2"  -f Dockerfile2 .
+version=$(<VERSION) # Read version of Dockerfile from file VERSION
+docker build "$@" -t "openworm/openworm:${version}_py2"  -f Dockerfile2 .

@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   wget nano htop build-essential make git automake autoconf \
   g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
   sudo xorg openbox x11-xserver-utils \
-  libxext-dev libncurses-dev python-dev mercurial \
+  libxext-dev libncurses-dev python3-dev mercurial \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
   kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
@@ -50,7 +50,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 
 RUN sudo usermod -a -G video $USER
 
-USER $USER
+#USER $USER
 ENV HOME /home/$USER
 WORKDIR $HOME
 
@@ -62,29 +62,20 @@ RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 ################################################################################
 ########     Install NEURON simulator
 
-RUN sudo pip install neuron==7.8.1
+RUN pip3 install neuron==8.0.1
 
 
 ################################################################################
 ########     Install c302 for building neuronal network models
 
-
-# TODO remove this line after we have better dependency management.  The
-# current version of gitpython requires python >= 3.7, which is newer than the
-# python included in the base image. Therefore, we manually install an older
-# gitpython to be used with OpenWormData.
-# See https://github.com/openworm/OpenWorm/pull/316
-RUN sudo pip install 'gitpython==2.1.15' markupsafe
-
-RUN sudo pip install 'NeuroMLlite<0.5.0' # for python 3.6...
-
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.2 && \
+  git checkout ow-0.9.3 && \
   sudo pip install .
 
-# Note: owmeta, owmeta-core and pyNeuroML installed with the above library
+# Note: pyNeuroML installed with the above library
 
+RUN pip3 install owmeta-core==0.13.5
 RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
@@ -93,9 +84,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.1 # fixed to a specific branch
-
-RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be run from any dir...
+  git checkout ow-0.9.3  # fixed to a specific branch
 
 
 ################################################################################
@@ -104,10 +93,6 @@ RUN cp c302/pyopenworm.conf sibernetic/   # Temp step until PyOpenWorm can be ru
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
-
-# Not working with --chown=$USER:$USER
-COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 
 ################################################################################
@@ -135,25 +120,16 @@ sudo apt install -y ocl-icd-opencl-dev vim
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-    sed -i -e "s/lpython2.7/lpython3.6m/g" makefile && \
-    sed -i -e "s/n2.7/n3.6/g" makefile && \
-    make clean && make all  # Use python 3 libs
+    sed -i -e "s/n2.7/n3.10/g" makefile && \
+    make clean && make all && ldd ./Release/Sibernetic  # Use python 3 libs
 
-# intel i5, hd 5500, linux 4.15.0-39-generic
-# ./Release/Sibernetic -f worm -no_g device=CPU    190ms
-# ./Release/Sibernetic -f worm -no_g device=GPU    150ms (initialization takes some time)
 
-# Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz, linux 4.4.0-139-generic
-# ./Release/Sibernetic -f worm -no_g device=CPU    60ms
-#
-# after installing the nvidia driver used in host:
-## wget http://us.download.nvidia.com/tesla/390.30/nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
-## sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-390.30_1.0-1_amd64.deb
-## sudo apt-key add /var/nvidia-diag-driver-local-repo-390.30/7fa2af80.pub
-## sudo apt-get update
-## sudo apt-get install -y cuda-drivers
-# ./Release/Sibernetic -f worm -no_g device=GPU    37ms
+################################################################################
+########     Copy master python script
 
+# Not working with --chown=$USER:$USER
+COPY ./master_openworm.py $HOME/master_openworm.py
+RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
 
