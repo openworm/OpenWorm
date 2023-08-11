@@ -110,4 +110,4 @@ Documentation
 -------------
 to find out more about OpenWorm, please see the documentation at [http://docs.openworm.org](http://docs.openworm.org) or [join us on Slack](http://bit.ly/OpenWormVolunteer).
 
-This repository also contains project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues) and [milestones](https://github.com/openworm/OpenWorm/milestones).
+This repository also contains project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues) and [milestones](https://github.com/openworm/OpenWorm/milestones). 
