@@ -82,9 +82,13 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
+# RUN git clone https://github.com/openworm/sibernetic.git && \
+#   cd sibernetic && \
+#   git checkout ow-0.9.3  # fixed to a specific branch
+
+RUN git clone https://github.com/austinklein/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.3  # fixed to a specific branch
+  git checkout ow-0.9.4  # fixed to a specific branch
 
 
 ################################################################################
