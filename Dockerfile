@@ -102,6 +102,7 @@ ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
 ################################################################################
 ########     Install Intel OpenCL libraries needed for Sibernetic
 
+# Legacy install of Intel's OpenCL Drivers:
 # RUN mkdir intel-opencl-tmp && \
 #   cd intel-opencl-tmp && \
 #   mkdir intel-opencl && \
@@ -116,63 +117,23 @@ ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
 #   sudo rm -r intel-opencl-tmp
 
 # RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
+# sudo apt install -y ocl-icd-opencl-dev vim
+# #sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
 
-
-
-
-
-
+# Install AMD's OpenCL Drivers (AMD-APP-SDK 3.0):
 RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
 RUN tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
-
 RUN printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh
 
-RUN echo "ls /usr/lib:"
-RUN ls /usr/lib
-
-RUN echo "ls /usr/lib/x86_64-linux-gnu:"
-RUN ls /usr/lib/x86_64-linux-gnu
-
-
-RUN echo "ls /opt/AMDAPPSDK-3.0:"
-RUN ls /opt/AMDAPPSDK-3.0
-
-RUN echo "ls /opt/AMDAPPSDK-3.0/lib/x86_64:"
-RUN ls /opt/AMDAPPSDK-3.0/lib/x86_64
-
-RUN echo "ls /opt/AMDAPPSDK-3.0/bin:"
-RUN ls /opt/AMDAPPSDK-3.0/bin
-
-RUN echo "ls /opt/AMDAPPSDK-3.0/include:"
-RUN ls /opt/AMDAPPSDK-3.0/include
-
-
-
-
-
-
-
-
-
-
-RUN echo "sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1"
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1
-RUN echo "sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so"
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so
-
-
-
-
-
-
-
 
 RUN sudo apt install -y ocl-icd-opencl-dev vim
 
+RUN echo "OpenCL Driver Installation Complete"
+
 RUN echo "CLINFO:"
 RUN clinfo
-
-#sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
 
 
 ################################################################################

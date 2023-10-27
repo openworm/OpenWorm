@@ -14,7 +14,6 @@ done
 
 OW_OUT_DIR=/home/ow/shared
 HOST_OUT_DIR=$PWD
-
 version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
 xhost +
