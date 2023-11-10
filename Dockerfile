@@ -82,9 +82,13 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
+# RUN git clone https://github.com/openworm/sibernetic.git && \
+#   cd sibernetic && \
+#   git checkout ow-0.9.3  # fixed to a specific branch
+
+RUN git clone https://github.com/austinklein/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.3  # fixed to a specific branch
+  git checkout ow-0.9.4  # fixed to a specific branch
 
 
 ################################################################################
@@ -98,22 +102,38 @@ ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
 ################################################################################
 ########     Install Intel OpenCL libraries needed for Sibernetic
 
-RUN mkdir intel-opencl-tmp && \
-  cd intel-opencl-tmp && \
-  mkdir intel-opencl && \
-  wget https://github.com/openworm/OpenWorm/raw/dev_inte/SRB5.0_linux64.zip && \
-  unzip SRB5.0_linux64.zip && \
-  tar -C intel-opencl -Jxf intel-opencl-r5.0-63503.x86_64.tar.xz && \
-  tar -C intel-opencl -Jxf intel-opencl-devel-r5.0-63503.x86_64.tar.xz && \
-  tar -C intel-opencl -Jxf intel-opencl-cpu-r5.0-63503.x86_64.tar.xz && \
-  sudo cp -R intel-opencl/* / && \
-  sudo ldconfig && \
-  cd .. && \
-  sudo rm -r intel-opencl-tmp
+# Legacy install of Intel's OpenCL Drivers:
+# RUN mkdir intel-opencl-tmp && \
+#   cd intel-opencl-tmp && \
+#   mkdir intel-opencl && \
+#   wget https://github.com/openworm/OpenWorm/raw/dev_inte/SRB5.0_linux64.zip && \
+#   unzip SRB5.0_linux64.zip && \
+#   tar -C intel-opencl -Jxf intel-opencl-r5.0-63503.x86_64.tar.xz && \
+#   tar -C intel-opencl -Jxf intel-opencl-devel-r5.0-63503.x86_64.tar.xz && \
+#   tar -C intel-opencl -Jxf intel-opencl-cpu-r5.0-63503.x86_64.tar.xz && \
+#   sudo cp -R intel-opencl/* / && \
+#   sudo ldconfig && \
+#   cd .. && \
+#   sudo rm -r intel-opencl-tmp
 
-RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
-sudo apt install -y ocl-icd-opencl-dev vim
-#sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
+# RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
+# sudo apt install -y ocl-icd-opencl-dev vim
+# #sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
+
+# Install AMD's OpenCL Drivers (AMD-APP-SDK 3.0):
+RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
+RUN tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
+RUN printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh
+
+RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1
+RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so
+
+RUN sudo apt install -y ocl-icd-opencl-dev vim
+
+RUN echo "OpenCL Driver Installation Complete"
+
+RUN echo "CLINFO:"
+RUN clinfo
 
 
 ################################################################################
