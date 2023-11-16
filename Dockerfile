@@ -86,7 +86,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 #   cd sibernetic && \
 #   git checkout ow-0.9.3  # fixed to a specific branch
 
-RUN git clone https://github.com/austinklein/sibernetic.git && \
+RUN git clone https://github.com/pgleeson/sibernetic.git && \
   cd sibernetic && \
   git checkout ow-0.9.4  # fixed to a specific branch
 
