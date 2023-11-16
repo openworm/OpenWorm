@@ -1,4 +1,4 @@
-name: Docker Image Test Build
+name: Docker Pull Test
 
 on:
   push:
@@ -14,18 +14,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+
+    - name: Run the Docker image
       run: |
-        chmod a+w output/
-        ls -alt
-        ./build.sh
+        # Don't build. Will be pulled when run below
+        ./run-quick.sh
+
     - name: Info on Docker images
       run: |
         docker -v
         docker images
-    - name: Run the Docker image
-      run: |
-        ./run.sh
+        
     - name: Info on generated files
       run: |
         ls -alt
