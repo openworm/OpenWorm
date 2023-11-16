@@ -90,9 +90,6 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 ################################################################################
 ########     Set some paths//environment variables
 
-ENV JNML_HOME=$HOME/jNeuroML
-ENV PATH=$PATH:$JNML_HOME
-
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
