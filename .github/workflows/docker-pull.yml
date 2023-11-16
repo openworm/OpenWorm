@@ -18,6 +18,17 @@ jobs:
     - name: Run the Docker image
       run: |
         # Don't build. Will be pulled when run below
+        ./run.sh
+
+    - name: Info on Docker images
+      run: |
+        docker -v
+        docker images
+
+    - name: Run the Docker image - no c302
+      run: |
+        # Shouldn't need to pull again.
+        ./stop.sh
         ./run-quick.sh
 
     - name: Info on Docker images
