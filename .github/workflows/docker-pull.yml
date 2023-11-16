@@ -1,0 +1,43 @@
+name: Docker Pull Test
+
+on:
+  push:
+    branches: [ master, dev* ]
+  pull_request:
+    branches: [ master, dev* ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Run the Docker image
+      run: |
+        # Don't build. Will be pulled when run below
+        ./run.sh
+
+    - name: Info on Docker images
+      run: |
+        docker -v
+        docker images
+
+    - name: Run the Docker image - no c302
+      run: |
+        # Shouldn't need to pull again.
+        ./stop.sh
+        ./run-quick.sh
+
+    - name: Info on Docker images
+      run: |
+        docker -v
+        docker images
+        
+    - name: Info on generated files
+      run: |
+        ls -alt
+        ls -alt output
+        ls -alt output/*
