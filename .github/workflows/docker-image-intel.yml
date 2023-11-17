@@ -1,0 +1,38 @@
+name: Docker Image Test Build - Intel drivers
+
+on:
+  push:
+    branches: [ master, dev* ]
+  pull_request:
+    branches: [ master, dev* ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      run: |
+        chmod a+w output/
+        ls -alt
+        ./build_intel.sh
+
+    - name: Info on Docker images
+      run: |
+        docker -v
+        docker images
+
+    - name: Run the Docker image
+      run: |
+        ./run.sh
+
+    - name: Info on generated files
+      run: |
+        ls -alt
+        ls -alt output
+        ls -alt output/*
+        more output/*/report.json
