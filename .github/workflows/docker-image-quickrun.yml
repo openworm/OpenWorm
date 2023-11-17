@@ -28,6 +28,6 @@ jobs:
         ./run-quick.sh
     - name: Info on generated files
       run: |
-        ls -alt
-        ls -alt output
-        ls -alt output/*
+        ls -alth
+        ls -alth output
+        ls -alth output/*

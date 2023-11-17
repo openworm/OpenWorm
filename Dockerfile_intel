@@ -18,7 +18,6 @@ RUN mkdir -p /etc/sudoers.d && \
   chmod 0440 /etc/sudoers.d/$USER && \
   chown ${uid}:${gid} -R /home/$USER
 
-
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
 
@@ -91,7 +90,6 @@ ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
 ########     Install Intel OpenCL libraries needed for Sibernetic
 
 # Legacy install of Intel's OpenCL Drivers:
-# ARG INTEL_SDK_VERSION=2017_7.0.0.2511_x64
 
 RUN mkdir intel-opencl-tmp && \
    cd intel-opencl-tmp && \
@@ -107,9 +105,7 @@ RUN mkdir intel-opencl-tmp && \
    sudo rm -r intel-opencl-tmp
 
 RUN sudo cp -R /opt/intel/opencl/include/CL /usr/include/ && \
- sudo apt install -y ocl-icd-opencl-dev vim
- #sudo ln -s /opt/intel/opencl/libOpenCL.so.1 /usr/lib/libOpenCL.so
-
+    sudo apt install -y ocl-icd-opencl-dev vim
 
 RUN echo "OpenCL Driver Installation Complete"
 
@@ -118,7 +114,6 @@ RUN echo "OpenCL Driver Installation Complete"
 ########     Build Sibernetic
 
 RUN cd sibernetic && \
-    sed -i -e "s/n2.7/n3.10/g" makefile && \
     make clean && make all && ldd ./Release/Sibernetic  # Use python 3 libs
 
 
