@@ -2,9 +2,9 @@ name: Docker Pull Test
 
 on:
   push:
-    branches: [ master, dev* ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, dev* ]
+    branches: [ master ]
 
 jobs:
 
@@ -17,7 +17,7 @@ jobs:
 
     - name: Run the Docker image
       run: |
-        # Don't build. Will be pulled when run below
+        # Don't build. Will be pulled from Dockerhub when run below
         ./run.sh
 
     - name: Info on Docker images
@@ -38,6 +38,7 @@ jobs:
         
     - name: Info on generated files
       run: |
-        ls -alt
-        ls -alt output
-        ls -alt output/*
+        ls -alth
+        ls -alth output
+        ls -alth output/*
+        more output/*

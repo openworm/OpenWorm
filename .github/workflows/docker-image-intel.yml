@@ -1,4 +1,4 @@
-name: Docker Image Test - quick
+name: Docker Image Test Build - Intel drivers
 
 on:
   push:
@@ -14,20 +14,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Build the Docker image
       run: |
         chmod a+w output/
         ls -alt
-        ./build.sh
+        ./build_intel.sh
+
     - name: Info on Docker images
       run: |
         docker -v
         docker images
+
     - name: Run the Docker image
       run: |
-        ./run-quick.sh
+        ./run.sh
+
     - name: Info on generated files
       run: |
         ls -alth
         ls -alth output
         ls -alth output/*
+        more output/*/report.json
