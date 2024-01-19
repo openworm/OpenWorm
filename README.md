@@ -1,6 +1,6 @@
 ![OpenWorm](http://www.openworm.org/img/OpenWormLogo.png)
 
-[![Docker Image CI](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml)
+[![Docker Image CI](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image.yml) [![Docker Image Test - quick](https://github.com/openworm/OpenWorm/actions/workflows/docker-image-quickrun.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image-quickrun.yml) [![Docker Image Test Build - Intel drivers](https://github.com/openworm/OpenWorm/actions/workflows/docker-image-intel.yml/badge.svg)](https://github.com/openworm/OpenWorm/actions/workflows/docker-image-intel.yml)
 
 About **OpenWorm**
 ------------------
