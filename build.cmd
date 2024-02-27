@@ -1,1 +1,2 @@
-docker build -t "openworm/openworm:0.9.3" .
+@SET /P version=<VERSION
+docker build -t openworm/openworm:%version% .
