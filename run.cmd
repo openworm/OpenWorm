@@ -3,6 +3,7 @@ setlocal
 
 set OW_OUT_DIR=/home/ow/shared
 set HOST_OUT_DIR=%~dps0
+@SET /P version=<VERSION
 
 :GETOPTS
  if /i "%1" == "-d" set DURATION=%2 & shift
@@ -20,7 +21,7 @@ docker run -d ^
   -e DURATION=%DURATION% ^
   --privileged ^
   -v %HOST_OUT_DIR%:%OW_OUT_DIR%:rw ^
-  openworm/openworm:0.9.3 ^
+  openworm/openworm:%version% ^
   /bin/bash -c "python master_openworm.py"
 
 docker logs -f openworm
