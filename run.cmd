@@ -2,7 +2,7 @@
 setlocal
 
 set OW_OUT_DIR=/home/ow/shared
-set HOST_OUT_DIR=%~dp0
+set HOST_OUT_DIR=%~dps0
 
 :GETOPTS
  if /i "%1" == "-d" set DURATION=%2 & shift

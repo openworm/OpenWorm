@@ -1,5 +1,5 @@
 SET OW_OUT_DIR=/home/ow/shared
-SET HOST_OUT_DIR=%~dp0
+SET HOST_OUT_DIR=%~dps0
 
 docker run -it ^
     --name openworm ^
