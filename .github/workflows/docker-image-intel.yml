@@ -1,4 +1,4 @@
-name: Docker Image Test Build - Intel drivers
+name: Docker Image Build - Intel drivers
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: |
         chmod a+w output/
-        ls -alt
+        ls -alth
         ./build_intel.sh
 
     - name: Info on Docker images

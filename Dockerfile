@@ -20,6 +20,7 @@ RUN mkdir -p /etc/sudoers.d && \
 
 ENV DEBIAN_FRONTEND noninteractive # TODO: change
 
+
 ################################################################################
 ########     Update/install essential libraries
 
@@ -60,7 +61,7 @@ RUN pip3 install neuron==8.0.1
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.4 && \
+  git checkout ow-0.9.5 && \
   sudo pip install .
 
 # Note: pyNeuroML installed with the above library
@@ -74,7 +75,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.4  # fixed to a specific branch
+  git checkout ow-0.9.5  # fixed to a specific branch
 
 
 ################################################################################
