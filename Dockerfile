@@ -58,9 +58,10 @@ RUN pip3 install neuron==8.0.1
 ################################################################################
 ########     Install c302 for building neuronal network models
 
-RUN git clone https://github.com/openworm/c302.git && \
+RUN sudo git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout ow-0.9.4 && \
+  sudo apt-get install libhdf5-dev -y && \
   sudo pip install .
 
 # Note: pyNeuroML installed with the above library
