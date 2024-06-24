@@ -48,10 +48,10 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
    git clone http://github.com/openworm/openworm
    cd openworm
    ```
-3. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm).
-4. Run `./run.sh` (or `run.cmd` on Windows).
+3. Optional: Run `./build.sh` (`build.cmd` on Windows or `.\build.cmd` on [PowerShell](https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0)). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm).
+4. Run `./run.sh` (`run.cmd` on Windows or `.\run.cmd` in PowerShell).
 5. About 5-10 minutes of output will display on the screen as the steps run.
-6. The simulation will end. Run `stop.sh` (`stop.cmd` on Windows) on your system to clean up the running container.
+6. The simulation will end. Run `stop.sh` (`stop.cmd` on Windows or `.\stop.cmd` in PowerShell) on your system to clean up the running container.
 7. Inspect the output in the `output` directory on your local machine.
 
 ## Advanced
