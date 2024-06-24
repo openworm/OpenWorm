@@ -48,7 +48,7 @@ in addition for Linux instructions.
 
 1. Ensure the Docker daemon is running in the background (on MacOS/Windows there should be an icon with the Docker whale logo showing in the menu bar/system tray).
 2. Open a terminal and run: `git clone http://github.com/openworm/openworm`; `cd openworm`
-3. Optional: Run `./build.sh` (or `build.cmd` on Windows). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm).
+3. Optional: Run `./build.sh` (or `build.cmd` on Windows or '.\build.cmd' on [PowerShell](https://learn.microsoft.com/en-us/powershell/)). If you skip this step, it will download the latest released Docker image from the [OpenWorm Docker hub](https://hub.docker.com/r/openworm/openworm).
 4. Run `./run.sh` (or `run.cmd` on Windows).
 5. About 5-10 minutes of output will display on the screen as the steps run.
 6. The simulation will end.  Run `stop.sh` (`stop.cmd` on Windows) on your system to clean up the running container.
