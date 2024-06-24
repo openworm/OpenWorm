@@ -62,7 +62,7 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 
 ### Other Things to Try
 
-- Open a terminal and run `./run-shell-only.sh` (or `run-shell-only.cmd` on Windows). This will let you log into the container before it has run `master_openworm.py`. From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards, you'll still need to run `./stop.sh` to clean up.
+- Open a terminal and run `./run-shell-only.sh` (`run-shell-only.cmd` on Windows or `.\run-shell-only.cmd` in PowerShell). This will let you log into the container before it has run `master_openworm.py`. From here you can inspect the internals of the various checked out code bases and installed systems and modify things. Afterwards, you'll still need to run `./stop.sh` to clean up.
 - If you wish to modify what gets installed, you should modify `Dockerfile`. If you want to modify what runs, you should modify `master_openworm.py`. Either way you will need to run `build.sh` in order to rebuild the image locally. Afterwards, you can run normally.
 
 ## FAQ
