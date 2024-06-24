@@ -42,7 +42,7 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 
 ## Running
 
-1. Ensure the Docker daemon is running in the background (on MacOS/Windows there should be an icon with the Docker whale logo showing in the menu bar/system tray).
+1. Ensure the Docker daemon is running in the background (on MacOS/Windows there should be an icon with the Docker whale logo showing in the menu bar/system tray). 
 2. Open a terminal and run:
    ```bash
    git clone http://github.com/openworm/openworm
