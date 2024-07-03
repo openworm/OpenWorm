@@ -59,6 +59,12 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 ### Arguments
 
 - `-d [num]`: Use to modify the duration of the simulation in milliseconds. Default is 15. Use 5000 to run for time to make the full movie above (i.e. 5 seconds).
+```bash
+run.sh -d [num]
+```
+```powershell
+run.cmd -d [num]
+```
 
 ### Other Things to Try
 
