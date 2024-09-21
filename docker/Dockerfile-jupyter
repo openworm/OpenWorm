@@ -1,0 +1,5 @@
+FROM openworm/openworm:latest
+
+RUN python -m pip install --user jupyterlab
+
+ENTRYPOINT ["python3", "-m", "jupyterlab", "--allow-root", "--ip", "0.0.0.0"]
