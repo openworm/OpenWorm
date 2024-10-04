@@ -2,9 +2,9 @@ name: Docker Image Build & Run
 
 on:
   push:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, experimental, test* ]
   pull_request:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, experimental, test* ]
 
 jobs:
 
