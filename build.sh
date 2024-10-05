@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=$(<VERSION)
+version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
 # Set the platform flag if we're on ARM
 arch=$(uname -m)
