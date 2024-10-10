@@ -222,6 +222,12 @@ for report in reports:
     print("Moving %s to %s"%(report, new_sim_out))
     shutil.move(report, new_sim_out)
 
+# Copy position files etc.
+reports = glob.glob('%s/position_buffer*' % latest_subdir)
+for report in reports:
+    print("Moving %s to %s"%(report, new_sim_out))
+    shutil.move(report, new_sim_out)
+
 # Copy WCON file(s)
 wcons = glob.glob('%s/*.wcon' % latest_subdir)
 for wcon in wcons:
