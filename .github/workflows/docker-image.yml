@@ -1,4 +1,4 @@
-name: Docker Image Build & Run
+name: Docker Image Build and Run
 
 on:
   push:
