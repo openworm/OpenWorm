@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -33,7 +33,7 @@ RUN apt-get install -y --no-install-recommends apt-utils \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip \
   kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
-  python-setuptools libnuma1 \
+  libnuma1 \
   openmpi-bin  libopenmpi-dev \
   libgl1 libglx-mesa0  libgl1-mesa-dri libfreetype6-dev \
   libxft-dev  unzip ffmpeg xvfb tmux
@@ -51,7 +51,7 @@ WORKDIR $HOME
 ################################################################################
 ########     Install NEURON simulator
 
-RUN sudo pip install neuron==8.2.6 # --break-system-packages
+RUN sudo pip install neuron==8.2.6  --break-system-packages
 
 
 ################################################################################
@@ -60,7 +60,7 @@ RUN sudo pip install neuron==8.2.6 # --break-system-packages
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
   git checkout development && \
-  sudo pip install .  #--break-system-packages
+  sudo pip install .  --break-system-packages
 
 # Note: pyNeuroML installed with the above library
 
