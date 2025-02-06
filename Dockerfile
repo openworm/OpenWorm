@@ -118,7 +118,7 @@ RUN cd sibernetic && \
 COPY ./master_openworm.py $HOME/master_openworm.py
 RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
-RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
+RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"\n' >> ~/.bashrc
 
 RUN pip list
 
