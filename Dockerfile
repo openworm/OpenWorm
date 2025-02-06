@@ -80,6 +80,7 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
 ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
+ENV NEURON_MODULE_OPTIONS=-nogui
 
 
 ################################################################################
