@@ -1,4 +1,4 @@
-name: Docker Image Test Build
+name: Docker Image Build and Run
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: |
         chmod a+w output/
-        ls -alt
+        ls -alth
         ./build.sh
     - name: Info on Docker images
       run: |
