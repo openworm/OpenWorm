@@ -124,3 +124,5 @@ RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"\n' >> ~/
 RUN pip list
 
 RUN echo "Built the OpenWorm Docker image!"
+
+RUN python3 -m pip install --no-cache-dir notebook jupyterlab
