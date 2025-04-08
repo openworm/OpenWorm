@@ -110,6 +110,6 @@ You'll be able to interact with the container as before.
 
 ## Documentation
 
-To find out more about OpenWorm, please see the documentation at [http://docs.openworm.org](http://docs.openworm.org) or [join us on Slack](http://bit.ly/OpenWormVolunteer).
+To find out more about OpenWorm, please see the documentation at [http://docs.openworm.org](http://docs.openworm.org) or [get in contact](https://openworm.org/contacts.html).
 
 This repository also contains project-wide tracking via high-level [issues](https://github.com/openworm/OpenWorm/issues) and [milestones](https://github.com/openworm/OpenWorm/milestones).
