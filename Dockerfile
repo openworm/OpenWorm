@@ -18,7 +18,7 @@ RUN mkdir -p /etc/sudoers.d && \
   chmod 0440 /etc/sudoers.d/$USER && \
   chown ${uid}:${gid} -R /home/$USER
 
-ENV DEBIAN_FRONTEND noninteractive # TODO: change
+ENV DEBIAN_FRONTEND=noninteractive
 
 
 ################################################################################
@@ -43,7 +43,7 @@ RUN apt-get install -y --no-install-recommends apt-utils \
 RUN sudo usermod -a -G video $USER
 
 #USER $USER
-ENV HOME /home/$USER
+ENV HOME=/home/$USER
 WORKDIR $HOME
 
 
@@ -79,7 +79,8 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
-ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
+ENV PYTHONPATH=$HOME/c302:$SIBERNETIC_HOME
+
 ENV NEURON_MODULE_OPTIONS=-nogui
 
 
