@@ -12,7 +12,7 @@ import glob
 import math
 
 print("*****************************")
-print("OpenWorm Master Script v0.9.3")
+print("OpenWorm Master Script")
 print("*****************************")
 print("")
 print("This script attempts to run a full pass through the OpenWorm scientific libraries.")
@@ -152,7 +152,7 @@ my_env["DISPLAY"] = DISPLAY
 os.system('echo Starting xvfb && Xvfb %s -listen tcp -ac -screen 0 1920x1080x24+32 &'%DISPLAY) # TODO: terminate xvfb after recording
 
 try:
-    command = """python sibernetic_c302.py
+    command = """python3 sibernetic_c302.py
                 -duration %s
                 -dt %s
                 -dtNrn %s

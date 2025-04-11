@@ -53,7 +53,7 @@ RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 ################################################################################
 ########     Install NEURON simulator
 
-RUN pip3 install neuron==8.0.1
+RUN pip3 install neuron==8.2.6
 
 
 ################################################################################
