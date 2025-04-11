@@ -59,7 +59,7 @@ RUN sudo pip install neuron==8.2.6  --break-system-packages
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout development && \
+  git checkout ow-0.9.6 && \
   sudo pip install .  --break-system-packages
 
 # Note: pyNeuroML installed with the above library
