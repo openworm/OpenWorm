@@ -1,0 +1,11 @@
+version: "3"
+services:
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile-jupyter
+    volumes:
+      - ../output:/home/ow/shared/output/
+    network_mode: host
+    # user: ${MY_UID}:${MY_GID}
+    entrypoint: python3 -m jupyterlab --allow-root --NotebookApp.token=''
