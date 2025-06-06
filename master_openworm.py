@@ -5,7 +5,6 @@ matplotlib.use("Agg")
 import shutil
 from subprocess import Popen, PIPE, check_output, STDOUT
 import os
-import pwd
 import shlex
 import sys
 import time
@@ -110,7 +109,7 @@ sys.path.append(os.environ["C302_HOME"])
 
 try:
     os.system("echo Granting permissions for xhost && xhost +")
-except:
+except Exception:
     print("Unexpected error: %s" % sys.exc_info()[0])
 
 OW_OUT_DIR = os.environ["OW_OUT_DIR"]
@@ -122,7 +121,7 @@ try:
             "sudo chown -R %s:%s %s"
             % (os.environ["USER"], os.environ["USER"], OW_OUT_DIR)
         )
-except:
+except Exception:
     print("Unexpected error: %s" % sys.exc_info()[0])
     raise
 
@@ -190,7 +189,7 @@ try:
         command += " -noc302"
 
     execute_with_realtime_output(command, os.environ["SIBERNETIC_HOME"], env=my_env)
-except KeyboardInterrupt as e:
+except KeyboardInterrupt:
     pass
 
 sibernetic_sim_dir = "%s/simulations" % os.environ["SIBERNETIC_HOME"]
