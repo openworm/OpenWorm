@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmail.com)"
 
@@ -18,42 +18,40 @@ RUN mkdir -p /etc/sudoers.d && \
   chmod 0440 /etc/sudoers.d/$USER && \
   chown ${uid}:${gid} -R /home/$USER
 
-ENV DEBIAN_FRONTEND noninteractive # TODO: change
+ENV DEBIAN_FRONTEND=noninteractive
 
 
 ################################################################################
 ########     Update/install essential libraries
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends apt-utils \
   wget nano htop build-essential make git automake autoconf \
-  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex lsb-core \
+  g++ rpm libtool libncurses5-dev zlib1g-dev bison flex \
   sudo xorg openbox x11-xserver-utils \
-  libxext-dev libncurses-dev python3-dev mercurial \
-  freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip python3-lxml  python3-scipy python3-tk \
+  libxext-dev libncurses-dev mercurial \
+  freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip \
   kmod dkms linux-source linux-headers-generic \
   maven openjdk-8-jdk \
-  python3-setuptools python3-yaml libnuma1 \
+  libnuma1 \
   openmpi-bin  libopenmpi-dev \
-  libgl1-mesa-glx libgl1-mesa-dri libfreetype6-dev \
-  libxft-dev python3-matplotlib unzip ffmpeg xvfb tmux
+  libgl1 libglx-mesa0  libgl1-mesa-dri libfreetype6-dev \
+  libxft-dev  unzip ffmpeg xvfb tmux
 
 #RUN  sudo pip install --upgrade pip
 
 RUN sudo usermod -a -G video $USER
 
 #USER $USER
-ENV HOME /home/$USER
+ENV HOME=/home/$USER
 WORKDIR $HOME
 
-#### TODO: check that this is the best way to switch to py3...
-RUN  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-RUN  sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 
 
 ################################################################################
 ########     Install NEURON simulator
 
-RUN sudo pip3 install neuron==8.1.0
+RUN sudo pip install neuron==8.2.6  --break-system-packages
 
 
 ################################################################################
@@ -61,13 +59,11 @@ RUN sudo pip3 install neuron==8.1.0
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.5 && \
-  sudo pip install .
+  git checkout ow-0.9.6 && \
+  sudo pip install .  --break-system-packages
 
 # Note: pyNeuroML installed with the above library
 
-RUN pip3 install owmeta-core==0.13.5
-RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/owmeta-bundles/master/index.json'
 
 
 ################################################################################
@@ -75,7 +71,7 @@ RUN owm bundle remote --user add ow 'https://raw.githubusercontent.com/openworm/
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.5  # fixed to a specific branch
+  git checkout ow-0.9.6  # fixed to a specific branch
 
 
 ################################################################################
@@ -83,15 +79,18 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 
 ENV C302_HOME=$HOME/c302/c302
 ENV SIBERNETIC_HOME=$HOME/sibernetic
-ENV PYTHONPATH=$PYTHONPATH:$HOME/c302:$SIBERNETIC_HOME
+ENV PYTHONPATH=$HOME/c302:$SIBERNETIC_HOME
+
+ENV NEURON_MODULE_OPTIONS=-nogui
 
 
 ################################################################################
 ########     Install AMD's OpenCL Drivers (AMD-APP-SDK 3.0)
 
-RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
-RUN tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
-RUN printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh
+RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
+    tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
+    printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh && \
+    rm AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
 
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so
@@ -118,7 +117,7 @@ RUN cd sibernetic && \
 COPY ./master_openworm.py $HOME/master_openworm.py
 RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
-RUN echo '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"' >> ~/.bashrc
+RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"\n' >> ~/.bashrc
 
 RUN pip list
 
