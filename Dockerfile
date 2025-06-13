@@ -59,7 +59,7 @@ RUN sudo pip install neuron==8.2.6  --break-system-packages
 
 RUN git clone https://github.com/openworm/c302.git && \
   cd c302 && \
-  git checkout ow-0.9.6 && \
+  git checkout ow-0.9.7 && \
   sudo pip install .  --break-system-packages
 
 # Note: pyNeuroML installed with the above library
@@ -71,7 +71,7 @@ RUN git clone https://github.com/openworm/c302.git && \
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.6  # fixed to a specific branch
+  git checkout ow-0.9.7  # fixed to a specific branch
 
 
 ################################################################################
