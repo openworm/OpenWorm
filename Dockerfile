@@ -75,6 +75,12 @@ RUN git clone https://github.com/openworm/sibernetic.git && \
 
 
 ################################################################################
+########     Install extra Python dependencies
+
+RUN sudo pip install ruff  --break-system-packages
+
+
+################################################################################
 ########     Set some paths//environment variables
 
 ENV C302_HOME=$HOME/c302/c302
@@ -117,7 +123,7 @@ RUN cd sibernetic && \
 COPY ./master_openworm.py $HOME/master_openworm.py
 RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
-RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alt"\n' >> ~/.bashrc
+RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alth"\n' >> ~/.bashrc
 
 RUN pip list
 
