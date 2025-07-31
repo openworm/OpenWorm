@@ -117,6 +117,12 @@ RUN cd sibernetic && \
 
 
 ################################################################################
+########     Set up JupyterLab
+
+RUN sudo pip install jupyterlab --break-system-packages
+
+
+################################################################################
 ########     Copy master python script
 
 # Not working with --chown=$USER:$USER
@@ -125,8 +131,9 @@ RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alth"\n' >> ~/.bashrc
 
+
+
 RUN pip list
 
 RUN echo "Built the OpenWorm Docker image!"
 
-RUN python3 -m pip install --no-cache-dir notebook jupyterlab
