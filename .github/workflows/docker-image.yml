@@ -31,3 +31,5 @@ jobs:
         ls -alth
         ls -alth output
         ls -alth output/*
+
+        more output/*/report.json 
