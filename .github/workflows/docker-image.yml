@@ -28,6 +28,7 @@ jobs:
         ./run.sh -d 20 -c demo1
     - name: Run the Docker image with a worm
       run: |
+        ./stop.sh
         ./run.sh
     - name: Info on generated files
       run: |

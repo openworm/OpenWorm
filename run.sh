@@ -29,7 +29,6 @@ else #Duration is set, use it.
     DURATION_PART="-e DURATION=$duration"
 fi
 
-echo 888
 if [ -z "$configuration" ]
 then #configuration is not set, don't use it
     CONFIGURATION_PART=""
@@ -37,9 +36,8 @@ else #Configuration is set, use it.
     CONFIGURATION_PART="-e CONFIGURATION=$configuration"
 fi
 
-echo 77
 
-echo "Running Docker container for OpenWorm v${version}, configuration: ${configuration}, duration: ${duration}"
+echo "Running Docker container for OpenWorm v${version}"
 
 
 docker run -d \
