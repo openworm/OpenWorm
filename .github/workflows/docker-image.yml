@@ -23,7 +23,10 @@ jobs:
       run: |
         docker -v
         docker images
-    - name: Run the Docker image
+    - name: Run the Docker image with the falling cube
+      run: |
+        ./run.sh -d 20 -c demo1
+    - name: Run the Docker image with a worm
       run: |
         ./run.sh
     - name: Info on generated files
