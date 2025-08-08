@@ -84,6 +84,7 @@ if "DURATION" in os.environ:
     sim_duration = float(os.environ["DURATION"])
 
 noc302 = False
+configuration = "worm_crawl_half_resolution"
 if "CONFIGURATION" in os.environ:
     configuration = os.environ["CONFIGURATION"]
     noc302 = "worm" not in configuration
@@ -147,7 +148,7 @@ try:
         command += " -noc302"
 
     execute_with_realtime_output(command, os.environ["SIBERNETIC_HOME"], env=my_env)
-    
+
 except KeyboardInterrupt:
     pass
 
