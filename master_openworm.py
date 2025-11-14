@@ -12,12 +12,10 @@ import glob
 import math
 
 print("*****************************")
-print("OpenWorm Master Script")
+print("  OpenWorm Master Script")
 print("*****************************")
 print("")
-print(
-    "This script attempts to run a full pass through the OpenWorm scientific libraries."
-)
+print("This script attempts to run a full pass through the OpenWorm software stack.")
 print(
     "This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance."
 )
@@ -25,54 +23,9 @@ print("It will report out where steps are missing.")
 print("Eventually all the steps will be filled in.")
 print("")
 
-print("****************************")
-print("Step 1: Rebuild c302 from the latest owmeta")
-print("****************************")
-print("Not yet implemented. See https://github.com/openworm/c302/issues/10")
-
 
 print("****************************")
-print("Step 2: Execute unit tests via the c302 simulation framework")
-print("****************************")
-"""
-from runAndPlot import run_c302
-orig_display_var = None
-if os.environ.has_key('DISPLAY'):
-    orig_display_var = os.environ['DISPLAY']
-    del os.environ['DISPLAY'] # https://www.neuron.yale.edu/phpBB/viewtopic.php?f=6&t=1603
-
-run_c302(DEFAULTS['reference'],
-         DEFAULTS['c302params'],
-         '',
-         DEFAULTS['duration'],
-         DEFAULTS['dt'],
-         'jNeuroML_NEURON',
-         data_reader=DEFAULTS['datareader'],
-         save=True,
-         show_plot_already=False,
-         target_directory=os.path.join(os.environ['C302_HOME'], 'examples'),
-         save_fig_to='tmp_images')
-prev_dir = os.getcwd()
-os.chdir(DEFAULTS['outDir'])
-try:
-    os.mkdir('c302_out')
-except OSError as e:
-    if e.errno != errno.EEXIST:
-        raise
-src_files = os.listdir(os.path.join(os.environ['C302_HOME'], 'examples', 'tmp_images'))
-for file_name in src_files:
-    full_file_name = os.path.join(os.environ['C302_HOME'], 'examples', 'tmp_images', file_name)
-    print("COPY %s" % full_file_name)
-    if (os.path.isfile(full_file_name)):
-        shutil.copy2(full_file_name, 'c302_out')
-shutil.rmtree(os.path.join(os.environ['C302_HOME'], 'examples', 'tmp_images'))
-os.chdir(prev_dir)
-if orig_display_var:
-    os.environ['DISPLAY'] = orig_display_var
-"""
-
-print("****************************")
-print("Step 3: Run c302 + Sibernetic in the same loop.")
+print("  Step 1: Run c302 + Sibernetic in the same loop.")
 print("****************************")
 
 OW_OUT_DIR = os.environ["OW_OUT_DIR"]
@@ -131,10 +84,12 @@ if "DURATION" in os.environ:
     sim_duration = float(os.environ["DURATION"])
 
 noc302 = False
-if "NOC302" in os.environ:
-    noc302 = bool(os.environ["NOC302"])
+configuration = "worm_crawl_half_resolution"
+if "CONFIGURATION" in os.environ:
+    configuration = os.environ["CONFIGURATION"]
+    noc302 = "worm" not in configuration
 
-DEFAULTS = {
+PARAMETERS = {
     "duration": sim_duration,
     "dt": 0.005,
     "dtNrn": 0.05,
@@ -143,7 +98,7 @@ DEFAULTS = {
     "c302params": "C2",
     "verbose": False,
     "device": "CPU",
-    "configuration": "worm_crawl_half_resolution",
+    "configuration": configuration,
     "noc302": noc302,
     "datareader": "UpdatedSpreadsheetDataReader2",
     "outDir": OW_OUT_DIR,
@@ -161,6 +116,10 @@ os.system(
 )  # TODO: terminate xvfb after recording
 
 try:
+    print("Starting Sibernetic simulation with parameters:")
+    for p in PARAMETERS:
+        print("  %s: %s" % (p, PARAMETERS[p]))
+
     command = """python3 sibernetic_c302.py
                 -duration %s
                 -dt %s
@@ -172,23 +131,24 @@ try:
                 -c302params %s
                 -datareader %s
                 -outDir %s""" % (
-        DEFAULTS["duration"],
-        DEFAULTS["dt"],
-        DEFAULTS["dtNrn"],
-        DEFAULTS["logstep"],
-        DEFAULTS["device"],
-        DEFAULTS["configuration"],
-        DEFAULTS["reference"],
-        DEFAULTS["c302params"],
-        DEFAULTS["datareader"],
+        PARAMETERS["duration"],
+        PARAMETERS["dt"],
+        PARAMETERS["dtNrn"],
+        PARAMETERS["logstep"],
+        PARAMETERS["device"],
+        PARAMETERS["configuration"],
+        PARAMETERS["reference"],
+        PARAMETERS["c302params"],
+        PARAMETERS["datareader"],
         "simulations",
     )
-    # DEFAULTS['outDir'])
+    # PARAMETERS['outDir'])
 
     if noc302:
         command += " -noc302"
 
     execute_with_realtime_output(command, os.environ["SIBERNETIC_HOME"], env=my_env)
+
 except KeyboardInterrupt:
     pass
 
@@ -198,7 +158,7 @@ all_subdirs = []
 for dirpath, dirnames, filenames in os.walk(sibernetic_sim_dir):
     for directory in dirnames:
         if directory.startswith(
-            "%s_%s" % (DEFAULTS["c302params"], DEFAULTS["reference"])
+            "%s_%s" % (PARAMETERS["c302params"], PARAMETERS["reference"])
         ):
             all_subdirs.append(os.path.join(dirpath, directory))
         if directory.startswith("Sibernetic"):
@@ -237,6 +197,16 @@ for report in reports:
     print("Moving %s to %s" % (report, new_sim_out))
     shutil.move(report, new_sim_out)
 
+# Copy position files etc.
+txt_files = glob.glob("%s/*.txt" % latest_subdir)
+for txt_file in txt_files:
+    print("Moving %s to %s" % (txt_file, new_sim_out))
+    shutil.move(txt_file, new_sim_out)
+dat_files = glob.glob("%s/*.dat" % latest_subdir)
+for dat_file in dat_files:
+    print("Moving %s to %s" % (dat_file, new_sim_out))
+    shutil.move(dat_file, new_sim_out)
+
 # Copy WCON file(s)
 wcons = glob.glob("%s/*.wcon" % latest_subdir)
 for wcon in wcons:
@@ -267,7 +237,7 @@ execute_with_realtime_output(
 )
 
 command = "./Release/Sibernetic -f %s -l_from lpath=%s" % (
-    DEFAULTS["configuration"],
+    PARAMETERS["configuration"],
     latest_subdir,
 )
 execute_with_realtime_output(command, os.environ["SIBERNETIC_HOME"], env=my_env)
@@ -350,7 +320,7 @@ os.system("rm -r tmp/*")
 
 
 print("****************************")
-print("Step 4: Run movement analysis")
+print("  Step 2: Run movement analysis")
 print("****************************")
 print("Not yet implemented.")
 print(
@@ -360,6 +330,6 @@ print(
 
 
 print("****************************")
-print("Step 5: Report on movement analysis fit to real worm videos")
+print(" Step 3: Report on movement analysis fit to real worm videos")
 print("****************************")
 print("Not yet implemented.")

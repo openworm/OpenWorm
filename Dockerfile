@@ -29,12 +29,11 @@ RUN apt-get install -y --no-install-recommends apt-utils \
   wget nano htop build-essential make git automake autoconf \
   g++ rpm libtool libncurses5-dev zlib1g-dev bison flex \
   sudo xorg openbox x11-xserver-utils \
-  libxext-dev libncurses-dev mercurial \
+  libxext-dev libncurses-dev \
   freeglut3-dev libglu1-mesa-dev libglew-dev python3-dev python3-pip \
   kmod dkms linux-source linux-headers-generic \
-  maven openjdk-8-jdk \
+  openjdk-21-jdk \
   libnuma1 \
-  openmpi-bin  libopenmpi-dev \
   libgl1 libglx-mesa0  libgl1-mesa-dri libfreetype6-dev \
   libxft-dev  unzip ffmpeg xvfb tmux
 
@@ -96,7 +95,8 @@ ENV NEURON_MODULE_OPTIONS=-nogui
 RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
     tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
     printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh && \
-    rm AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2
+    rm AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
+    rm AMD-APP-SDK-v3.0.130.136-GA-linux64.sh 
 
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1
 RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so
@@ -117,6 +117,12 @@ RUN cd sibernetic && \
 
 
 ################################################################################
+########     Set up JupyterLab
+
+RUN sudo pip install notebook jupyterlab --break-system-packages
+
+
+################################################################################
 ########     Copy master python script
 
 # Not working with --chown=$USER:$USER
@@ -125,6 +131,9 @@ RUN sudo chown $USER:$USER $HOME/master_openworm.py
 
 RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alth"\n' >> ~/.bashrc
 
+
+
 RUN pip list
 
 RUN echo "Built the OpenWorm Docker image!"
+

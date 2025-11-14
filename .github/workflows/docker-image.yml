@@ -2,9 +2,9 @@ name: Docker Image Build and Run
 
 on:
   push:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, experimental, test* ]
   pull_request:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, experimental, test* ]
 
 jobs:
 
@@ -23,8 +23,12 @@ jobs:
       run: |
         docker -v
         docker images
-    - name: Run the Docker image
+    - name: Run the Docker image with the falling cube
       run: |
+        ./run.sh -d 20 -c demo1
+    - name: Run the Docker image with a worm
+      run: |
+        ./stop.sh
         ./run.sh
     - name: Info on generated files
       run: |
