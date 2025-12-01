@@ -65,8 +65,6 @@ try:
 except Exception:
     print("Unexpected error: %s" % sys.exc_info()[0])
 
-OW_OUT_DIR = os.environ["OW_OUT_DIR"]
-
 
 try:
     if os.access(OW_OUT_DIR, os.W_OK) is not True:
@@ -83,10 +81,14 @@ sim_duration = 15.0
 if "DURATION" in os.environ:
     sim_duration = float(os.environ["DURATION"])
 
-noc302 = False
+
 configuration = "worm_crawl_half_resolution"
 if "CONFIGURATION" in os.environ:
     configuration = os.environ["CONFIGURATION"]
+
+if "NOC302" in os.environ:
+    noc302 = os.environ["NOC302"] == "1"
+else:
     noc302 = "worm" not in configuration
 
 PARAMETERS = {
