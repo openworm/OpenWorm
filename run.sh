@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
@@ -23,7 +24,7 @@ OW_OUT_DIR=/home/ow/shared
 HOST_OUT_DIR=$PWD
 
 
-xhost +
+xhost + || true # allow connections to X server, don't throw an error if it fails
 
 if [ -z "$duration" ]
 then #duration is not set, don't use it

@@ -96,7 +96,7 @@ PARAMETERS = {
     "dt": 0.005,
     "dtNrn": 0.05,
     "logstep": 100,
-    "reference": "FW",
+    "reference": "FW", # "TargetMuscle",
     "c302params": "C2",
     "verbose": False,
     "device": "CPU",

@@ -14,22 +14,33 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Build the Docker image
       run: |
         chmod a+w output/
         ls -alth
         ./build.sh
+
     - name: Info on Docker images
       run: |
         docker -v
         docker images
-    - name: Run the Docker image with the falling cube
+
+    - name: Run the Docker image with the default falling cube demo from sibernetic 
       run: |
+        sudo apt-get update && sudo apt-get install -y x11-xserver-utils # for xhost
         ./run.sh -d 20 -c demo1
-    - name: Run the Docker image with a worm
+
+    - name: Run the Docker image with a worm simulation - no c302
       run: |
         ./stop.sh
-        ./run.sh -d 150 # run a longer simulation... 
+        ./run.sh -d 10 -n 
+
+    - name: Run the Docker image with a worm simulation
+      run: |
+        ./stop.sh
+        ./run.sh -d 150 # temp longer simulation for testing
+
     - name: Info on generated files
       run: |
         ls -alth
