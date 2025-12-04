@@ -28,6 +28,7 @@ jobs:
 
     - name: Run the Docker image
       run: |
+        sudo apt-get update && sudo apt-get install -y x11-xserver-utils # for xhost
         ./run.sh
 
     - name: Info on generated files
