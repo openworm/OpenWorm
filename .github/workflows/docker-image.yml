@@ -39,7 +39,7 @@ jobs:
     - name: Run the Docker image with a worm simulation
       run: |
         ./stop.sh
-        ./run.sh -d 150 # temp longer simulation for testing
+        ./run.sh -d 15 # temp longer simulation for testing
 
     - name: Info on generated files
       run: |

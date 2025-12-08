@@ -2,9 +2,9 @@ name: Docker Image Quick Run
 
 on:
   push:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, test*, experimental ]
   pull_request:
-    branches: [ master, dev*, test* ]
+    branches: [ master, dev*, test*, experimental ]
 
 jobs:
 
