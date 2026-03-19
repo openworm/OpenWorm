@@ -47,3 +47,6 @@ jobs:
         ls -alth output/*
 
         more output/*/report.json 
+
+        find output/C2_FW*/cut*mp4 -maxdepth 1 -size +300k | grep -q .  # Fails if not found or too small 
+

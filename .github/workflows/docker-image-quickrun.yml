@@ -32,3 +32,5 @@ jobs:
         ls -alth
         ls -alth output
         ls -alth output/*
+
+        find output/Siber*/cut*mp4 -maxdepth 1 -size +200k | grep -q . # Fails if not found or too small 
