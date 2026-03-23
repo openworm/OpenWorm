@@ -71,7 +71,7 @@ RUN git clone https://github.com/openworm/c302.git && \
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.8a  # fixed to a specific branch
+  git checkout ow-test-long  # fixed to a specific branch
 
 
 ################################################################################
