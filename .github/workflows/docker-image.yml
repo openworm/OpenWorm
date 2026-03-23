@@ -14,11 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
+
     - name: Build the Docker image
       run: |
         chmod a+w output/
         ls -alth
         ./build.sh
+        
     - name: Info on Docker images
       run: |
         docker -v
