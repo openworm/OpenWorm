@@ -70,7 +70,7 @@ RUN git clone https://github.com/openworm/c302.git && \
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.8a  # fixed to a specific branch
+  git checkout ow-0.9.8b  # fixed to a specific branch
 
 
 ################################################################################
@@ -119,7 +119,7 @@ RUN cd sibernetic && \
 ################################################################################
 ########     Set up JupyterLab
 
-RUN sudo pip install notebook jupyterlab --break-system-packages
+#RUN sudo pip install notebook jupyterlab --break-system-packages
 
 
 ################################################################################

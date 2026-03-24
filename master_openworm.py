@@ -3,7 +3,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import shutil
-from subprocess import Popen, PIPE, check_output, STDOUT
+from subprocess import Popen, PIPE, check_output
 import os
 import shlex
 import sys
@@ -19,7 +19,7 @@ print("This script attempts to run a full pass through the OpenWorm software sta
 print(
     "This depends on several other repositories being loaded to work and presumes it is running in a preloaded Docker instance."
 )
-print("It will report out where steps are missing.")
+print("It will report where steps are missing.")
 print("Eventually all the steps will be filled in.")
 print("")
 
@@ -38,24 +38,35 @@ def execute_with_realtime_output(command, directory, env=None, exit_on_failure=T
         print(">> Executing command: %s" % command)
         print(">> --------------------------------------------------------------")
         p = Popen(
-            shlex.split(command), stdout=PIPE, stderr=STDOUT, cwd=directory, env=env
+            shlex.split(command), stdout=PIPE, stderr=PIPE, cwd=directory, env=env
         )
         with p.stdout:
             for line in iter(p.stdout.readline, b""):
                 print(">>  %s" % line.decode("utf-8"), end="")
+        with p.stderr:
+            for line in iter(p.stderr.readline, b""):
+                print("**  %s" % line.decode("utf-8"), end="")
         p.wait()  # wait for the subprocess to exit
     except KeyboardInterrupt as e:
         print("Caught CTRL+C")
         if p:
             p.kill()
         raise e
+    except Exception as e:
+        print(">>  Caught an exception...")
+        print(">>  %s" % e)
     print(">> --------------------------------------------------------------")
-    print(">> Command exited with %i: %s" % (p.returncode, command))
+    print(
+        ">> Command exited with %s: %s"
+        % (p.returncode if p is not None else "-none-", command)
+    )
     print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
 
-    if p.returncode != 0:
+    if p is None or p.returncode != 0:
         print("Exiting master Python script as the last command failed")
-        if exit_on_failure:
+        if p is None:
+            sys.exit(111)
+        elif exit_on_failure:
             sys.exit(p.returncode)
         else:
             return False
@@ -128,6 +139,7 @@ try:
         print("  %s: %s" % (p, PARAMETERS[p]))
 
     command = """python3 sibernetic_c302.py
+                -q
                 -duration %s
                 -dt %s
                 -dtNrn %s
@@ -149,7 +161,6 @@ try:
         PARAMETERS["datareader"],
         "simulations",
     )
-    # PARAMETERS['outDir'])
 
     if noc302:
         command += " -noc302"
@@ -206,16 +217,6 @@ if success:
     for report in reports:
         print("Moving %s to %s" % (report, new_sim_out))
         shutil.move(report, new_sim_out)
-
-    # Copy position files etc.
-    txt_files = glob.glob("%s/*.txt" % latest_subdir)
-    for txt_file in txt_files:
-        print("Moving %s to %s" % (txt_file, new_sim_out))
-        shutil.move(txt_file, new_sim_out)
-    dat_files = glob.glob("%s/*.dat" % latest_subdir)
-    for dat_file in dat_files:
-        print("Moving %s to %s" % (dat_file, new_sim_out))
-        shutil.move(dat_file, new_sim_out)
 
     # Copy WCON file(s)
     wcons = glob.glob("%s/*.wcon" % latest_subdir)
@@ -331,6 +332,16 @@ if success:
     )
 
     os.system("rm -r tmp/*")
+
+    # Move position files etc.
+    txt_files = glob.glob("%s/*.txt" % latest_subdir)
+    for txt_file in txt_files:
+        print("Moving %s to %s" % (txt_file, new_sim_out))
+        shutil.move(txt_file, new_sim_out)
+    dat_files = glob.glob("%s/*.dat" % latest_subdir)
+    for dat_file in dat_files:
+        print("Moving %s to %s" % (dat_file, new_sim_out))
+        shutil.move(dat_file, new_sim_out)
 
     print("****************************")
     print("  Step 2: Run movement analysis")

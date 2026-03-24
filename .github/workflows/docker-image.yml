@@ -27,7 +27,7 @@ jobs:
 
     - name: Run the Docker image with the default falling cube demo from sibernetic 
       run: |
-        sudo apt-get update && sudo apt-get install -y x11-xserver-utils # for xhost
+        #### sudo apt-get update && sudo apt-get install -y x11-xserver-utils # for xhost
         ./run.sh -d 20 -c demo1
 
     - name: Run the Docker image with a worm simulation - no c302
@@ -45,7 +45,6 @@ jobs:
         ls -alth
         ls -alth output
         ls -alth output/*
-
         more output/*/report.json 
 
         find output/C2_FW*/cut*mp4 -maxdepth 1 -size +300k | grep -q .  # Fails if not found or too small 
