@@ -32,6 +32,32 @@ OW_OUT_DIR = os.environ["OW_OUT_DIR"]
 
 
 def execute_with_realtime_output(command, directory, env=None, exit_on_failure=True):
+    """Execute a command with real-time output display.
+
+    This function runs a command in the specified directory and displays
+    both stdout and stderr in real-time. The command string is parsed into an
+    argument vector using ``shlex.split`` and executed without a shell
+    (i.e., without ``shell=True``). It handles keyboard interrupts and
+    exceptions gracefully.
+
+    Args:
+        command (str): Command to execute. It is split into arguments using
+            ``shlex.split`` and passed directly to ``subprocess.Popen`` without
+            invoking a shell, so shell features such as pipes, redirection, and
+            glob expansion are not applied.
+        directory (str): The working directory for the command
+        env (dict, optional): Environment variables to use for the command. Defaults to None.
+        exit_on_failure (bool): If True, exits the script with error code on command failure.
+            If False, returns False on failure instead of exiting. Defaults to True.
+
+    Returns:
+        bool: True if command succeeded (exit code 0), False if command failed and
+            exit_on_failure is False.
+
+    Raises:
+        KeyboardInterrupt: If CTRL+C is pressed during command execution.
+        Exception: If any other exception occurs during command execution.
+    """
     p = None
     try:
         print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
