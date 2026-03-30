@@ -22,8 +22,13 @@ else
     ./rebuild.sh
 fi
 
-time ./run.sh 
+time ./run.sh -c demo1 -d 20
 
+./stop.sh || true
+
+time ./run.sh -c demo2 -d 20
+
+./stop.sh || true
 
 echo
 echo "  Done!"
