@@ -5,18 +5,16 @@ LABEL maintainer="David Lung (lungdm@gmail.com); Padraig Gleeson (p.gleeson@gmai
 ARG USR=ow
 ENV USER=$USR
 
+RUN touch /var/mail/ubuntu && chown ubuntu /var/mail/ubuntu && userdel -r ubuntu
+
 RUN apt-get update && \
   apt-get upgrade -y && \
   apt-get dist-upgrade -y
 
-RUN mkdir -p /etc/sudoers.d && \
-  export uid=1000 gid=1000 && \
-  mkdir -p /home/$USER && \
-  echo "$USER:x:${uid}:${gid}:$USER,,,:/home/$USER:/bin/bash" >> /etc/passwd && \
-  echo "$USER:x:${uid}:" >> /etc/group && \
-  echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER && \
-  chmod 0440 /etc/sudoers.d/$USER && \
-  chown ${uid}:${gid} -R /home/$USER
+RUN apt-get update && apt-get install -y sudo && \
+    useradd -m -s /bin/bash -u 1000 $USER && \
+    echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER && \
+    chmod 0440 /etc/sudoers.d/$USER
 
 ENV DEBIAN_FRONTEND=noninteractive
 
