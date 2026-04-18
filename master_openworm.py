@@ -32,6 +32,38 @@ OW_OUT_DIR = os.environ["OW_OUT_DIR"]
 
 
 def execute_with_realtime_output(command, directory, env=None, exit_on_failure=True):
+    """
+    Execute a shell command with real-time output streaming.
+
+    This function runs a command using subprocess.Popen and streams
+    stdout and stderr to the console in real time.
+
+    Parameters
+    ----------
+    command : str
+        The shell command to execute.
+    directory : str
+        The working directory in which to run the command.
+    env : dict, optional
+        Environment variables to pass to the subprocess.
+        Defaults to the current process environment.
+    exit_on_failure : bool, default True
+        If True, the script exits with the command's return code
+        on failure. If False, returns False on failure.
+
+    Returns
+    -------
+    bool
+        True if the command succeeded (return code 0),
+        False if the command failed and exit_on_failure is False.
+
+    Raises
+    ------
+    SystemExit
+        If the command fails and exit_on_failure is True.
+    KeyboardInterrupt
+        Re-raised if the user sends CTRL+C during execution.
+    """
     p = None
     try:
         print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
