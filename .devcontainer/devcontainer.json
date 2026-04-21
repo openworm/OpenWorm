@@ -1,0 +1,30 @@
+{
+	"name": "OpenWorm devcontainer",
+	"runArgs": [
+		"--device",
+		"/dev/dri",
+		"--device",
+		"/dev/kfd",
+		"--group-add",
+		"video",
+		"--group-add",
+		"render",
+		"--volume",
+		"/tmp/.X11-unix:/tmp/.X11-unix:rw"
+	],
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": []
+		}
+	},
+	"containerEnv": {
+		"XDG_SESSION_TYPE": "${localEnv:XDG_SESSION_TYPE}",
+		"DISPLAY": ":0"
+	},
+	"postCreateCommand": "touch ~/.bashrc",
+	"remoteUser": "ow"
+}
