@@ -66,9 +66,9 @@ RUN git clone https://github.com/openworm/c302.git && \
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/openworm/sibernetic.git && \
+RUN git clone https://github.com/Ahiknsr/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.9  # fixed to a specific branch
+  git checkout ow-0.9.10  # fixed to a specific branch
 
 
 ################################################################################
@@ -88,18 +88,17 @@ ENV NEURON_MODULE_OPTIONS=-nogui
 
 
 ################################################################################
-########     Install AMD's OpenCL Drivers (AMD-APP-SDK 3.0)
-
-RUN wget https://master.dl.sourceforge.net/project/nicehashsgminerv5viptools/APP%20SDK%20A%20Complete%20Development%20Platform/AMD%20APP%20SDK%203.0%20for%2064-bit%20Linux/AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
-    tar -xf AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
-    printf 'Y\n\n' | sudo ./AMD-APP-SDK-v3.0.130.136-GA-linux64.sh && \
-    rm AMD-APP-SDKInstaller-v3.0.130.136-GA-linux64.tar.bz2 && \
-    rm AMD-APP-SDK-v3.0.130.136-GA-linux64.sh 
-
-RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libOpenCL.so.1 /usr/lib/libOpenCL.so.1
-RUN sudo ln -s /opt/AMDAPPSDK-3.0/lib/x86_64/sdk/libamdocl64.so /usr/lib/libamdocl64.so
-
-RUN sudo apt install -y ocl-icd-opencl-dev vim
+########     Install AMD's OpenCL Drivers (Todo: Add Nvidia driver support)
+RUN apt-get update && \
+    apt-get install -y \
+    ocl-icd-libopencl1 \
+    ocl-icd-opencl-dev \
+    opencl-clhpp-headers \
+    pocl-opencl-icd \
+    mesa-opencl-icd \
+    clang-16 \
+    lld-16 \
+    clinfo
 
 RUN echo "OpenCL Driver Installation Complete"
 
@@ -109,10 +108,8 @@ RUN clinfo
 
 ################################################################################
 ########     Build Sibernetic
-
 RUN cd sibernetic && \
-    make clean && make all && ldd ./Release/Sibernetic  # Use python 3 libs
-
+    make clean && make all && ldd ./Release/Sibernetic
 
 ################################################################################
 ########     Set up JupyterLab
@@ -125,7 +122,7 @@ RUN cd sibernetic && \
 
 # Not working with --chown=$USER:$USER
 COPY ./master_openworm.py $HOME/master_openworm.py
-RUN sudo chown $USER:$USER $HOME/master_openworm.py
+RUN sudo chown $USER:$USER -R $HOME
 
 RUN printf '\n\nalias cd..="cd .."\nalias h=history\nalias ll="ls -alth"\n' >> ~/.bashrc
 
