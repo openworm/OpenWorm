@@ -28,6 +28,25 @@ We have put together a [Docker container](https://hub.docker.com/r/openworm/open
 
 **NOTE**: Running the simulation for the full amount of time would produce content like the above. However, in order to run in a reasonable amount of time, **the default run time for the simulation is limited**. As such, you will see only a partial output, equivalent to about 5% of run time, compared to the examples above. To extend the run time, use the `-d` argument as described below.
 
+## Quickstart with devcontainer
+
+This project supports [devcontainer](https://containers.dev/). If you already configured devcontainer support in vscode, simply open this project with vscode and then select "reopen project in container". Use this [guide](https://code.visualstudio.com/docs/devcontainers/tutorial) if you want to configure vscode with devcontainer support.
+
+From the devcontainer terminal, you can run the below commands
+
+Sibernetic
+```
+ow@2b6d2f0ccfe5:/workspaces/OpenWorm$ cd ~/sibernetic/
+ow@2b6d2f0ccfe5:~/sibernetic$ ./Release/Sibernetic -f worm
+```
+If your devcontainer set-up is working correctly, you should see something like this ![sibernetic worm](img/sibernetic_worm_demo.png)
+
+Opemworm
+```
+ow@2b6d2f0ccfe5:/workspaces/OpenWorm$ OW_OUT_DIR=output DISPLAY=:44 python3 master_openworm.py 
+```
+
+
 ## Installation
 
 ### Pre-requisites
