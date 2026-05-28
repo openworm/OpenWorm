@@ -5,8 +5,6 @@ HOST_OUT_DIR=$PWD
 
 version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
-xhost + || true # allow connections to X server, don't throw an error if it fails
-
 docker run -ti \
   --name openworm_$version \
   --device=/dev/dri:/dev/dri \
