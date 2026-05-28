@@ -1,6 +1,8 @@
 name: Docker Image Build and Run
 
 on:
+  schedule:
+    - cron: "1 1 29 */1 *"  # Run once a month to test...
   push:
     branches: [ master, dev*, experimental, test* ]
   pull_request:
@@ -20,14 +22,20 @@ jobs:
         chmod a+w output/
         ls -alth
         ./build.sh
+
     - name: Info on Docker images
       run: |
         docker -v
         docker images
 
+    - name: Run all sibernetic tests
+      run: |
+        ./run-tests.sh 
+
     - name: Run the Docker image with the default falling cube demo from sibernetic 
       run: |
         #### sudo apt-get update && sudo apt-get install -y x11-xserver-utils # for xhost
+        ./stop.sh
         ./run.sh -d 20 -c demo1
 
     - name: Run the Docker image with a worm simulation - no c302
