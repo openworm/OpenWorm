@@ -16,3 +16,9 @@ docker run -d \
   -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
   openworm/openworm:$version \
   bash -c "cd /home/ow/sibernetic && time ./test.sh"
+
+echo "Set running running Docker container with Sibernetic in detached mode. Attaching to logs now..."
+
+docker logs -f openworm_$version
+
+echo "Finished running the Docker container"
