@@ -1,11 +1,12 @@
 #!/bin/bash
+set -ex
 
 OW_OUT_DIR=/home/ow/shared
 HOST_OUT_DIR=$PWD
 
 version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
-docker run -ti \
+docker run -d \
   --name openworm_$version \
   --device=/dev/dri:/dev/dri \
   -e DISPLAY=$DISPLAY \
