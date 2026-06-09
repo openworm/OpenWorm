@@ -46,7 +46,12 @@ jobs:
     - name: Run the internal sibernetic tests
       run: |
         ./stop.sh
-        ./run-tests.sh -quick
+        ./run-tests.sh
+
+    - name: Run the Docker image with a long worm simulation
+      run: |
+        ./stop.sh
+        ./run.sh -d 150 # temp longer simulation for testing
 
     - name: Info on generated files
       run: |
