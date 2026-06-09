@@ -43,10 +43,10 @@ jobs:
         ./stop.sh
         ./run.sh -d 10 -n 
 
-    - name: Run the Docker image with a worm simulation
+    - name: Run the internal sibernetic tests
       run: |
         ./stop.sh
-        ./run.sh -d 150 # temp longer simulation for testing
+        ./run-tests.sh -quick
 
     - name: Info on generated files
       run: |

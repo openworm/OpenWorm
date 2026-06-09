@@ -33,7 +33,7 @@ RUN apt-get install -y --no-install-recommends apt-utils \
   openjdk-21-jdk \
   libnuma1 \
   libgl1 libglx-mesa0  libgl1-mesa-dri libfreetype6-dev \
-  libxft-dev  unzip ffmpeg xvfb tmux
+  libxft-dev  unzip ffmpeg xvfb tmux python-is-python3
 
 #RUN  sudo pip install --upgrade pip
 
@@ -68,13 +68,14 @@ RUN git clone https://github.com/openworm/c302.git && \
 
 RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.9  # fixed to a specific branch
+  git checkout ow-test-gui  # fixed to a specific branch
 
 
 ################################################################################
-########     Install extra Python dependencies
+########     Install extra Python dependencies from sibernetic
 
-RUN sudo pip install ruff  --break-system-packages
+RUN sudo pip install -r sibernetic/requirements.txt  --break-system-packages
+RUN sudo pip install OSBModelValidation --break-system-packages
 
 
 ################################################################################
