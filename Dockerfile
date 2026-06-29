@@ -66,9 +66,9 @@ RUN git clone https://github.com/openworm/c302.git && \
 ################################################################################
 ########     Install Sibernetic for the worm body model
 
-RUN git clone https://github.com/Ahiknsr/sibernetic.git && \
+RUN git clone https://github.com/openworm/sibernetic.git && \
   cd sibernetic && \
-  git checkout ow-0.9.10  # fixed to a specific branch
+  git checkout test_opencl300  # fixed to a specific branch
 
 
 ################################################################################
@@ -88,7 +88,7 @@ ENV NEURON_MODULE_OPTIONS=-nogui
 
 
 ################################################################################
-########     Install AMD's OpenCL Drivers (Todo: Add Nvidia driver support)
+########     Install AMD's OpenCL Drivers
 RUN apt-get update && \
     apt-get install -y \
     ocl-icd-libopencl1 \
@@ -99,6 +99,14 @@ RUN apt-get update && \
     clang-16 \
     lld-16 \
     clinfo
+
+# Force the generic loader to look for NVIDIA's injected library
+RUN sudo mkdir -p /etc/OpenCL/vendors && \
+    echo "libnvidia-opencl.so.1" | sudo tee /etc/OpenCL/vendors/nvidia.icd
+
+# Expose Nvidia GPU to container using https://github.com/NVIDIA/nvidia-container-toolkit
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 RUN echo "OpenCL Driver Installation Complete"
 
