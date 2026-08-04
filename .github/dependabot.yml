@@ -1,0 +1,14 @@
+# Source - https://stackoverflow.com/a/78380165
+# Posted by Stefan, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-04-14, License - CC BY-SA 4.0
+
+# Set update schedule for GitHub Actions
+
+version: 2
+updates:
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: "weekly"
