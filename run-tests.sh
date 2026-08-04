@@ -15,7 +15,7 @@ docker run -d \
   --privileged \
   -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
   openworm/openworm:$version \
-  bash -c "cd /home/ow/sibernetic && time ./test.sh && ls -alt /home/ow/sibernetic/simulations && cp -R /home/ow/sibernetic/simulations/* $OW_OUT_DIR/output"
+  bash -c "cd /home/ow/sibernetic && mkdir -p simulations && pip list && time ./test.sh ; ls -alt /home/ow/sibernetic/simulations ; cp -R /home/ow/sibernetic/simulations/* $OW_OUT_DIR/output"
 
 echo "Set running running Docker container with Sibernetic in detached mode. Attaching to logs now..."
 
