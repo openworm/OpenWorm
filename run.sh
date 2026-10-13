@@ -3,44 +3,13 @@ set -ex
 
 version=$(<VERSION) # Read version of Dockerfile from file VERSION
 
-C302_PART=""
-
-#from: https://unix.stackexchange.com/a/129401
-while getopts ":d:c:n" opt; do
-  case "${opt}" in
-    d) duration="$OPTARG"
-    ;;
-    c) configuration="$OPTARG"
-    ;;
-    n) C302_PART="-e NOC302=1"
-    ;;
-    *) echo "Usage: $0 [-d duration_in_ms] [-c configuration] [-n]" >&2
-       exit 1
-    ;;
-  esac
-done
-
 OW_OUT_DIR=/home/ow/shared
 HOST_OUT_DIR=$PWD
 
 
 xhost + || true # allow connections to X server, don't throw an error if it fails
 
-if [ -z "$duration" ]
-then #duration is not set, don't use it
-    DURATION_PART=""
-else #Duration is set, use it.
-    DURATION_PART="-e DURATION=$duration"
-fi
-
-if [ -z "$configuration" ]
-then #configuration is not set, don't use it
-    CONFIGURATION_PART=""
-else #Configuration is set, use it.
-    CONFIGURATION_PART="-e CONFIGURATION=$configuration"
-fi
-
-echo "Running OpenWorm Docker container. Additional options: $DURATION_PART $CONFIGURATION_PART $C302_PART"
+echo "Running OpenWorm Docker container. Additional options: $@"
 # Check and get list of all running containers
 output=$(docker ps -a)
 
@@ -57,15 +26,12 @@ docker run -d \
 --name openworm_$version \
 --device=/dev/dri:/dev/dri \
 -e DISPLAY=$DISPLAY \
-$CONFIGURATION_PART \
-$DURATION_PART \
-$C302_PART \
 -e OW_OUT_DIR=$OW_OUT_DIR \
 -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 --privileged \
 -v $HOST_OUT_DIR:$OW_OUT_DIR:rw \
 openworm/openworm:$version \
-bash -c "DISPLAY=:44 python3 master_openworm.py"
+bash -c 'DISPLAY=:44 python3 master_openworm.py "$@"' _ "$@"
 
 echo "Set running running Docker container with Sibernetic in detached mode. Attaching to logs now..."
 

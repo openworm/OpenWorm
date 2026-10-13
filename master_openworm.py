@@ -1,3 +1,4 @@
+import argparse
 import errno
 import matplotlib
 
@@ -92,20 +93,34 @@ except Exception:
     print("Unexpected error: %s" % sys.exc_info()[0])
     raise
 
-# Default is 15 ms of simulation time.
-sim_duration = 15.0
-if "DURATION" in os.environ:
-    sim_duration = float(os.environ["DURATION"])
+# Command line arguments; the DURATION/CONFIGURATION/NOC302 environment variables
+# are still honoured as defaults (used by some of the older run scripts)
+parser = argparse.ArgumentParser(description="Run the OpenWorm simulation")
+parser.add_argument(
+    "-d",
+    "--duration",
+    type=float,
+    default=float(os.environ.get("DURATION", 15.0)),
+    help="simulation duration in ms (default: 15)",
+)
+parser.add_argument(
+    "-c",
+    "--configuration",
+    default=os.environ.get("CONFIGURATION", "worm_crawl_half_resolution"),
+    help="Sibernetic configuration (default: worm_crawl_half_resolution)",
+)
+parser.add_argument(
+    "-n",
+    "--noc302",
+    action="store_true",
+    default=os.environ.get("NOC302") == "1" if "NOC302" in os.environ else None,
+    help="skip c302 (default: only skipped if the configuration name has no 'worm')",
+)
+args = parser.parse_args()
 
-
-configuration = "worm_crawl_half_resolution"
-if "CONFIGURATION" in os.environ:
-    configuration = os.environ["CONFIGURATION"]
-
-if "NOC302" in os.environ:
-    noc302 = os.environ["NOC302"] == "1"
-else:
-    noc302 = "worm" not in configuration
+sim_duration = args.duration
+configuration = args.configuration
+noc302 = args.noc302 if args.noc302 is not None else "worm" not in configuration
 
 PARAMETERS = {
     "duration": sim_duration,
