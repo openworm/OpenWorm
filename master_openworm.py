@@ -116,10 +116,24 @@ parser.add_argument(
     default=os.environ.get("NOC302") == "1" if "NOC302" in os.environ else None,
     help="skip c302 (default: only skipped if the configuration name has no 'worm')",
 )
+parser.add_argument(
+    "-r",
+    "--reference",
+    default="FW",
+    help="reference for c302, e.g. Muscles, Full, FW (default: FW)",
+)
+parser.add_argument(
+    "-p",
+    "--c302parameters",
+    default="C2",
+    help="c302 parameters for c302, e.g. A, C0, D (default: C2)",
+)
 args = parser.parse_args()
 
 sim_duration = args.duration
 configuration = args.configuration
+reference = args.reference
+c302parameters = args.c302parameters
 noc302 = args.noc302 if args.noc302 is not None else "worm" not in configuration
 
 PARAMETERS = {
@@ -127,8 +141,8 @@ PARAMETERS = {
     "dt": 0.005,
     "dtNrn": 0.05,
     "logstep": 100,
-    "reference": "FW",  # "TargetMuscle",
-    "c302params": "C2",
+    "reference": reference,  # "TargetMuscle",
+    "c302params": c302parameters,
     "verbose": False,
     "device": "CPU",
     "configuration": configuration,
@@ -238,6 +252,17 @@ if success:
     for wcon in wcons:
         print("Moving %s to %s" % (wcon, new_sim_out))
         shutil.move(wcon, new_sim_out)
+
+    # Copy NeuroML/LEMS file(s)
+    nmls = glob.glob("%s/*.nml" % latest_subdir)
+    for nml in nmls:
+        print("Moving %s to %s" % (nml, new_sim_out))
+        shutil.move(nml, new_sim_out)
+
+    lems = glob.glob("%s/LEMS*.xml" % latest_subdir)
+    for lems_file in lems:
+        print("Moving %s to %s" % (lems_file, new_sim_out))
+        shutil.move(lems_file, new_sim_out)
 
     time.sleep(2)
 
